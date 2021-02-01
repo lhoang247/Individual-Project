@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  27 JAN 2021 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  31 JAN 2021 18:12
 entering extended mode
 **./report.tex
 (report.tex
@@ -666,17 +666,17 @@ Chapter 1.
 
 ] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 14869 strings out of 480790
- 302743 string characters out of 2895894
- 628899 words of memory out of 3000000
- 30618 multiletter control sequences out of 15000+200000
- 537267 words of font info for 41 fonts, out of 3000000 for 9000
+ 14871 strings out of 480790
+ 302776 string characters out of 2895894
+ 629899 words of memory out of 3000000
+ 30620 multiletter control sequences out of 15000+200000
+ 537872 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,5n,71p,489b,114s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on report.pdf (2 pages, 31918 bytes).
+Output written on report.pdf (2 pages, 33706 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

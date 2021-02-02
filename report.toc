@@ -1,5 +1,8 @@
-\contentsline {chapter}{\numberline {1}Background Research}{2}%
-\contentsline {section}{\numberline {1.1}What is computer vision?}{2}%
-\contentsline {section}{\numberline {1.2}Deep learning}{2}%
-\contentsline {subsection}{\numberline {1.2.1}Neural networks}{2}%
-\contentsline {subsection}{\numberline {1.2.2}Convolutional neural networks}{2}%
+\contentsline {chapter}{\numberline {1}Introduction}{2}%
+\contentsline {chapter}{\numberline {2}Output Summary}{3}%
+\contentsline {chapter}{\numberline {3}Background Research}{4}%
+\contentsline {section}{\numberline {3.1}What is computer vision?}{4}%
+\contentsline {section}{\numberline {3.2}Deep learning}{4}%
+\contentsline {subsection}{\numberline {3.2.1}Neural networks}{4}%
+\contentsline {subsection}{\numberline {3.2.2}Convolutional neural networks}{5}%
+\contentsline {section}{\numberline {3.3}Existing systems}{5}%

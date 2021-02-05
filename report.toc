@@ -3,6 +3,9 @@
 \contentsline {chapter}{\numberline {3}Background Research}{4}%
 \contentsline {section}{\numberline {3.1}What is computer vision?}{4}%
 \contentsline {section}{\numberline {3.2}Deep learning}{4}%
-\contentsline {subsection}{\numberline {3.2.1}Neural networks}{4}%
-\contentsline {subsection}{\numberline {3.2.2}Convolutional neural networks}{5}%
-\contentsline {section}{\numberline {3.3}Existing systems}{5}%
+\contentsline {subsection}{\numberline {3.2.1}Neural networks (NN)}{4}%
+\contentsline {subsection}{\numberline {3.2.2}Convolutional neural networks (CNN)}{5}%
+\contentsline {section}{\numberline {3.3}WILDTRACK dataset}{5}%
+\contentsline {subsection}{\numberline {3.3.1}Research papers with WILDTRACK dataset}{6}%
+\contentsline {section}{\numberline {3.4}Existing systems}{6}%
+\contentsline {subsection}{\numberline {3.4.1}Example (Y. C. Hou, 2020)}{6}%

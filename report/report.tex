@@ -4,11 +4,34 @@
 \usepackage{array}
 \usepackage{colortbl}
 \usepackage{chemfig}
-\RequirePackage[left=3cm,top=1.5cm,right=3cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=3cm,top=1.5cm,right=3cm,bottom=2.5cm,nohead]{geometry}
+
 
 \begin{document}
 
-\thispagestyle{empty}   % this page does not have a header
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1cm}
+		
+		{\Huge \textbf{Social distancing detection with computer vision techniques}}
+		
+		\vspace{0.5cm}
+	
+		
+		\vspace{1.5cm}
+		
+		\textbf{Lee Hoang}
+		
+		\vfill
+		
+		\vspace{0.8cm}
+		
+		BSc Computer Science\\
+		City University, London\\
+		Date
+		
+	\end{center}
+\end{titlepage}
 
 \tableofcontents
 
@@ -79,6 +102,16 @@ Many different social distancing detections have been made ever since the outbre
 \subsection{Example (Y. C. Hou, 2020)}
 
 This system uses a combination of the YOLO (You Only Look Once) model with the COCO (Common Objects in Context) dataset to train their model. The goal of the project was to produce a top down view of the pedestrians, showing the distance between each person who were identified within the frame. The results of the system were very accurate, as they were able to make use of calibrated cameras. What was very interesting about the project is that some pedestrians were not classified due to hiding behind others. This showcases the limitation of the dataset used, as there were no overlapping footage of the field of view. Further improvements to the system were suggested such as mask and human body temperature detection. The system overall is similar to what this project will achieve with the difference of dataset.
+
+\chapter{Methodology}
+
+\section{Agile development}
+
+An agile approach with sprints was used during the development of the project. The sub objectives for this project required the previous sub objectives to be completed, so a sprint timetable seemed suitable. The approach gave time to reflect and adjust the work being done through out the weeks while allowing focus on the core functionalities of the software being produced. 
+
+The outcome of each sprint allowed for early prototypes of the system, easier analysis on code and product and fixing any bugs within the code.
+
+\section{Management tools}
 
 
 \end{document}

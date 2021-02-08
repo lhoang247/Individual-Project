@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  3 FEB 2021 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  8 FEB 2021 13:59
 entering extended mode
 **./report.tex
 (report.tex
@@ -583,20 +583,20 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 g)) (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 
 (D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf
 .mkii
@@ -639,7 +639,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 * \headheight=0.0pt
 * \headsep=0.0pt
 * \topskip=12.0pt
-* \footskip=0.0pt
+* \footskip=30.0pt
 * \marginparwidth=44.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
@@ -653,14 +653,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+[1
+
+{C:/Users/LeeHoang/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
 (report.toc)
 \tf@toc=\write4
 \openout4 = `report.toc'.
 
  [1
 
-
-{C:/Users/LeeHoang/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+]
 Chapter 1.
 [2
 
@@ -673,28 +675,31 @@ Chapter 3.
 [4
 
 ]
-<./images/weights and biases.png, id=19, 511.9125pt x 206.57175pt>
+<./images/weights and biases.png, id=22, 511.9125pt x 206.57175pt>
 File: ./images/weights and biases.png Graphic file (type png)
 <use ./images/weights and biases.png>
-Package pdftex.def Info: ./images/weights and biases.png  used on input line 47
+Package pdftex.def Info: ./images/weights and biases.png  used on input line 70
 .
 (pdftex.def)             Requested size: 284.52756pt x 114.81572pt.
- [5 <./images/weights and biases.png>] [6] (report.aux) ) 
+ [5 <./images/weights and biases.png>] [6]
+Chapter 4.
+[7
+
+] (report.aux) ) 
 Here is how much of TeX's memory you used:
  14881 strings out of 480790
- 303007 string characters out of 2895894
- 632899 words of memory out of 3000000
+ 303042 string characters out of 2895894
+ 632879 words of memory out of 3000000
  30627 multiletter control sequences out of 15000+200000
  537872 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,5n,71p,835b,154s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Users/LeeHoang/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Users/
-LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
->
-Output written on report.pdf (6 pages, 69879 bytes).
+ 68i,5n,71p,835b,167s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on report.pdf (8 pages, 72607 bytes).
 PDF statistics:
- 33 PDF objects out of 1000 (max. 8388607)
+ 41 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

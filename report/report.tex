@@ -103,7 +103,7 @@ Many different social distancing detections have been made ever since the outbre
 
 This system uses a combination of the YOLO (You Only Look Once) model with the COCO (Common Objects in Context) dataset to train their model. The goal of the project was to produce a top down view of the pedestrians, showing the distance between each person who were identified within the frame. The results of the system were very accurate, as they were able to make use of calibrated cameras. What was very interesting about the project is that some pedestrians were not classified due to hiding behind others. This showcases the limitation of the dataset used, as there were no overlapping footage of the field of view. Further improvements to the system were suggested such as mask and human body temperature detection. The system overall is similar to what this project will achieve with the difference of dataset.
 
-\chapter{Methodology}
+\chapter{Method}
 
 \section{Agile development}
 
@@ -113,5 +113,12 @@ The outcome of each sprint allowed for early prototypes of the system, easier an
 
 \section{Management tools}
 
+\section{Deep learning architectures for object detection}
+
+Deep learning has been a foundation for modern computer vision, allowing object detection to be 'automatic' by training a CNN which tunes itself after each batch of data, then being further developed by implementing algorithms for object detection with only one pass through the network. This project will specifically be using yolov3 and SSD architectures.
+
+\subsection{YOLO (You Only Look Once)}
+
+\subsection{SSD (Single shot detection)}
 
 \end{document}

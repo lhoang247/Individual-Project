@@ -5,7 +5,9 @@
 \usepackage{colortbl}
 \usepackage{chemfig}
 \RequirePackage[left=3cm,top=1.5cm,right=3cm,bottom=2.5cm,nohead]{geometry}
+\usepackage{sectsty}
 
+\sectionfont{\fontsize{15}{15}\selectfont}
 
 \begin{document}
 
@@ -40,10 +42,7 @@
 \chapter{Output Summary}
 
 \chapter{Background Research}
-
-
 \section{What is computer vision?}
-
 
 Computer vision (CV) is a scientific discipline that studies how computer scan efficiently perceive, process, and understand information from visual data such as images and videos.
 
@@ -109,16 +108,75 @@ This system uses a combination of the YOLO (You Only Look Once) model with the C
 
 An agile approach with sprints was used during the development of the project. The sub objectives for this project required the previous sub objectives to be completed, so a sprint timetable seemed suitable. The approach gave time to reflect and adjust the work being done through out the weeks while allowing focus on the core functionalities of the software being produced. 
 
-The outcome of each sprint allowed for early prototypes of the system, easier analysis on code and product and fixing any bugs within the code.
+The outcome of each sprint allowed for early prototypes of the system, easier analysis on code and product, and fixing any bugs within the code. The consequences of only partially completing a sprint's objective can be solved by adding more time for further development. Partially completion of the sprints are inevitable therefore spacing out the sprints instead of one after the other will help allocate more time. 
 
 \section{Management tools}
 
+A diary is used to record sprints and work done throughout the week, recording the results produced and research done in order to produce code.
+
+\subsection{Version control}
+
+GitHub is used to store previous versions of the code used for the project. This is in case of any mistakes made during development, backup versions of the project can be restored. GitHub can allow the user to backup their version no matter how small the changes are, providing flexibility throughout the project. 
+
+
 \section{Deep learning architectures for object detection}
 
-Deep learning has been a foundation for modern computer vision, allowing object detection to be 'automatic' by training a CNN which tunes itself after each batch of data, then being further developed by implementing algorithms for object detection with only one pass through the network. This project will specifically be using yolov3 and SSD architectures.
+Deep learning has been a foundation for modern computer vision, allowing object detection to be 'automatic' by training a CNN which tunes itself after each batch of data, then being further developed by implementing algorithms for object detection which only requires one pass through the network. This project will specifically be using yolov3 and SSD architectures.
 
 \subsection{YOLO (You Only Look Once)}
 
+YOLO is a object detection architecture that uses convolutional neural networks to divide the image/input into a grid. Each box in the grid is then associated with a high dimensional vector which record data such as: if there is an object within the grid, the predicted position of the bounding box, and the class id of the object. The vector can be expanded if there is more than one object within the box which is called anchor boxes. See appendix 1.
+
+It is possible for the architecture to identify the same object twice within the same box creating redundancy. Since the predictions are based on probability, the architecture chooses the highest probability and uses there bounding box to identify the object. This feature is called 'Non-Max suppression'.
+
+There are many versions of the 'yolo' such as 'yolov2' but during 2018, 'yolov3' was released (REDMON J. 2018). When comparing to previous versions, it offers an increase in speed and efficiency when computing while also providing a better backbone classifier (The core convolutional neural network). 
+
+There are also different models of 'yolov3' that perform better speed wise but at the cost of accuracy such as 'yolov3-tiny' which can compute images at 220 frames per second. This project specifically will use 'yolov3-320' which will detect objects at 45 frames per second while still having good accuracy. The reason for using this model is that realistically, cameras used in offices or public areas for surveillance will most likely be around 30 to 60 frames per second.
+
 \subsection{SSD (Single shot detection)}
+
+\section{Pre-trained models (With COCO dataset)}
+
+The Microsoft 'COCO' (Common Objects in Context) dataset is a large-scale object detection dataset that contains over 330,000 images and more than 80 different object categories. This project used a pre-trained 'yolov3-320' model with the 'COCO' dataset to detect people. The reasoning for using this is that the dataset is very large, and will take several days to train the network. In comparison, downloading the pre-trained weights (Redmon, 2021) took a few minutes. Another reason for using 'COCO' is that it 
+
+\section{Programming language and libraries}
+
+This section discusses the chosen programming language and libraries used in the project, giving examples of functionalities within the coding aspect.
+
+\subsection{Python}
+
+Python was chosen for flexibility when organising and presenting code through out the project. Python allows the user to call modules from different files that contained reusable class and functions, making the overall structure of the code less cluttered.
+
+Python has compatibility with libraries needed for the project.
+
+\subsection{NumPy}
+
+NumPy specialises in matrix/array arithmetic, being able compute high dimensional matrix multiplication with ease. For this project, we use NumPy to concatenate matrices to generate a window for the top down view. 
+
+\subsection{OpenCV}
+
+OpenCV is a cross-platform library which can be used to develop real-time computer vision applications. OpenCV can be used to utilise the pre-trained weights previously discussed, allowing to input an image and filter out the objects within the image.
+
+Another functionality of the OpenCV library is image transformation, transforming an image to a top-down view.
+
+\subsection{matplotlib}
+
+Matplotlib is a tool that specialises in creating graphs. 
+
+\chapter{Results}
+
+This section discusses the results found throughout the project.
+
+\section{Detecting objects with 'yolov3' (Analysis)}
+
+OpenCV enabled the use of 'yolov3' with the functions of loading the weights of the neural network and forwarding an image to output the objects detected. The first test that was done was to showcase how well the model detected objects. The model was tested with different image provided by the dataset.
+
+The first image that was forwarded was from the third camera angle (figure 2). The main focus of using this specific image was to look at how well the model detected people who were overlapping each other. The outcome of model was over 10,000 objects detected within the image, taking 0.54 seconds to compute. The amount of objects detected might seem unnecessary, but the model was trained to detect 80 different objects, therefore will provide a large number of classifications per image.
+
+Each classification comes with a probability that the object detected is the correct classification. Therefore objects that are 'person' could also have a probability of being identified as a 'car'.
+
+\subsection{Filtering classification methods}
+
+The probabilities can be filtered by tuning the number of objects that can be classified and the probability threshold. 
 
 \end{document}

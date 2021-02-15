@@ -12,6 +12,16 @@
 \contentsline {chapter}{\numberline {4}Method}{7}%
 \contentsline {section}{\numberline {4.1}Agile development}{7}%
 \contentsline {section}{\numberline {4.2}Management tools}{7}%
+\contentsline {subsection}{\numberline {4.2.1}Version control}{7}%
 \contentsline {section}{\numberline {4.3}Deep learning architectures for object detection}{7}%
-\contentsline {subsection}{\numberline {4.3.1}YOLO (You Only Look Once)}{7}%
-\contentsline {subsection}{\numberline {4.3.2}SSD (Single shot detection)}{7}%
+\contentsline {subsection}{\numberline {4.3.1}YOLO (You Only Look Once)}{8}%
+\contentsline {subsection}{\numberline {4.3.2}SSD (Single shot detection)}{8}%
+\contentsline {section}{\numberline {4.4}Pre-trained models (With COCO dataset)}{8}%
+\contentsline {section}{\numberline {4.5}Programming language and libraries}{8}%
+\contentsline {subsection}{\numberline {4.5.1}Python}{8}%
+\contentsline {subsection}{\numberline {4.5.2}NumPy}{9}%
+\contentsline {subsection}{\numberline {4.5.3}OpenCV}{9}%
+\contentsline {subsection}{\numberline {4.5.4}matplotlib}{9}%
+\contentsline {chapter}{\numberline {5}Results}{10}%
+\contentsline {section}{\numberline {5.1}Detecting objects with 'yolov3' (Analysis)}{10}%
+\contentsline {subsection}{\numberline {5.1.1}Filtering classification methods}{10}%

@@ -4,6 +4,7 @@
 \usepackage{array}
 \usepackage{colortbl}
 \usepackage{chemfig}
+\usepackage{csvsimple}
 \RequirePackage[left=3cm,top=1.5cm,right=3cm,bottom=2.5cm,nohead]{geometry}
 \usepackage{sectsty}
 
@@ -85,7 +86,7 @@ The information about the deep learning architectures we have discussed were inf
 
 \section{WILDTRACK dataset}
 
-The 'WILDTRACK' dataset provides footage of pedestrians from 7 different angle, each video having a length of 60 minutes and were filmed using three 'GoPro Hero 4' and four 'GoPro Hero 3' at high resolution (1920x1080). The location of the video took place near a public research university called ETH Zurich, Switzerland. The cameras used were calibrated to allow for precise calculations when wanting the distance between two objects.
+The 'WILDTRACK' dataset provides footage of pedestrians from 7 different angle, each video having a length of 35 minutes and were filmed using three 'GoPro Hero 4' and four 'GoPro Hero 3' at high resolution (1920x1080). The location of the video took place near a public research university called ETH Zurich, Switzerland. The cameras used were calibrated to allow for precise calculations when wanting the distance between two objects.
 
 While there are other datasets that offer similar features such as the 'EPFL-RLC' dataset, the videos themselves do not contain the same density of pedestrians relative to the 'WILDTRACK' dataset.Footage from other datasets showcase people who are more static, making it less challenging for the project.
 
@@ -106,38 +107,44 @@ This system uses a combination of the YOLO (You Only Look Once) model with the C
 
 \section{Agile development}
 
-An agile approach with sprints was used during the development of the project. The sub objectives for this project required the previous sub objectives to be completed, so a sprint timetable seemed suitable. The approach gave time to reflect and adjust the work being done through out the weeks while allowing focus on the core functionalities of the software being produced. 
+An agile approach with sprints were used during the development of the project. The approach gave time to reflect and adjust the work being done through out the weeks while allowing focus on the core functionalities of the software being produced. 
 
-The outcome of each sprint allowed for early prototypes of the system, easier analysis on code and product, and fixing any bugs within the code. The consequences of only partially completing a sprint's objective can be solved by adding more time for further development. Partially completion of the sprints are inevitable therefore spacing out the sprints instead of one after the other will help allocate more time. 
+The outcome of each sprint allowed for early prototypes of the system, easier analysis on code and product, and fixing any bugs within the code. The consequences of only partially completing a sprint's objective can be solved by adding more time for further development. Partially completion of the sprints are inevitable therefore spacing out the sprints instead of one immediately after the other will help allocate more time. 
 
 \section{Management tools}
 
-A diary is used to record sprints and work done throughout the week, recording the results produced and research done in order to produce code.
+A diary is used to record sprints and work done throughout the week, recording the results produced and research done in order to produce code. Any images/video footage used in the dataset are copied and backed up into another folder for future reference. A simple Gantt chart is used to keep the work flow on track while also updating the chart to allocate time for sprints.
 
 \subsection{Version control}
 
-GitHub is used to store previous versions of the code used for the project. This is in case of any mistakes made during development, backup versions of the project can be restored. GitHub can allow the user to backup their version no matter how small the changes are, providing flexibility throughout the project. 
+GitHub was used to store previous versions of the code used for the project. This is in case of any mistakes made during development, backup versions of the project can be restored. GitHub can allow the user to backup their version no matter how small the changes are, providing flexibility throughout the project. 
 
 
 \section{Deep learning architectures for object detection}
 
-Deep learning has been a foundation for modern computer vision, allowing object detection to be 'automatic' by training a CNN which tunes itself after each batch of data, then being further developed by implementing algorithms for object detection which only requires one pass through the network. This project will specifically be using yolov3 and SSD architectures.
+Deep learning has been a foundation for modern computer vision, allowing object detection to be 'automatic' by training a CNN which tunes itself after each batch of training data, then being further developed by implementing algorithms for object detection which only requires one pass through the network. This project will specifically be using yolov3 and SSD architectures.
 
 \subsection{YOLO (You Only Look Once)}
 
-YOLO is a object detection architecture that uses convolutional neural networks to divide the image/input into a grid. Each box in the grid is then associated with a high dimensional vector which record data such as: if there is an object within the grid, the predicted position of the bounding box, and the class id of the object. The vector can be expanded if there is more than one object within the box which is called anchor boxes. See appendix 1.
+YOLO is a object detection architecture that uses convolutional neural networks to divide the image/input into a grid. Each box in the grid is then associated with a high dimensional vector which record data such as: if there is an object within the grid, the predicted position of the bounding box, and the class id of the object. The vector can be expanded if there is more than one object within the box which is called anchor boxes. See appendix 1 for a flowchart of YOLO.
 
 It is possible for the architecture to identify the same object twice within the same box creating redundancy. Since the predictions are based on probability, the architecture chooses the highest probability and uses there bounding box to identify the object. This feature is called 'Non-Max suppression'.
 
 There are many versions of the 'yolo' such as 'yolov2' but during 2018, 'yolov3' was released (REDMON J. 2018). When comparing to previous versions, it offers an increase in speed and efficiency when computing while also providing a better backbone classifier (The core convolutional neural network). 
 
-There are also different models of 'yolov3' that perform better speed wise but at the cost of accuracy such as 'yolov3-tiny' which can compute images at 220 frames per second. This project specifically will use 'yolov3-320' which will detect objects at 45 frames per second while still having good accuracy. The reason for using this model is that realistically, cameras used in offices or public areas for surveillance will most likely be around 30 to 60 frames per second.
+There are also different models of 'yolov3' that perform better speed wise but at the cost of accuracy such as 'yolov3-tiny' which can compute videos at 220 frames per second. This project specifically will use 'yolov3-320' which will detect objects within a video at 45 frames per second while still having good accuracy. The reason for using this model is that realistically, cameras used in offices or public areas for surveillance will most likely be around 30 frames per second.
+
+While this method of object detection is proven to be very effective, it comes with the drawback of not being very flexible when wanting to change the overall structure of the neural network. Its very likely that tweaking the structure if possible could make the outcome of the object detection worst, by also spoils the chances of improving it.
 
 \subsection{SSD (Single shot detection)}
 
 \section{Pre-trained models (With COCO dataset)}
 
-The Microsoft 'COCO' (Common Objects in Context) dataset is a large-scale object detection dataset that contains over 330,000 images and more than 80 different object categories. This project used a pre-trained 'yolov3-320' model with the 'COCO' dataset to detect people. The reasoning for using this is that the dataset is very large, and will take several days to train the network. In comparison, downloading the pre-trained weights (Redmon, 2021) took a few minutes. Another reason for using 'COCO' is that it 
+The Microsoft 'COCO' (Common Objects in Context) dataset is a large-scale object detection dataset that contains over 330,000 images and more than 80 different object categories. This project used a pre-trained 'yolov3-320' model with the 'COCO' dataset to detect people within an image. The reasoning for using this is that the dataset is very large, and will take several days to train the network. In comparison, downloading the pre-trained weights (Redmon, 2021) took a few minutes. 
+
+Another reason for using 'COCO' is that it is a well documented dataset (Lin et al., 2021), designed to help improve 'image classification' with images that contain multiple objects.
+
+The objects that are in the dataset range from living beings such as 'person' and 'cat' to everyday objects such as 'bottle' and 'cup'. The main focus of the project is to detect 'person', therefore we will need to filter out the other objects within the code, but this means that the forward pass in the neural network will still detect other objects, possibly affecting the time spent to compute a simple image. 
 
 \section{Programming language and libraries}
 
@@ -145,23 +152,121 @@ This section discusses the chosen programming language and libraries used in the
 
 \subsection{Python}
 
-Python was chosen for flexibility when organising and presenting code through out the project. Python allows the user to call modules from different files that contained reusable class and functions, making the overall structure of the code less cluttered.
+Python was chosen for flexibility when organising and presenting code through out the project. Python allows the user to call modules from different files that contained reusable classes and functions, making the overall structure of the code less cluttered.
 
-Python has compatibility with libraries needed for the project.
+Python has compatibility with libraries needed for the project which were installed using 'pip' which is a package management system.
 
 \subsection{NumPy}
 
-NumPy specialises in matrix/array arithmetic, being able compute high dimensional matrix multiplication with ease. For this project, we use NumPy to concatenate matrices to generate a window for the top down view. 
+NumPy specialises in matrix/array arithmetic, being able compute high dimensional matrix multiplication with ease. For this project, the project use NumPy for generating matrix transformations and to concatenate matrices to generate a side panel for the top down view. 
 
 \subsection{OpenCV}
 
 OpenCV is a cross-platform library which can be used to develop real-time computer vision applications. OpenCV can be used to utilise the pre-trained weights previously discussed, allowing to input an image and filter out the objects within the image.
 
-Another functionality of the OpenCV library is image transformation, transforming an image to a top-down view.
+Another functionality of the OpenCV library is image transformation, transforming a plane in an image to a 'flat surface'.
 
-\subsection{matplotlib}
 
-Matplotlib is a tool that specialises in creating graphs. 
+\subsection{Matplotlib with Seaborn}
+
+Matplotlib is a library that specialises in creating plots and graphs. The seaborn library will be primarily used for the presentation of the plots from matplotlib.
+
+\section{Dataset preparation}
+
+The dataset features 7 videos of pedestrians walking in a public space (each video are at different angles) that are each 35 minutes long and are shot at 60 frames per second. It also includes image subsets of the videos, each one taken every tenth of a second from the video with a resolution of 1920x1080. These images are already post-processed to remove distortion.
+
+Due to the large dataset, this project will be utilising samples of screenshots from each camera used to test the capabilities of the 'yolov3' architecture, and will be augmented with artificial noise which allows for extreme test.
+
+The videos are sampled to 5 - 10 second clips using windows video editor. Each clip will contain a variety of pedestrians doing different actions such as being stationary or walking side by side in a group. The clips are still at 1920x1080 resolution, but are reduced to 30 frames per second. This is because the industry standard for surveillance cameras are 30 frames per second and it will take less time to compute a video.
+
+Figure 4.1 is a table that labels each image/video used in the report, giving a name that will be referenced throughout the report, what camera the video came from, the time the clip started from the original video and length or the frame it came from, and a short description on the main activity in the image/clip.
+
+\vspace{5mm}
+
+\begin{center}
+\small
+	\begin{tabular}{|p{2.2cm}|l|p{1.8cm}|p{2cm}|p{5cm}|}
+		\hline
+		Image/video name & Camera & Start time /frame & Length (Seconds) & Description \\
+		\hline
+		image 1 & 1 & 0 & N/A & Large crowd in the background with a group of 3 in the middle. \\
+		\hline
+		image 2 & 4 & 730 & N/A & A person in front of the other. \\
+		\hline
+		image 3 & 4 & 950 & N/A & A large crowd of people close to the camera and in the background. \\
+		\hline
+		image 4 & 5 & 0 & N/A & Two people hugging. Two people walking side by side with one blocking the other. \\
+		\hline
+		video 1 & 1 & 15:02 & 8 & Group of stationary people with a person walking by. \\
+		\hline
+		video 2 & 1 & 19:54 & 8 & A single person walking past. \\
+		\hline
+		video 3 & 2 & 23:27 & 6 & Two people walking past each other with close proximity. \\
+		\hline
+		video 4 & 2 & 16:43 & 10 & Group of four people walking side by side. \\
+		\hline
+		video 5 & 3 & 1:00 & 10 & Large crowd of people walking past. \\
+		\hline
+		video 6 & 3 & 32:49 & 7 & Two people making contact with each other. \\ 
+		\hline
+		video 7 & 6 & 7:05 & 8 & Two people walking together with their backs to the camera. \\
+		\hline
+		video 8 & 6 & 22:33 & 8 & A cluster of four people walking with their backs to the camera. \\
+		\hline 
+		video 9 & 7 & 29:05 & 8 & Two people hugging each other. \\
+		\hline
+		video 10 & 7 & 14:30 & 8 & Stationary group and a moving group side by side. \\
+		\hline
+	\end{tabular}
+\vspace{4mm}
+
+{Figure 4.1: Table of images and video samples used.}
+
+\end{center}
+
+\section{System model}
+
+This section discusses the overall flow of the system, how it uses pre-trained model, and the different approaches to detecting close proximity 
+
+The flow of the system was model with a activity diagram (figure 4.2), showcasing the step by step process of the overall system and how it interacts with 'yolov3'. The system has three different methods to calculate close proximity of two people and will be later discussed in the results section.
+
+The goal of the system is to mark pedestrians who are close to each other with a red bounding box and the people who are not close with a green bounding box. The system should be able to mark these onto a side panel which represents the top down view of the image. If the input is a video, then the system should calculate all of the step for every frame within the video, the outcome should be the same video but with new annotations included.
+ 
+\vspace{10mm}
+
+\begin{centering}
+	\includegraphics[width=170mm]{./images/system design.jpg}
+	{Figure 4.2: Activity diagram describing the system pipeline}
+	
+\end{centering}
+
+\vspace{10mm}
+
+A class diagram (appendix 2) was created to show the functions that occur through out the system with the inputs and outputs. Each function also includes the key parameters needed, as well as the function data type.
+
+\section{Development phases}
+
+The project has several development phases to give time to thoroughly test each feature of the system. These phases will be done in chronological order and will each be treated as a sprint.
+
+\subsection{1: object detection with YOLO}
+
+This phase will focus on forwarding images to the network to test how well the object detection works. The images used in the testing will have different density of population in the image, where some images will contain people overlapping another. The same images will also be artificially augmented by adding noise or rotation to image to limit test the architecture. This phase will also be testing videos as inputs, the main measurement of success will be how smooth each individual is tracked through out the processing.
+
+\subsection{2: Detecting social distancing by bounding box distance}
+
+By using the found bounding box in the first phase, we should be able to compute the distance between two people using pixels as a estimated measurement. This will be tested with different camera angles to see how affective the implementation is.
+
+\subsection{3: Detecting social distancing by matrix transformation}
+
+This method can be achieved by using the OpenCV library to calculate a matrix that transforms a quadrilateral in an image that is marked with 4 points to a square image.
+
+\subsection{4: Detecting social distancing by camera calibration}
+
+The dataset provides intrinsic and extrinsic values for the cameras used. This enables the project to convert pixel values to real world measurements, acquiring a very accurate solution to the problem.
+
+\subsection{5: Plotting the found distances on a top down view of the image}
+
+\subsection{}
 
 \chapter{Results}
 
@@ -171,12 +276,14 @@ This section discusses the results found throughout the project.
 
 OpenCV enabled the use of 'yolov3' with the functions of loading the weights of the neural network and forwarding an image to output the objects detected. The first test that was done was to showcase how well the model detected objects. The model was tested with different image provided by the dataset.
 
-The first image that was forwarded was from the third camera angle (figure 2). The main focus of using this specific image was to look at how well the model detected people who were overlapping each other. The outcome of model was over 10,000 objects detected within the image, taking 0.54 seconds to compute. The amount of objects detected might seem unnecessary, but the model was trained to detect 80 different objects, therefore will provide a large number of classifications per image.
+The first image that was forwarded was from the third camera angle (figure 5.1). The main focus of using this specific image was to look at how well the model detected people who were overlapping each other. The outcome of model was over 10,000 objects detected within the image, taking 0.54 seconds to compute. The amount of objects detected might seem unnecessary, but the model was trained to detect 80 different objects, therefore will provide a large number of classifications per image.
 
 Each classification comes with a probability that the object detected is the correct classification. Therefore objects that are 'person' could also have a probability of being identified as a 'car'.
 
 \subsection{Filtering classification methods}
 
 The probabilities can be filtered by tuning the number of objects that can be classified and the probability threshold. 
+
+
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  15 FEB 2021 13:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  22 FEB 2021 23:34
 entering extended mode
 **./report.tex
 (report.tex
@@ -558,6 +558,27 @@ File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 Package: chemfig 2020/07/13 v1.56 Draw molecule with an easy syntax (CT)
 )
+(D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/latex/csvsimple\csvsimple.
+sty
+Package: csvsimple 2019/04/09 version 1.21 LaTeX CSV file processing
+ (D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.st
+y
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count290
+)
+(D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\csv@file=\read3
+\c@csvinputline=\count291
+\c@csvrow=\count292
+\c@csvcol=\count293
+\csv@out=\write4
+)
 (D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.st
 y
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -566,9 +587,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count290
-\Gm@cntv=\count291
-\c@Gm@tempcnt=\count292
+\Gm@cnth=\count294
+\Gm@cntv=\count295
+\c@Gm@tempcnt=\count296
 \Gm@bindingoffset=\dimen271
 \Gm@wd@mp=\dimen272
 \Gm@odd@mp=\dimen273
@@ -596,34 +617,34 @@ LaTeX Warning: Command \underline  has changed.
 ) (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 (D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf
 .mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count293
+\scratchcounter=\count297
 \scratchdimen=\dimen279
 \scratchbox=\box67
-\nofMPsegments=\count294
-\nofMParguments=\count295
+\nofMPsegments=\count298
+\nofMParguments=\count299
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count296
+\MPscratchCnt=\count300
 \MPscratchDim=\dimen280
-\MPnumerator=\count297
-\makeMPintoPDFobject=\count298
+\MPnumerator=\count301
+\makeMPintoPDFobject=\count302
 \everyMPtoPDFconversion=\toks38
 )
 (D:\Users\LeeHoang\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopd
@@ -669,42 +690,78 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 [1
 
 {C:/Users/LeeHoang/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-(report.toc)
-\tf@toc=\write4
-\openout4 = `report.toc'.
+(report.toc [1
 
- [1
+])
+\tf@toc=\write5
+\openout5 = `report.toc'.
 
-]
+ [2]
 Chapter 1.
-[2
+[3
 
 ]
 Chapter 2.
-[3
+[4
 
 ]
 Chapter 3.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 45.
+(Font)              size <14.4> substituted on input line 46.
 
-[4
+[5
 
 ]
-<./images/weights and biases.png, id=22, 511.9125pt x 206.57175pt>
+<./images/weights and biases.png, id=25, 511.9125pt x 206.57175pt>
 File: ./images/weights and biases.png Graphic file (type png)
 <use ./images/weights and biases.png>
-Package pdftex.def Info: ./images/weights and biases.png  used on input line 69
+Package pdftex.def Info: ./images/weights and biases.png  used on input line 70
 .
 (pdftex.def)             Requested size: 284.52756pt x 114.81572pt.
- [5 <./images/weights and biases.png>] [6]
+ [6 <./images/weights and biases.png>] [7]
 Chapter 4.
-[7
+[8
 
-] [8] [9]
+] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\OT1/cmr/m/n/10.95 Image/video
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\OT1/cmr/m/n/10.95 Length
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 192--193
+[]|\OT1/cmr/m/n/10.95 Large crowd in the back-
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 200--201
+[]|\OT1/cmr/m/n/10.95 Group of sta-tion-ary peo-ple
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 216--217
+[]|\OT1/cmr/m/n/10.95 Two peo-ple hug-ging each
+ []
+
+[11]
+<./images/system design.jpg, id=46, 1727.45375pt x 1365.1pt>
+File: ./images/system design.jpg Graphic file (type jpg)
+<use ./images/system design.jpg>
+Package pdftex.def Info: ./images/system design.jpg  used on input line 238.
+(pdftex.def)             Requested size: 483.69684pt x 382.2254pt.
+
+Overfull \hbox (40.11836pt too wide) in paragraph at lines 238--240
+ [][] 
+ []
+
+[12 <./images/system design.jpg>] [13]
 Chapter 5.
-[10
+[14
 
 ] (report.aux)
 
@@ -713,19 +770,20 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 14977 strings out of 480790
- 304509 string characters out of 2895894
- 635866 words of memory out of 3000000
- 30719 multiletter control sequences out of 15000+200000
- 537872 words of font info for 43 fonts, out of 3000000 for 9000
+ 15823 strings out of 480790
+ 321448 string characters out of 2895894
+ 659635 words of memory out of 3000000
+ 31549 multiletter control sequences out of 15000+200000
+ 539012 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,5n,71p,835b,167s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,9n,71p,849b,214s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb>
-Output written on report.pdf (11 pages, 81477 bytes).
+ic/amsfonts/cm/cmr10.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on report.pdf (15 pages, 243102 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

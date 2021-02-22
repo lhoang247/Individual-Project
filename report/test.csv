@@ -1,0 +1,12 @@
+﻿reference,text citation,report,section
+"SZELISKI, R., 2020. COMPUTER VISION. SPRINGER NATURE, p.5.","(SZELISKI, 2020)",background research,what is computer vision
+"Metaxas, D., 1997. Physics-Based Deformable Models. Boston, MA: Springer US, p.9.","(Metaxas, 1997)",background research,what is computer vision
+"Coifman, B., Beymer, D., McLauchlan, P., & Malik, J. (1998). A real-time computer vision system for vehicle tracking and traffic surveillance. Transportation Research Part C: Emerging Technologies","(Coifman et al., 1998)",background research,what is computer vision
+"Hochreiter, Sepp and Jurgen Schmidhuber. 1997. ""Long Short-Term Memory. Neural Computation"" :1735–1780.","(Hochreiter and
+Schmidhuber, 1997)",background research,Deep learning
+"Chavdarova, T., Baqué, P., Bouquet, S., Maksai, A., Jose, C., Lettry, L., Fua, P., Van Gool, L. and Fleuret, F., 2017. The wildtrack multi-camera person dataset p.3., p.5., p.7. ",(Chavdarova et al. 2017),background research,WILDTRACK dataset
+"López-Cifuentes A.,Escudero-Viñolo M., 2018. Semantic Driven Multi-Camera Pedestrian Detection","(López-Cifuentes A. et al., 2018)",background research,WILDTRACK dataset
+"Y. C. Hou, M. Z. Baharuddin, S. Yussof and S. Dzulkifly, ""Social Distancing Detection with Deep Learning Model,"" 2020","(Y. C. Hou et al., 2020)",background research,Existing systems
+"REDMON J., FARHADI A. ""YOLOv3: An Incremental Improvement""",(Redmon et al.. 2018),method,Deep learning architectures for object detection
+"Lin, T., Maire, M., Belongie, S., Bourdev, L., Girshick, R., Hays, J., Perona, P., Ramanan, D., Zitnick, C. and Dollar, P., 2021. Microsoft COCO: Common Objects in Context. [online] Arxiv.org. Available at: <https://arxiv.org/pdf/1405.0312.pdf> [Accessed 11 February 2021].","(Lin et al., 2021)",method,Pre-trained models (With COCO dataset)
+"Redmon, J., 2021. YOLO: Real-Time Object Detection. [online] Pjreddie.com. Available at: <https://pjreddie.com/darknet/yolo/> [Accessed 11 February 2021].","(Redmon, 2021)",method,Pre-trained models (With COCO dataset)

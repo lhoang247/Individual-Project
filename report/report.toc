@@ -1,36 +1,26 @@
-\contentsline {chapter}{\numberline {1}Introduction}{3}%
-\contentsline {chapter}{\numberline {2}Output Summary}{4}%
-\contentsline {chapter}{\numberline {3}Background Research}{5}%
-\contentsline {section}{\numberline {3.1}What is computer vision?}{5}%
-\contentsline {section}{\numberline {3.2}Deep learning}{5}%
-\contentsline {subsection}{\numberline {3.2.1}Neural networks (NN)}{5}%
-\contentsline {subsection}{\numberline {3.2.2}Convolutional neural networks (CNN)}{6}%
-\contentsline {section}{\numberline {3.3}WILDTRACK dataset}{6}%
-\contentsline {subsection}{\numberline {3.3.1}Research papers with WILDTRACK dataset}{7}%
-\contentsline {section}{\numberline {3.4}Existing systems}{7}%
-\contentsline {subsection}{\numberline {3.4.1}Example (Y. C. Hou, 2020)}{7}%
-\contentsline {chapter}{\numberline {4}Method}{8}%
-\contentsline {section}{\numberline {4.1}Agile development}{8}%
-\contentsline {section}{\numberline {4.2}Management tools}{8}%
-\contentsline {subsection}{\numberline {4.2.1}Version control}{8}%
-\contentsline {section}{\numberline {4.3}Deep learning architectures for object detection}{8}%
-\contentsline {subsection}{\numberline {4.3.1}YOLO (You Only Look Once)}{9}%
-\contentsline {subsection}{\numberline {4.3.2}SSD (Single shot detection)}{9}%
-\contentsline {section}{\numberline {4.4}Pre-trained models (With COCO dataset)}{9}%
-\contentsline {section}{\numberline {4.5}Programming language and libraries}{10}%
-\contentsline {subsection}{\numberline {4.5.1}Python}{10}%
-\contentsline {subsection}{\numberline {4.5.2}NumPy}{10}%
-\contentsline {subsection}{\numberline {4.5.3}OpenCV}{10}%
-\contentsline {subsection}{\numberline {4.5.4}Matplotlib with Seaborn}{10}%
-\contentsline {section}{\numberline {4.6}Dataset preparation}{10}%
-\contentsline {section}{\numberline {4.7}System model}{11}%
-\contentsline {section}{\numberline {4.8}Development phases}{13}%
-\contentsline {subsection}{\numberline {4.8.1}1: object detection with YOLO}{13}%
-\contentsline {subsection}{\numberline {4.8.2}2: Detecting social distancing by bounding box distance}{13}%
-\contentsline {subsection}{\numberline {4.8.3}3: Detecting social distancing by matrix transformation}{13}%
-\contentsline {subsection}{\numberline {4.8.4}4: Detecting social distancing by camera calibration}{13}%
-\contentsline {subsection}{\numberline {4.8.5}5: Plotting the found distances on a top down view of the image}{13}%
-\contentsline {subsection}{\numberline {4.8.6}}{13}%
-\contentsline {chapter}{\numberline {5}Results}{14}%
-\contentsline {section}{\numberline {5.1}Detecting objects with 'yolov3' (Analysis)}{14}%
-\contentsline {subsection}{\numberline {5.1.1}Filtering classification methods}{14}%
+\contentsline {chapter}{\numberline {1}Introduction}{2}%
+\contentsline {chapter}{\numberline {2}Output Summary}{3}%
+\contentsline {chapter}{\numberline {3}Background Research}{4}%
+\contentsline {section}{\numberline {3.1}What is computer vision?}{4}%
+\contentsline {section}{\numberline {3.2}Deep learning}{4}%
+\contentsline {subsection}{\numberline {3.2.1}Neural networks (NN)}{4}%
+\contentsline {subsection}{\numberline {3.2.2}Convolutional neural networks (CNN)}{5}%
+\contentsline {section}{\numberline {3.3}WILDTRACK dataset}{5}%
+\contentsline {subsection}{\numberline {3.3.1}Research papers with WILDTRACK dataset}{6}%
+\contentsline {section}{\numberline {3.4}Existing systems}{6}%
+\contentsline {subsection}{\numberline {3.4.1}Example (Y. C. Hou, 2020)}{6}%
+\contentsline {chapter}{\numberline {4}Method}{7}%
+\contentsline {section}{\numberline {4.1}Agile development}{7}%
+\contentsline {section}{\numberline {4.2}Management tools}{7}%
+\contentsline {subsection}{\numberline {4.2.1}Version control}{7}%
+\contentsline {section}{\numberline {4.3}Deep learning architectures for object detection}{7}%
+\contentsline {subsection}{\numberline {4.3.1}YOLO (You Only Look Once)}{8}%
+\contentsline {section}{\numberline {4.4}Pre-trained models (With COCO dataset)}{8}%
+\contentsline {section}{\numberline {4.5}Hardware used}{9}%
+\contentsline {section}{\numberline {4.6}Programming language and libraries}{9}%
+\contentsline {section}{\numberline {4.7}Dataset preparation}{9}%
+\contentsline {section}{\numberline {4.8}System model}{11}%
+\contentsline {section}{\numberline {4.9}Development phases}{12}%
+\contentsline {chapter}{\numberline {5}Results}{13}%
+\contentsline {section}{\numberline {5.1}Detecting objects with 'yolov3' (Analysis)}{13}%
+\contentsline {subsection}{\numberline {5.1.1}Filtering classification methods}{13}%

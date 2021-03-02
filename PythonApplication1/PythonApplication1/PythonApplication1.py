@@ -1,23 +1,27 @@
+
 import numpy as np
 import cv2
 import os
 import timeit
-import matplotlib.pyplot as plt
+print(cv2.getBuildInformation())
+
 dir = 'D:\year3\IN3007-IndividualProject\YOLOv3'
 
 pathYoloWeights = dir + '\yolov3.weights'
 pathYoloCfg =  dir + '\yolov3.cfg'
 pathCoco =  dir + '\coco.names'
 
-net = cv2.dnn.readNet(pathYoloWeights, pathYoloCfg)
+net = cv2.dnn.readNetFromDarknet(pathYoloCfg, pathYoloWeights)
+print(cv2.dnn.DNN_BACKEND_CUDA)
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+
 classes = []
 
 with open(pathCoco, 'r') as f:
     classes = f.read().splitlines()
 
-img = cv2.imread('D:\year3\IN3007-IndividualProject\images used/00000950.png')
+img = cv2.imread('D:\year3\IN3007-IndividualProject\images used/00000000.png')
 print(img.shape)
 blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
 height, width, _ = img.shape
@@ -33,70 +37,63 @@ tic = timeit.default_timer()
 
 #passing the input through the layers.
 layerOutputs = net.forward(output_layers_names)
-confidence_test = []
-loopcount = []
+
 boxes = []
 confidences = []
 class_ids = []
+
+print()
+
 for output in layerOutputs:
+    print(len(output))
     for detection in output:
         scores = detection[5:]
         class_id = np.argmax(scores)
         confidence = scores[class_id]
-        if confidence > 0:
+        if confidence > 0.5:
             center_x = int(detection[0]*width)
             center_y = int(detection[1]*height)
             w = int(detection[2]*width)
             h = int(detection[3]*height)
+            
             x = int(center_x - w/2)
             y = int(center_y - h/2)
+
             boxes.append([x,y,w,h])
             confidences.append((float(confidence)))
             class_ids.append(class_id)
-confidence_test.append(len(boxes))
-'''
-plt.title("Objects detected after confidence filtering")
-plt.locator_params(nbins = 20)
-plt.plot(loopcount,confidence_test)
-plt.xlabel("Confidence (%)")
-plt.ylabel("Objects left after filtering")
-plt.show()
-print(confidence_test)
-'''
+
 toc = timeit.default_timer()
 
 print("here: " , toc - tic)
 
-indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.6, 0.6)
+indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.67, 0.5)
 
 font = cv2.FONT_HERSHEY_PLAIN
 
 colours = np.random.uniform(0,255, size = (len(boxes), 3))
 
-
-'''cv2.rectangle(img,(1510,139),(1561,299),(255,255,255),1)
+cv2.rectangle(img,(1510,139),(1561,299),(255,255,255),1)
 cv2.rectangle(img,(1273,129),(1319,282),(0,255,255),1)
 cv2.rectangle(img,(69,147),(152,378),(0,255,255),1)
-'''
 
-if len(indexes)>0:
-    for i in indexes.flatten():
-        if (str(classes[class_ids[i]]) == "person"):
-            x, y, w, h = boxes[i]
-            label = str(classes[class_ids[i]])
-            confidence = str(round(confidences[i],2))
-    
-            colour = colours[i]
-            cv2.rectangle(img, (x,y), (x+w, y+h), colour, 2)
-            cv2.putText(img, label + " " + confidence, (x,y + 20), font , 2, (255,255,255), 2)
+for i in indexes.flatten():
+    if (str(classes[class_ids[i]]) == "person"):
+        x, y, w, h = boxes[i]
+        label = str(classes[class_ids[i]])
+        confidence = str(round(confidences[i],2))
+  
+        colour = colours[i]
+        cv2.rectangle(img, (x,y), (x+w, y+h), colour, 2)
+        cv2.putText(img, label + " " + confidence, (x,y + 20), font , 2, (255,255,255), 2)
 
 count = 0
 
-'''cv2.circle(img,(0,1000),5,(255,0,0), -1)
+cv2.circle(img,(0,1000),5,(255,0,0), -1)
 cv2.circle(img,(1700,700),5,(255,0,0), -1)
 cv2.circle(img,(300,500),5,(255,0,0), -1)
 cv2.circle(img,(980,450),5,(255,0,0), -1)
-'''
+
 pt1 = np.float32([[0,1000],[1700,700],[300,500],[980,450]])
 pt2 = np.float32([[0,0],[700,0],[0,600],[700,600]])
 
@@ -111,6 +108,7 @@ result = cv2.warpPerspective(img,matrix, (700,600))
     cv2.putText(img, label + " " + confidence, (startX,startY + 20), font , 2, (255,255,255), 2)
     count += 1
 '''
+
 '''for b in blob:
     for n, img_blob in enumerate(b):
         cv2.imshow(str(n), img_blob)
@@ -125,11 +123,8 @@ print(distortionCoefficient)
 
 rvec =  np.matrix([1.759099006652832,0.46710100769996643 ,-0.331699013710022])
 tvec = np.matrix([525.8941650390625 ,45.40763473510742 ,986.7235107421875])
-R_mat = cv2.Rodrigues(rvec)[0].reshape(3,3)
-print(R_mat)
 
-
-
+print(tvec - 1381*np.linalg.pinv(rvec*cameraMatrix)*np.matrix([1510,139,1]))
 
 dst = cv2.warpPerspective(img,cameraMatrix,(1000,1000))
 

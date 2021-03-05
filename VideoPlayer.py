@@ -10,8 +10,10 @@ pathYoloCfg =  dir + '\yolov3.cfg'
 pathCoco =  dir + '\coco.names'
 
 net = cv2.dnn.readNet(pathYoloWeights, pathYoloCfg)
+
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+
 classes = []
 
 with open(pathCoco, 'r') as f:
@@ -54,6 +56,7 @@ while True:
                 confidences.append((float(confidence)))
                 class_ids.append(class_id)
 
+    '''
     count = 0
     font = cv2.FONT_HERSHEY_PLAIN
     for (startX, startY, endX, endY) in boxes:
@@ -62,6 +65,24 @@ while True:
         confidence = str(round(confidences[count],2))
         cv2.putText(img, label + " " + confidence, (startX,startY + 20), font , 2, (255,255,255), 2)
         count += 1
+    '''
+
+    indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.6)
+
+    filterPeople = []
+
+    colours = np.random.uniform(0,255, size = (len(boxes), 3))
+
+    if len(indexes)>0:
+        for i in indexes.flatten():
+            if (str(classes[class_ids[i]]) == "person"):
+                filterPeople.append(boxes[i])
+                x, y, w, h = boxes[i]
+                label = str(classes[class_ids[i]])
+                confidence = str(round(confidences[i],2))
+
+                colour = colours[i]
+                cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0), 2)
 
     img = cv2.resize(img, (1024,668))
 

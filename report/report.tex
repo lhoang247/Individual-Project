@@ -227,7 +227,7 @@ Figure 4.1 is a table that labels each image/video used in the report, giving a 
 		\hline
 		image 3 & 4 & 950 & N/A & A cluster of people close to the camera and in the background. \\
 		\hline
-		image 4 & 5 & 0 & N/A & Two people hugging. Two people walking side by side with one blocking the other. \\
+		image 4 & 5 & 30 & N/A & Two people standing next to each other with back facing the camera. \\
 		\hline
 		video 1 & 1 & 15:02 & 8 & Group of stationary people with a person walking by. \\
 		\hline
@@ -359,14 +359,60 @@ On the other hand, having a larger parameter value will keep too much informatio
 
 While there is a parameter value that voids all overlapping boxes and detects the person hiding behind the other in 'image 2' (value 0.6), the bounding box that NMS chose was suboptimal and was bigger than the person's body (Appendix 3a). Solving the problem by adjusting the 'yolov3' architecture can be difficult as the image itself was intentionally used as an extreme example and may even take humans a second to see that there is a person behind the other as there is only hair and a leg showing.
 
-\subsection*{Conclusion for filtering methods}
+\vspace{2mm}
 
-A higher camera angle when taking this picture could be a solution for hidden people, allowing for more exposure on the person's figure. Likely, a perfect angle for detecting people with this architecture would be close to a top down view of the floor which acts as a plane, allowing to see every single person in view without the worry of hiding behind someone else.
+A higher camera angle when taking this picture could be a solution for hidden people, allowing for more exposure on the person's figure. Likely, a perfect angle for detecting people with this architecture would be close to a top down view of the floor which acts as a plane, allowing to see every single person in view without the worry of hiding behind someone else. Achieving a fully working object detection on the image goes beyond what is capable of the YOLO architecture. Moving forward, any frames within a video that experiences the same level of object interference will be seen as an 'outlier' frame for simplicity. 
+
+\subsection{Image augmentation}
+
+The purpose of testing object detection with images that are augmented is that the inputs we are working with are high quality 1080p images and videos. It is possible that the user who wants to use the finished product have cameras that do not match the quality of the ones shown throughout the results.
+
+\vspace{2mm}
+
+This test will use 'image 4' for a baseline example and will be augmented, mainly focusing on the two people who are next to each other on the left (Figure 5.2). The image was reduced to 1280x720 resolution. All variations of the image was processed with a confidence percentage of 50 and 0.5 for the NMS parameter. 
+
+\vspace{2mm}
+
+The images will have artificial noise added using a technique called 'salt and pepper' (adding black and white pixels to random spots). The amount of 'salt and pepper' that are added to an image can be controlled by a parameter that determines the probability that a pixel in the image will either turn black/white or stay the same where turning black and white are same probability. This technique is done manually using a 'for' loop where the loop goes through ever pixel of the image. A number is rolled each time within the for loop and is not set, this means that running the program again with the same parameters may lead to different results.
+
+\vspace{2mm}
+
+The first test using 10 percent probability produced similar bounding boxes to the original image, with a slight difference of bounding box height/width and the probability of correct classification also varies. While it is only a sample of one, 'yolov3' seems to work well with different resolutions and noise as shown in figure 5.2, successfully identifying the two people who are on the left.
+
+\vspace{2mm}
+
+When increasing the intensity of noise, the bounding boxes that are shown decreases in quantity as the model is having a harder time determining the probability that the object is a 'person'. Augmenting the image to 50 percent noise (figure 5.2) made it so the object detector could not identify a 'person' with above 50 percent confidence. 
+
+\vspace{2mm}
+
+With a 0 percent confidence (Appendix 3b), all variations of the images do identify the two people. This concludes that not having a high quality image may affect the probability that the system correctly classifies an object, but can be solved by lowering the confidence threshold. The drawback of having a lower quality camera is that it reduces the total amount of bounding boxes which may lead to people being unidentified by the system.
 
 
-\subsection*{title}
+\begin{center}
+	\includegraphics[width=65mm]{./images/image45050.PNG}
+	\includegraphics[width=65mm]{./images/appendix/imageAugment720pSandP.PNG}
+	
+	\vspace{2mm}
+	\hspace{0.3mm}
+	\includegraphics[width=65mm]{./images/appendix/imageAugment0.4SandP.PNG}
+	\includegraphics[width=65mm]{./images/appendix/imageAugment0.5SandP.PNG}
+	\vspace{3mm}
+	
+	{\footnotesize Figure 5.2: 'Image 4' with artificial noise of 0,10,40,50 percent respectively}
+\end{center}
 
 
+\subsection{Conclusion for detecting objects}
+
+The architecture worked well for all images that were tested but have limitations that can occur when an object blocks another. However, having a better camera angle will solve the issue and is recommended when using this system. Tuning the confidence and NMS effectiveness can be finicky and can differ depending on the image used therefore testing different parameter values for the user's setup before using the system for surveillance is essential to avoid miscalculation.
+
+\section{Using a video as an input}
+
+A while loop is used to read each frame of the video in chronological order and is fed to the model. With the help of GPUs, the process of forwarding each frame to the network is sped up by roughly 4 times compared to using a CPU only. See appendix 4 for screenshots of 'video 3'
+
+\section{Detecting social distancing by bounding box}
+
+Using the bounding boxes that 'yolov3' architecture has found, the system in theory should be able to mark the middle of every 'person' in the image/video.
 
 \chapter*{Appendix}
 
@@ -384,6 +430,21 @@ a)
 
 \includegraphics[width=120mm]{./images/appendix/NMS0.6.PNG}
 
+b)
 
+\includegraphics[width=70mm]{./images/appendix/NoConfidenceNoAug.PNG}
+\includegraphics[width=70mm]{./images/appendix/NoConfidenceAug10.PNG}
+
+\includegraphics[width=70mm]{./images/appendix/NoConfidenceAug40.PNG}
+\includegraphics[width=70mm]{./images/appendix/NoConfidenceAug50.PNG}
+
+\section*{Appendix 4: 5.2 outputs}
+
+\includegraphics[width=70mm]{./images/appendix/Video3output1.PNG}
+\includegraphics[width=70mm]{./images/appendix/Video3output2.PNG}
+
+
+\includegraphics[width=70mm]{./images/appendix/Video3output3.PNG}
+\includegraphics[width=70mm]{./images/appendix/Video3output4.PNG}
 
 \end{document}

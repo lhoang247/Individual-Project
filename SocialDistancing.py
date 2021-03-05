@@ -1,29 +1,80 @@
+#Importing libraries
+
 import numpy as np
 import cv2
 import os
 import timeit
+import random
 import matplotlib.pyplot as plt
-dir = 'D:\year3\IN3007-IndividualProject\YOLOv3'
+from skimage import util, data
 
+#Setting up directories
+
+dir = 'D:\year3\IN3007-IndividualProject\YOLOv3'
 pathYoloWeights = dir + '\yolov3.weights'
 pathYoloCfg =  dir + '\yolov3.cfg'
 pathCoco =  dir + '\coco.names'
 
+#Reading the weights and configs of the neural network architecture
+
 net = cv2.dnn.readNet(pathYoloWeights, pathYoloCfg)
+
+#Implementing GPU compatibility 
+
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+
+#Reading what the COCO dataset can identify
+
 classes = []
 
 with open(pathCoco, 'r') as f:
     classes = f.read().splitlines()
 
-img = cv2.imread('D:\year3\IN3007-IndividualProject\images used/00000950.png')
-print(img.shape)
+#Adding 'salt and pepper' to an image using probability
+
+def sp_noise(img,prob):
+    output = np.zeros(img.shape,np.uint8)
+    upper = 1 - prob 
+    for i in range(img.shape[0]):
+        for j in range(img.shape[1]):
+            rdn = random.random()
+            if rdn < prob:
+                output[i][j] = 0
+            elif rdn > upper:
+                output[i][j] = 255
+            else:
+                output[i][j] = img[i][j]
+    return output
+
+#Reading an image from file directory
+
+img = cv2.imread('D:\year3\IN3007-IndividualProject\images used/00000030.png')
+
+'''
+#Data augmentation
+
+#Adding noise to the chosen img
+
+img = sp_noise(img,0.05)
+
+#Resizing image
+
+img = cv2.resize(img,(1280,720))
+'''
 blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
+
+
+
+
+#Getting the resolution of the image
+
 height, width, _ = img.shape
 
 blob = cv2.dnn.blobFromImage(img, 1/255,(416,416),(0,0,0), swapRB=True, crop =False)
+
 #net.setInput is used to add an input to the network.
+
 net.setInput(blob)
 
 #Getting the output layer's names
@@ -67,7 +118,7 @@ toc = timeit.default_timer()
 
 print("here: " , toc - tic)
 
-indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.6, 0.6)
+indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.5)
 
 font = cv2.FONT_HERSHEY_PLAIN
 
@@ -79,16 +130,22 @@ cv2.rectangle(img,(1273,129),(1319,282),(0,255,255),1)
 cv2.rectangle(img,(69,147),(152,378),(0,255,255),1)
 '''
 
+filterPeople = []
+
 if len(indexes)>0:
     for i in indexes.flatten():
         if (str(classes[class_ids[i]]) == "person"):
+            filterPeople.append(boxes[i])
             x, y, w, h = boxes[i]
             label = str(classes[class_ids[i]])
             confidence = str(round(confidences[i],2))
     
             colour = colours[i]
-            cv2.rectangle(img, (x,y), (x+w, y+h), colour, 2)
-            cv2.putText(img, label + " " + confidence, (x,y + 20), font , 2, (255,255,255), 2)
+            cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0), 2)
+
+for i in range(len(filterPeople)-1):
+    for j in range(len(filterPeople)-1):
+        cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.5))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.5))), (255, 255, 255), thickness= 2)
 
 count = 0
 

@@ -20,7 +20,7 @@ with open(pathCoco, 'r') as f:
     classes = f.read().splitlines()
 
 
-cap = cv2.VideoCapture('D:/year3/IN3007-IndividualProject/videos used/cam2clip1.mp4')
+cap = cv2.VideoCapture('D:/year3/IN3007-IndividualProject/videos used/cam7clip1.mp4')
 tic = timeit.default_timer()
 while True:
     _ , img = cap.read()
@@ -82,7 +82,22 @@ while True:
                 confidence = str(round(confidences[i],2))
 
                 colour = colours[i]
-                cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0), 2)
+
+
+    for i in range(len(filterPeople)):
+        SD = True
+        for j in range(len(filterPeople)):
+            if (i != j):
+                pixelDistance = np.sqrt(abs(float(filterPeople[i][0]+(filterPeople[i][2]*0.5)) - float(filterPeople[j][0]+(filterPeople[j][2]*0.5)))**2 + abs(float(filterPeople[i][1]+(filterPeople[i][3]*0.99)) - float(filterPeople[j][1]+(filterPeople[j][3]*0.99)))**2)
+                if (pixelDistance < 500):
+                    cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (0, 0, 255), thickness= 2)
+                    SD = False
+                elif ( pixelDistance < 600):
+                    cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (0, 255, 0), thickness= 2)
+        if (SD):
+            cv2.rectangle(img, (filterPeople[i][0],filterPeople[i][1]), (filterPeople[i][0]+filterPeople[i][2], filterPeople[i][1]+filterPeople[i][3]), (0,255,0), 2)
+        else:
+            cv2.rectangle(img, (filterPeople[i][0],filterPeople[i][1]), (filterPeople[i][0]+filterPeople[i][2], filterPeople[i][1]+filterPeople[i][3]), (0,0,255), 2)
 
     img = cv2.resize(img, (1024,668))
 

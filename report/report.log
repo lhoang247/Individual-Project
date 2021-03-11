@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  4 MAR 2021 22:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  10 MAR 2021 16:07
 entering extended mode
 **./report.tex
 (report.tex
@@ -756,28 +756,28 @@ Overfull \hbox (0.3058pt too wide) in paragraph at lines 297--298
 4 points to a square/rectangle
  []
 
-[12]
+[12] [13]
 Chapter 5.
-<./images/appendix/ConfidencePlot.PNG, id=51, 425.33907pt x 344.78813pt>
+<./images/appendix/ConfidencePlot.PNG, id=54, 425.33907pt x 344.78813pt>
 File: ./images/appendix/ConfidencePlot.PNG Graphic file (type png)
 <use ./images/appendix/ConfidencePlot.PNG>
 Package pdftex.def Info: ./images/appendix/ConfidencePlot.PNG  used on input li
 ne 335.
 (pdftex.def)             Requested size: 213.39566pt x 172.98286pt.
-<./images/zeroConfidence.PNG, id=53, 773.89125pt x 507.39563pt>
+<./images/zeroConfidence.PNG, id=56, 773.89125pt x 507.39563pt>
 File: ./images/zeroConfidence.PNG Graphic file (type png)
 <use ./images/zeroConfidence.PNG>
 Package pdftex.def Info: ./images/zeroConfidence.PNG  used on input line 336.
 (pdftex.def)             Requested size: 213.39566pt x 139.90973pt.
-[13
+[14
 
-] [14 <./images/appendix/ConfidencePlot.PNG> <./images/zeroConfidence.PNG>]
-<./images/image45050.PNG, id=62, 773.89125pt x 504.38437pt>
+] [15 <./images/appendix/ConfidencePlot.PNG> <./images/zeroConfidence.PNG>]
+<./images/image45050.PNG, id=65, 773.89125pt x 504.38437pt>
 File: ./images/image45050.PNG Graphic file (type png)
 <use ./images/image45050.PNG>
 Package pdftex.def Info: ./images/image45050.PNG  used on input line 392.
 (pdftex.def)             Requested size: 184.9429pt x 120.53137pt.
-<./images/appendix/imageAugment720pSandP.PNG, id=63, 774.64406pt x 505.13719pt>
+<./images/appendix/imageAugment720pSandP.PNG, id=66, 774.64406pt x 505.13719pt>
 
 File: ./images/appendix/imageAugment720pSandP.PNG Graphic file (type png)
 <use ./images/appendix/imageAugment720pSandP.PNG>
@@ -785,111 +785,173 @@ Package pdftex.def Info: ./images/appendix/imageAugment720pSandP.PNG  used on i
 nput line 393.
 (pdftex.def)             Requested size: 184.9429pt x 120.59566pt.
 
-[15]
-<./images/appendix/imageAugment0.4SandP.PNG, id=67, 773.89125pt x 505.89pt>
+[16]
+<./images/appendix/imageAugment0.4SandP.PNG, id=70, 773.89125pt x 505.89pt>
 File: ./images/appendix/imageAugment0.4SandP.PNG Graphic file (type png)
 <use ./images/appendix/imageAugment0.4SandP.PNG>
 Package pdftex.def Info: ./images/appendix/imageAugment0.4SandP.PNG  used on in
 put line 397.
 (pdftex.def)             Requested size: 184.9429pt x 120.89116pt.
-<./images/appendix/imageAugment0.5SandP.PNG, id=68, 773.89125pt x 503.63156pt>
+<./images/appendix/imageAugment0.5SandP.PNG, id=71, 773.89125pt x 503.63156pt>
 File: ./images/appendix/imageAugment0.5SandP.PNG Graphic file (type png)
 <use ./images/appendix/imageAugment0.5SandP.PNG>
 Package pdftex.def Info: ./images/appendix/imageAugment0.5SandP.PNG  used on in
 put line 398.
 (pdftex.def)             Requested size: 184.9429pt x 120.35147pt.
- [16 <./images/image45050.PNG> <./images/appendix/imageAugment720pSandP.PNG> <.
+ [17 <./images/image45050.PNG> <./images/appendix/imageAugment720pSandP.PNG> <.
 /images/appendix/imageAugment0.4SandP.PNG> <./images/appendix/imageAugment0.5Sa
 ndP.PNG>]
-<./images/YOLO.jpg, id=76, 707.64375pt x 1122.1925pt>
+<./images/appendix/test1.JPG, id=79, 774.64406pt x 504.38437pt>
+File: ./images/appendix/test1.JPG Graphic file (type jpg)
+<use ./images/appendix/test1.JPG>
+Package pdftex.def Info: ./images/appendix/test1.JPG  used on input line 440.
+(pdftex.def)             Requested size: 184.9429pt x 120.41592pt.
+ [18 <./images/appendix/test1.JPG>]
+<./images/appendix/BoundingBoxBottom.JPG, id=86, 774.64406pt x 505.13719pt>
+File: ./images/appendix/BoundingBoxBottom.JPG Graphic file (type jpg)
+<use ./images/appendix/BoundingBoxBottom.JPG>
+Package pdftex.def Info: ./images/appendix/BoundingBoxBottom.JPG  used on input
+ line 454.
+(pdftex.def)             Requested size: 184.9429pt x 120.59566pt.
+ [19 <./images/appendix/BoundingBoxBottom.JPG>]
+<./images/YOLO.jpg, id=91, 707.64375pt x 1122.1925pt>
 File: ./images/YOLO.jpg Graphic file (type jpg)
 <use ./images/YOLO.jpg>
-Package pdftex.def Info: ./images/YOLO.jpg  used on input line 419.
+Package pdftex.def Info: ./images/YOLO.jpg  used on input line 470.
 (pdftex.def)             Requested size: 312.9803pt x 496.33472pt.
-<./images/SD Class diagram.jpg, id=77, 1895.08pt x 896.34875pt>
+<./images/SD Class diagram.jpg, id=92, 1895.08pt x 896.34875pt>
 File: ./images/SD Class diagram.jpg Graphic file (type jpg)
 <use ./images/SD Class diagram.jpg>
-Package pdftex.def Info: ./images/SD Class diagram.jpg  used on input line 423.
+Package pdftex.def Info: ./images/SD Class diagram.jpg  used on input line 474.
 
 (pdftex.def)             Requested size: 1895.0754pt x 896.34657pt.
- [17
+ [20
 
- <./images/YOLO.jpg>] [18 <./images/SD Class diagram.jpg>]
-<./images/appendix/NMS0.6.PNG, id=85, 773.13844pt x 509.65407pt>
+ <./images/YOLO.jpg>] [21 <./images/SD Class diagram.jpg>]
+<./images/appendix/image298confidence.PNG, id=99, 773.89125pt x 506.6428pt>
+File: ./images/appendix/image298confidence.PNG Graphic file (type png)
+<use ./images/appendix/image298confidence.PNG>
+Package pdftex.def Info: ./images/appendix/image298confidence.PNG  used on inpu
+t line 480.
+(pdftex.def)             Requested size: 341.43306pt x 223.52652pt.
+<./images/appendix/NMS0.6.PNG, id=100, 773.13844pt x 509.65407pt>
 File: ./images/appendix/NMS0.6.PNG Graphic file (type png)
 <use ./images/appendix/NMS0.6.PNG>
-Package pdftex.def Info: ./images/appendix/NMS0.6.PNG  used on input line 429.
+Package pdftex.def Info: ./images/appendix/NMS0.6.PNG  used on input line 484.
 (pdftex.def)             Requested size: 341.43306pt x 225.0728pt.
-<./images/appendix/NoConfidenceNoAug.PNG, id=86, 773.13844pt x 505.13719pt>
+<./images/appendix/NoConfidenceNoAug.PNG, id=101, 773.13844pt x 505.13719pt>
 File: ./images/appendix/NoConfidenceNoAug.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceNoAug.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceNoAug.PNG  used on input
- line 433.
+ line 488.
 (pdftex.def)             Requested size: 199.16928pt x 130.13016pt.
-<./images/appendix/NoConfidenceAug10.PNG, id=87, 773.13844pt x 505.89pt>
+<./images/appendix/NoConfidenceAug10.PNG, id=102, 773.13844pt x 505.89pt>
 File: ./images/appendix/NoConfidenceAug10.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceAug10.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceAug10.PNG  used on input
- line 434.
+ line 489.
 (pdftex.def)             Requested size: 199.16928pt x 130.32408pt.
-<./images/appendix/NoConfidenceAug40.PNG, id=88, 773.13844pt x 502.87875pt>
+<./images/appendix/NoConfidenceAug40.PNG, id=103, 773.13844pt x 502.87875pt>
 File: ./images/appendix/NoConfidenceAug40.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceAug40.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceAug40.PNG  used on input
- line 436.
+ line 491.
 (pdftex.def)             Requested size: 199.16928pt x 129.54836pt.
-<./images/appendix/NoConfidenceAug50.PNG, id=89, 773.89125pt x 506.6428pt>
+<./images/appendix/NoConfidenceAug50.PNG, id=104, 773.89125pt x 506.6428pt>
 File: ./images/appendix/NoConfidenceAug50.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceAug50.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceAug50.PNG  used on input
- line 437.
+ line 492.
 (pdftex.def)             Requested size: 199.16928pt x 130.3866pt.
-<./images/appendix/Video3output1.PNG, id=90, 773.13844pt x 505.89pt>
+
+[22 <./images/appendix/image298confidence.PNG> <./images/appendix/NMS0.6.PNG> <
+./images/appendix/NoConfidenceNoAug.PNG> <./images/appendix/NoConfidenceAug10.P
+NG>]
+<./images/appendix/Video3output1.PNG, id=112, 773.13844pt x 505.89pt>
 File: ./images/appendix/Video3output1.PNG Graphic file (type png)
 <use ./images/appendix/Video3output1.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output1.PNG  used on input lin
-e 441.
+e 496.
 (pdftex.def)             Requested size: 199.16928pt x 130.32408pt.
-<./images/appendix/Video3output2.PNG, id=91, 773.89125pt x 505.13719pt>
+<./images/appendix/Video3output2.PNG, id=113, 773.89125pt x 505.13719pt>
 File: ./images/appendix/Video3output2.PNG Graphic file (type png)
 <use ./images/appendix/Video3output2.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output2.PNG  used on input lin
-e 442.
+e 497.
 (pdftex.def)             Requested size: 199.16928pt x 129.99913pt.
-
-[19 <./images/appendix/NMS0.6.PNG> <./images/appendix/NoConfidenceNoAug.PNG> <.
-/images/appendix/NoConfidenceAug10.PNG> <./images/appendix/NoConfidenceAug40.PN
-G> <./images/appendix/NoConfidenceAug50.PNG>]
-<./images/appendix/Video3output3.PNG, id=100, 773.89125pt x 503.63156pt>
+<./images/appendix/Video3output3.PNG, id=114, 773.89125pt x 503.63156pt>
 File: ./images/appendix/Video3output3.PNG Graphic file (type png)
 <use ./images/appendix/Video3output3.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output3.PNG  used on input lin
-e 445.
+e 500.
 (pdftex.def)             Requested size: 199.16928pt x 129.61165pt.
-<./images/appendix/Video3output4.PNG, id=101, 772.38562pt x 505.89pt>
+<./images/appendix/Video3output4.PNG, id=115, 772.38562pt x 505.89pt>
 File: ./images/appendix/Video3output4.PNG Graphic file (type png)
 <use ./images/appendix/Video3output4.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output4.PNG  used on input lin
-e 446.
+e 501.
 (pdftex.def)             Requested size: 199.16928pt x 130.44759pt.
- [20 <./images/appendix/Video3output1.PNG> <./images/appendix/Video3output2.PNG
-> <./images/appendix/Video3output3.PNG> <./images/appendix/Video3output4.PNG>] 
-(report.aux) ) 
+<./images/appendix/SDNoFilterByPixel.PNG, id=116, 773.13844pt x 502.87875pt>
+File: ./images/appendix/SDNoFilterByPixel.PNG Graphic file (type png)
+<use ./images/appendix/SDNoFilterByPixel.PNG>
+Package pdftex.def Info: ./images/appendix/SDNoFilterByPixel.PNG  used on input
+ line 507.
+(pdftex.def)             Requested size: 341.43306pt x 222.0807pt.
+ [23 <./images/appendix/NoConfidenceAug40.PNG> <./images/appendix/NoConfidenceA
+ug50.PNG> <./images/appendix/Video3output1.PNG> <./images/appendix/Video3output
+2.PNG> <./images/appendix/Video3output3.PNG> <./images/appendix/Video3output4.P
+NG>]
+<./images/appendix/Cam7Clip1BoundingBoxTest1.JPG, id=126, 771.63281pt x 506.642
+8pt>
+File: ./images/appendix/Cam7Clip1BoundingBoxTest1.JPG Graphic file (type jpg)
+<use ./images/appendix/Cam7Clip1BoundingBoxTest1.JPG>
+Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest1.JPG  used 
+on input line 512.
+(pdftex.def)             Requested size: 199.16928pt x 130.76541pt.
+<./images/appendix/Cam7Clip1BoundingBoxTest2.JPG, id=127, 773.13844pt x 506.642
+8pt>
+File: ./images/appendix/Cam7Clip1BoundingBoxTest2.JPG Graphic file (type jpg)
+<use ./images/appendix/Cam7Clip1BoundingBoxTest2.JPG>
+Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest2.JPG  used 
+on input line 513.
+(pdftex.def)             Requested size: 199.16928pt x 130.51802pt.
+<./images/appendix/Cam7Clip1BoundingBoxTest3.JPG, id=128, 774.64406pt x 507.395
+63pt>
+File: ./images/appendix/Cam7Clip1BoundingBoxTest3.JPG Graphic file (type jpg)
+<use ./images/appendix/Cam7Clip1BoundingBoxTest3.JPG>
+Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest3.JPG  used 
+on input line 515.
+(pdftex.def)             Requested size: 199.16928pt x 130.45647pt.
+<./images/appendix/Cam7Clip1BoundingBoxTest5.JPG, id=129, 774.64406pt x 507.395
+63pt>
+File: ./images/appendix/Cam7Clip1BoundingBoxTest5.JPG Graphic file (type jpg)
+<use ./images/appendix/Cam7Clip1BoundingBoxTest5.JPG>
+Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest5.JPG  used 
+on input line 516.
+(pdftex.def)             Requested size: 199.16928pt x 130.45647pt.
+ [24 <./images/appendix/SDNoFilterByPixel.PNG> <./images/appendix/Cam7Clip1Boun
+dingBoxTest1.JPG> <./images/appendix/Cam7Clip1BoundingBoxTest2.JPG> <./images/a
+ppendix/Cam7Clip1BoundingBoxTest3.JPG> <./images/appendix/Cam7Clip1BoundingBoxT
+est5.JPG>] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 15925 strings out of 480790
- 324980 string characters out of 2895894
+ 15974 strings out of 480790
+ 326990 string characters out of 2895894
  659635 words of memory out of 3000000
- 31632 multiletter control sequences out of 15000+200000
+ 31672 multiletter control sequences out of 15000+200000
  538326 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,9n,71p,849b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmr10.pfb><D:/Users/LeeHoang/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on report.pdf (21 pages, 18503029 bytes).
+<D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Users/LeeHoang/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Users/LeeHoang/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/User
+s/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
+b><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb>
+Output written on report.pdf (25 pages, 21473390 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
+ 155 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -90,7 +90,7 @@ CNNs builds upon the NN, specialising in working with grid-structured data such 
 
 \vspace{2mm}
 
-The information about the deep learning architectures we have discussed were influenced by taking part in the 'Introduction to AI' (IN3062) and 'Programming and Mathematics for Artificial Intelligence' (IN3063) module at City University.
+The information about the deep learning architectures have been discussed were influenced by taking part in the 'Introduction to AI' (IN3062) and 'Programming and Mathematics for Artificial Intelligence' (IN3063) module at City University.
 
 \section{WILDTRACK dataset}
 
@@ -290,7 +290,7 @@ This phase will focus on forwarding images to the network to test how well the o
 
 \subsection*{Detecting social distancing by bounding box distance}
 
-By using the found bounding box in the first phase, we should be able to compute the distance between two people using pixels as a estimated measurement. This will be tested with different camera angles to see how effective the implementation is.
+By using the found bounding box in the first phase, the program should be able to compute the distance between two people using pixels as a estimated measurement. This will be tested with different camera angles to see how effective the implementation is.
 
 \subsection*{Detecting social distancing by matrix transformation}
 
@@ -321,15 +321,15 @@ The first image that was forwarded was 'image 2' (figure 5.1). The main focus of
 
 \vspace{2mm}
 
-Each classification comes with a probability that the object detected is the correct classification. Therefore objects that are 'person' could also have a probability of being identified as a 'car'.
+Each bounding box that the model outputs comes with a probability that the object detected is the correct classification. Therefore objects that are a 'person' could also have a probability of being identified as a 'car'.
 
 \subsection{Filtering classification methods}
 
-The probabilities can be filtered by extracting the highest probability that the model gave to a object within the image by using the argmax function that NumPy provides. This method of filtering removes 98.75 percent of the objects identified by YOLO, as it choices 1 object from 80 different classifications, reducing the total number of objects left to 71.
+The probabilities can be filtered by extracting the highest probability that the model gave to a object within the image by using the argmax function that NumPy provides. This method of filtering removes 98.75 percent of the objects identified by YOLO, as it chooses 1 object from 80 different classifications, reducing the total number of objects left to 71 for 'image 2'.
 
 \vspace{2mm}
 
-Another method of filtering was to apply a probability threshold. Increasing the threshold filters out any probabilities that are below. Figure 5.1 shows a plot that focuses on the amount of objects that are detected compared to different levels of confidence with a 2 percent increment. Having a really high percentage means that model almost guarantees the object classification if correct. This has the draw back of not being able to detect any pedestrians far in the background, as they have lower classification percentage that the people closer to the camera. It is more optimal to have a lower percentage in 'image 2' as the system is able to pick up people who are hiding behind others even though they are close to the front of the camera which is important in a office environment.
+Another method of filtering was to apply a probability threshold. Increasing the threshold filtrates all probabilities that are below a certain percentage. Figure 5.1 shows a plot that focuses on the amount of objects that are detected with different levels of confidence with a 2 percent increment. Having a really high percentage means that model almost guarantees the object classification if correct. This has the draw back of not being able to detect any pedestrians far in the background (Appendix 3a), as they have lower classification percentage that the people closer to the camera. It is more optimal to have a lower percentage in 'image 2' as the system is able to pick up people who are hiding behind others even though they are close to the front of the camera which is important in an office environment.
 
 \begin{center}
 \includegraphics[width=75mm]{./images/appendix/ConfidencePlot.PNG}
@@ -345,7 +345,7 @@ The choice of having a small confidence has a clear down side of an increased am
 
 \vspace{2mm}
 
-Non-max suppression (NMS) has a parameter that can be tuned to either increase or decrease the effectiveness of NMS where a smaller parameter filters more bounding boxes on the same object. The function was testing with 'image 2' (30 percent confidence). Similar to the confidence parameter, having an extremely low parameter for NMS loses too much information in the process. 
+Non-max suppression (NMS) has a parameter that can be tuned to either increase or decrease the effectiveness of NMS where a smaller parameter filters more bounding boxes on the same object. The function was testing with 'image 2' (30 percent confidence). Opposite to the confidence parameter, having an extremely low parameter for NMS loses too much information in the process. 
 
 \vspace{2mm}
 
@@ -357,7 +357,7 @@ On the other hand, having a larger parameter value will keep too much informatio
 
 \vspace{2mm}
 
-While there is a parameter value that voids all overlapping boxes and detects the person hiding behind the other in 'image 2' (value 0.6), the bounding box that NMS chose was suboptimal and was bigger than the person's body (Appendix 3a). Solving the problem by adjusting the 'yolov3' architecture can be difficult as the image itself was intentionally used as an extreme example and may even take humans a second to see that there is a person behind the other as there is only hair and a leg showing.
+While there is a parameter value that voids all overlapping boxes and detects the person hiding behind the other in 'image 2' (value 0.6), the bounding box that NMS chose was suboptimal and was bigger than the person's body (Appendix 3b). Solving the problem by adjusting the 'yolov3' architecture can be difficult as the image itself was intentionally used as an extreme example and may even take humans a second to see that there is a person behind the other as there is only hair and a leg showing.
 
 \vspace{2mm}
 
@@ -373,7 +373,7 @@ This test will use 'image 4' for a baseline example and will be augmented, mainl
 
 \vspace{2mm}
 
-The images will have artificial noise added using a technique called 'salt and pepper' (adding black and white pixels to random spots). The amount of 'salt and pepper' that are added to an image can be controlled by a parameter that determines the probability that a pixel in the image will either turn black/white or stay the same where turning black and white are same probability. This technique is done manually using a 'for' loop where the loop goes through ever pixel of the image. A number is rolled each time within the for loop and is not set, this means that running the program again with the same parameters may lead to different results.
+The images will have artificial noise added using a technique called 'salt and pepper' (adding black and white pixels to random spots). The amount of 'salt and pepper' that are added to an image can be controlled by a parameter that determines the probability that a pixel in the image will either turn black/white or stay the same where turning black and white are same probability. This technique is done manually using a 'for' loop where the loop goes through every pixel of the image. A number is rolled each time within the for loop and is not set, this means that running the program again with the same parameters may lead to different results.
 
 \vspace{2mm}
 
@@ -385,7 +385,7 @@ When increasing the intensity of noise, the bounding boxes that are shown decrea
 
 \vspace{2mm}
 
-With a 0 percent confidence (Appendix 3b), all variations of the images do identify the two people. This concludes that not having a high quality image may affect the probability that the system correctly classifies an object, but can be solved by lowering the confidence threshold. The drawback of having a lower quality camera is that it reduces the total amount of bounding boxes which may lead to people being unidentified by the system.
+With a 0 percent confidence and without NMS (Appendix 3c), all variations of the images do identify the two people. This concludes that not having a high quality image may affect the probability that the system correctly classifies an object, but can be solved by lowering the confidence threshold. The drawback of having a lower quality camera is that it reduces the total amount of bounding boxes which may lead to people being unidentified by the system.
 
 
 \begin{center}
@@ -410,9 +410,58 @@ The architecture worked well for all images that were tested but have limitation
 
 A while loop is used to read each frame of the video in chronological order and is fed to the model. With the help of GPUs, the process of forwarding each frame to the network is sped up by roughly 4 times compared to using a CPU only. See appendix 4 for screenshots of 'video 3'
 
+\vspace{2mm}
+
+Beneficiaries are able to use their webcam/surveillance cameras as an input in real time with this implementation. The downside of running this program in real time with a camera of 30 frames per second is that it requires more GPU power compared to the results seen in the report. Currently the setup in this report computes the videos at approximately 10 frames per second. 
+
 \section{Detecting social distancing by bounding box}
 
-Using the bounding boxes that 'yolov3' architecture has found, the system in theory should be able to mark the middle of every 'person' in the image/video.
+Using the bounding boxes that 'yolov3' architecture has identified, the system in theory should be able to mark the middle of every 'person' in the image/video. To calculate the middle of bounding box coordinates, the model provides the position of the left-upper corner of the bound box represented as (x,y) and also gives the height and width of the bounding box as h and w. Therefore:
+\begin{equation*}
+Middle Of Bounding Box Coordinates = (x+\frac{w}{2}, y+\frac{h}{2})
+\end{equation*}
+
+
+To calculate distanced using the bounding boxes given, the system uses a 'for' loop of time complexity O($n^2$) to draw a line between every individual in the image/frame. The line can be measured using Pythagoras' theorem. Once calculated, the system filters lines that are below the social distancing threshold red, else the line is green. For the results produced, some green lines were filtered if they were larger than a certain threshold to give better clarity on the lines that showed 'not social distancing'. See appendix 4a for an example of all the lines in a single image.
+
+\vspace{2mm}
+
+For the first prototype of the system, the threshold of social distancing is measured by pixels. The first test uses 'image 4' with the threshold of 400 pixels being the social distancing length. This length was determined by measuring the two people who are next to each other with pixels (approximately 360 pixels apart) and slightly increasing the number. This also means that images from different cameras will need different threshold values due to the angle of the camera and the camera's focal length.
+
+\vspace{2mm}
+
+The results seen in figure 5.3 do correctly identify the two people as not social distancing between each other, but there are connections from the two people at the front to people at the back who are seen by the system as not social distancing when in reality they are far away. This is because the current system does not consider the field of view, therefore the image acts a top down view instead of looking a plane at an inclined angle.
+
+\vspace{2mm}
+
+This is not the only problem with the system as measuring distance at the middle of the bounding box with the y coordinate has inaccuracies as doing so assumes that every person in the photo is the same/average height which is not the case. A better solution for this is to view the ground as a plane, and use the bottom of the bounding boxes or person's feet as a mark when measuring distance. 
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/test1.JPG}
+	
+	{\footnotesize Figure 5.3: 'Image 4' with first prototype social distancing detection}
+\end{center}
+
+\subsection*{Bounding box measurement improvement}
+
+The first improvement to the system was to change the coordinates of where the line was being measured. Instead of using half of the bounding boxes' height added to the y coordinate, the system adds 99 percent of the height. 99 was specifically used because the bounding boxes generated by the model could sometimes overshoot the person's shoe, therefore using slightly less than the bounding box height would correct this. 
+
+\vspace{2mm}
+
+While the improvement to the system did not classify anyone people as 'social distancing', the connections coming out of the two people at the front and the people in the background  (Figure 5.4) are green, indicating that they are a safe enough distance. This improvement provides flexibility between the images/videos used in the dataset (See Appendix 4b for results on 'video 9'), as the implementation does not need to be tweaked when changing cameras. 
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/BoundingBoxBottom.JPG}
+	
+	{\footnotesize Figure 5.4: 'Image 4' with measurement improvement.}
+\end{center}
+
+\subsection*{Fixing perspective distance}
+
+
+\begin{equation*}
+Object Size In Image = Object Size * \frac{focal Length}{Object Distance From Camera}
+\end{equation*}
 
 \chapter*{Appendix}
 
@@ -428,9 +477,13 @@ Using the bounding boxes that 'yolov3' architecture has found, the system in the
 
 a)
 
-\includegraphics[width=120mm]{./images/appendix/NMS0.6.PNG}
+\includegraphics[width=120mm]{./images/appendix/image298confidence.PNG}
 
 b)
+
+\includegraphics[width=120mm]{./images/appendix/NMS0.6.PNG}
+
+c)
 
 \includegraphics[width=70mm]{./images/appendix/NoConfidenceNoAug.PNG}
 \includegraphics[width=70mm]{./images/appendix/NoConfidenceAug10.PNG}
@@ -447,4 +500,20 @@ b)
 \includegraphics[width=70mm]{./images/appendix/Video3output3.PNG}
 \includegraphics[width=70mm]{./images/appendix/Video3output4.PNG}
 
+\section*{Appendix 4: 5.3 outputs}
+a)
+
+
+\includegraphics[width=120mm]{./images/appendix/SDNoFilterByPixel.PNG}
+
+b)
+
+
+\includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest1.JPG}
+\includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest2.JPG}
+
+\includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest3.JPG}
+\includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest5.JPG}
+
 \end{document}
+

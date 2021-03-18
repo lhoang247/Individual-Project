@@ -146,12 +146,13 @@ for i in range(len(filterPeople)):
     SD = True
     for j in range(len(filterPeople)):
         if (i != j):
-            pixelDistance = np.sqrt(abs(float(filterPeople[i][0]+(filterPeople[i][2]*0.5)) - float(filterPeople[j][0]+(filterPeople[j][2]*0.5)))**2 + abs(float(filterPeople[i][1]+(filterPeople[i][3]*0.99)) - float(filterPeople[j][1]+(filterPeople[j][3]*0.99)))**2)
-            if (pixelDistance < 400):
-                cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (0, 0, 255), thickness= 2)
+            pixelDistance = np.sqrt(abs(float(filterPeople[i][0]+(filterPeople[i][2]*0.5)) - float(filterPeople[j][0]+(filterPeople[j][2]*0.5)))**2 + abs(float(filterPeople[i][1]+(filterPeople[i][3]*0.99))*2 - float(filterPeople[j][1]+(filterPeople[j][3]*0.99))*2)**2)
+            middleDistance = (filterPeople[i][1]+filterPeople[i][2]+filterPeople[j][1]+filterPeople[j][2]) / 2
+            if (pixelDistance < 400 - (800/middleDistance)*50):
+                cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (233,255,0), thickness= 2)
                 SD = False
-            elif ( pixelDistance < 600):
-                cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (0, 255, 0), thickness= 2)
+            #elif ( pixelDistance < 600 + 800/middleDistance):
+            #    cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (0, 255, 0), thickness= 2)
     if (SD):
         cv2.rectangle(img, (filterPeople[i][0],filterPeople[i][1]), (filterPeople[i][0]+filterPeople[i][2], filterPeople[i][1]+filterPeople[i][3]), (0,255,0), 2)
     else:
@@ -164,12 +165,14 @@ cv2.circle(img,(1700,700),5,(255,0,0), -1)
 cv2.circle(img,(300,500),5,(255,0,0), -1)
 cv2.circle(img,(980,450),5,(255,0,0), -1)
 '''
-pt1 = np.float32([[0,1000],[1700,700],[300,500],[980,450]])
-pt2 = np.float32([[0,0],[700,0],[0,600],[700,600]])
+pt1 = np.float32([[0,0],[1700,700],[1000,500],[980,450]])
+pt2 = np.float32([[0,0],[1040,0],[0,668],[1040,668]])
 
 matrix = cv2.getPerspectiveTransform(pt1,pt2)
 
-result = cv2.warpPerspective(img,matrix, (700,600))
+print("MAtrix = ", matrix)
+
+result = cv2.warpPerspective(img,matrix, (1040,668))
 
 '''
 for (startX, startY, endX, endY) in boxes:

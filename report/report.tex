@@ -361,7 +361,7 @@ While there is a parameter value that voids all overlapping boxes and detects th
 
 \vspace{2mm}
 
-A higher camera angle when taking this picture could be a solution for hidden people, allowing for more exposure on the person's figure. Likely, a perfect angle for detecting people with this architecture would be close to a top down view of the floor which acts as a plane, allowing to see every single person in view without the worry of hiding behind someone else. Achieving a fully working object detection on the image goes beyond what is capable of the YOLO architecture. Moving forward, any frames within a video that experiences the same level of object interference will be seen as an 'outlier' frame for simplicity. 
+A higher camera angle when taking this picture could be a solution for hidden people, allowing for more exposure on the person's figure. Likely, a perfect angle for detecting people with this architecture would be close to a top down view of the floor which acts as a planar surface, allowing to see every single person in view without the worry of hiding behind someone else. Achieving a fully working object detection on the image goes beyond what is capable of the YOLO architecture. Moving forward, any frames within a video that experiences the same level of object interference will be seen as an 'outlier' frame for simplicity. 
 
 \subsection{Image augmentation}
 
@@ -404,7 +404,7 @@ With a 0 percent confidence and without NMS (Appendix 3c), all variations of the
 
 \subsection{Conclusion for detecting objects}
 
-The architecture worked well for all images that were tested but have limitations that can occur when an object blocks another. However, having a better camera angle will solve the issue and is recommended when using this system. Tuning the confidence and NMS effectiveness can be finicky and can differ depending on the image used therefore testing different parameter values for the user's setup before using the system for surveillance is essential to avoid miscalculation.
+The architecture worked well for all images that were tested but have limitations that can occur when an object blocks another. However, having a better camera angle will solve the issue and is recommended when using this system. Tuning the confidence and NMS effectiveness can be finicky and can differ depending on the camera quality used therefore testing different parameter values for the user's setup before using the system for surveillance is essential to avoid miscalculation.
 
 \section{Using a video as an input}
 
@@ -422,7 +422,7 @@ Middle Of Bounding Box Coordinates = (x+\frac{w}{2}, y+\frac{h}{2})
 \end{equation*}
 
 
-To calculate distanced using the bounding boxes given, the system uses a 'for' loop of time complexity O($n^2$) to draw a line between every individual in the image/frame. The line can be measured using Pythagoras' theorem. Once calculated, the system filters lines that are below the social distancing threshold red, else the line is green. For the results produced, some green lines were filtered if they were larger than a certain threshold to give better clarity on the lines that showed 'not social distancing'. See appendix 4a for an example of all the lines in a single image.
+To calculate distance between every individual using the bounding boxes given, the system uses a 'for' loop of time complexity O($n^2$) to draw a line between every individual in the image/frame. The line can be measured using Pythagoras' theorem. Once calculated, the system filters lines that are below the social distancing threshold red, else the line is green. For the results produced, some green lines were filtered if they were larger than a certain threshold to give better clarity on the lines that showed 'not social distancing'. See appendix 4a for an example of all the lines in a single image.
 
 \vspace{2mm}
 
@@ -434,7 +434,7 @@ The results seen in figure 5.3 do correctly identify the two people as not socia
 
 \vspace{2mm}
 
-This is not the only problem with the system as measuring distance at the middle of the bounding box with the y coordinate has inaccuracies as doing so assumes that every person in the photo is the same/average height which is not the case. A better solution for this is to view the ground as a plane, and use the bottom of the bounding boxes or person's feet as a mark when measuring distance. 
+This is not the only problem with the system as measuring distance at the middle of the bounding box with the y coordinate has inaccuracies as doing so assumes that every person in the photo is the same/average height which is not the case. A better solution for this is to view the ground as a planar surface, and use the bottom of the bounding boxes or person's feet as a mark/coordinate point when measuring distance. 
 
 \begin{center}
 	\includegraphics[width=65mm]{./images/appendix/test1.JPG}
@@ -451,17 +451,82 @@ The first improvement to the system was to change the coordinates of where the l
 While the improvement to the system did not classify anyone people as 'social distancing', the connections coming out of the two people at the front and the people in the background  (Figure 5.4) are green, indicating that they are a safe enough distance. This improvement provides flexibility between the images/videos used in the dataset (See Appendix 4b for results on 'video 9'), as the implementation does not need to be tweaked when changing cameras. 
 
 \begin{center}
-	\includegraphics[width=65mm]{./images/appendix/BoundingBoxBottom.JPG}
+	\includegraphics[width=80mm]{./images/appendix/BoundingBoxBottom.JPG}
 	
 	{\footnotesize Figure 5.4: 'Image 4' with measurement improvement.}
 \end{center}
 
-\subsection*{Fixing perspective distance}
+\subsection*{Solution to perspective distance}
 
+Looking at the tiles of the floor in 'image 4', the tiles get smaller as they get further from the camera linearly. The rate at which they get smaller depends on several factors: the focal length of the camera and the distance from the camera. The equation to calculating the size of a person in the image respective to how far they are from the camera would be:
 
 \begin{equation*}
-Object Size In Image = Object Size * \frac{focal Length}{Object Distance From Camera}
+Object Size In Image = Object Size * \frac{Focal Length}{Object Distance From Camera}
 \end{equation*}
+
+The implementation of this method will only rely on pixel distance between two bounding boxes, therefore we can not use the actual focal length of the camera and object distance from camera as parameters in the equation. Therefore a solution to this is to use the x and y coordinate of the bounding boxes to determine how far the person is from the camera, where the smaller the y, the further the object is from the camera. (the coordinate (0,0) starts at the top left-hand corner of the image.)
+
+\vspace{2mm}
+
+The first solution was to multiply every y coordinate by 2 while keeping the threshold the same (400 pixel distance). This in theory is the focal length parameter as an estimate and also could be seen as a stretch in the x axis. People who are on the same y coordinate are in the same perspective distance, therefore multiplying the y coordinate will have very little effect on people who have the same y value when calculating Pythagoras where as people who are on different y coordinates with be impacted greatly. 
+
+\vspace{2mm}
+
+The results (Figure 5.5) show a large improvement to the previous version, being able to classify 3 different people as 'social distancing' unlike figure 5.4. The implementation still classified the two people at the front as not 'social distancing' which is a success.
+
+\begin{center}
+	\includegraphics[width=80mm]{./images/appendix/PerspectiveSolution1.JPG}
+	
+	{\footnotesize Figure 5.5: 'Image 4' with measurement improvement.}
+\end{center}
+
+While this is an improvement, the perspective is only 'solved' in the y axis. As things are further away from the camera or the y coordinate becomes smaller, each pixel represents a larger area in the real world. Therefore the system would need to scale the threshold depending on the value of the y coordinate. The equation used to calculate the new threshold with respect to the y coordinate is:
+
+\begin{equation*}
+UpdatedThreshold = OriginalThreshold - \frac{OriginalY*Scalar}{MeanCoordinateBetweenObjects}
+\end{equation*}
+
+The 'OriginalY' variable is based of the y coordinates of where the 'OrginalThreshold' was measured (This can be referred from the first prototype of the implementation.). In 'Image 4' case, the 'OriginalY' is the mean y coordinate between the two people at the front (value 800). 
+
+\vspace{2mm}
+
+Figure 5.6 showcases the before and after of the 'threshold scalar' implementation using the different 'scalar' value at 20, 40, 50 respectively. The turquoise lines indicate not 'social distancing' between people. While  the implementation does not classify anyone new as being 'social distancing' with the 'scalar' value being 20, some lines are removed between the two cluster of people in the background. The reductions of lines seen between the before and after indicate that the equation discussed previously is working as intended.
+
+\vspace{2mm}
+
+As the scalar increases, less and less connections appear in the final output of the image and more people are highlighted in green which means that they are 'social distancing'. With the 'scalar' variable being 50, only adjacent people are connect with lines. The method is very effective at dealing with perspective distance as the two people at the front are still classified as not 'social distancing'.
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/BeforeThresholdScale.JPG}
+	\includegraphics[width=65mm]{./images/appendix/AfterThresholdScale.JPG}
+	
+	\includegraphics[width=65mm]{./images/appendix/AfterThresholdScale40.JPG}
+	\includegraphics[width=65mm]{./images/appendix/AfterThresholdScale50.JPG}
+	
+	{\footnotesize Figure 5.6: 'Image 4' before and after scalar adjustments (Non,20,40,50 respectively).}
+\end{center}
+
+\subsection{Conclusion of detecting SD by bounding box}
+
+The final output of the method worked as intended. The combination of the two equations discussed could be seen as rotating a line in a 3d space to be fixed on a plane or two separate transformation (stretch) to the image to account for the incline angle the camera has to the floor of the image.
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/qwe.JPG}
+\end{center}
+
+The problems that this implementation has are that the measurements are pixel values and not real word value, therefore we cannot know the exact distance between each person. Solutions such as giving a single pixel a defined real world measurement is plausible by using the average measurements of an object for scale with respective to a pixel, but the value will vary depending on the different focal lengths each camera has.
+
+\vspace{2mm}
+
+Another problem with this method is that the beneficiaries will have to tune the variables in the equation if they choose to use this for detecting social distancing. It is very likely that their setup is different and getting reasonable numbers for the variables will takes a lot of trial and error. 
+In conclusion, this solution is only an estimate to calculating social distancing and is nowhere near perfect. 
+
+\section{Detecting social distancing by matrix transformation}
+
+The previous method uses the floor in the images/videos as a planar surface for better precision when calculating the final output. This method takes the same ideas and uses a matrix transformation to augment the image into a top down view. This is done by selecting 4 points in the image where each point is pointing towards the floor (Most likely the points connect to a irregular quadrilateral). The system is able to utilise a function from OpenCV called 'getPerspectiveTransform' which is able to calculate a matrix that transforms the 4  connected points to another irregular quadrilateral or rectangle. The relationship between the images produce is called homography (OpenCV: Basic concepts of the homography explained with code, 2021) as they both represent the same planar surface in the real world.
+
+Once the matrix is acquired, OpenCV has another function that  
+
 
 \chapter*{Appendix}
 

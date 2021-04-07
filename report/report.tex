@@ -506,15 +506,12 @@ As the scalar increases, less and less connections appear in the final output of
 	{\footnotesize Figure 5.6: 'Image 4' before and after scalar adjustments (Non,20,40,50 respectively).}
 \end{center}
 
-\subsection{Conclusion of detecting SD by bounding box}
+\subsection*{Conclusion of detecting SD by bounding box}
 
-The final output of the method worked as intended. The combination of the two equations discussed could be seen as rotating a line in a 3d space to be fixed on a plane or two separate transformation (stretch) to the image to account for the incline angle the camera has to the floor of the image.
+The final output of the method worked as intended. The combination of the two equations discussed could be seen as two separate transformation (stretch) to the image to account for the incline angle the camera has to the floor of the image.
+\vspace{2mm}
 
-\begin{center}
-	\includegraphics[width=65mm]{./images/appendix/qwe.JPG}
-\end{center}
-
-The problems that this implementation has are that the measurements are pixel values and not real word value, therefore we cannot know the exact distance between each person. Solutions such as giving a single pixel a defined real world measurement is plausible by using the average measurements of an object for scale with respective to a pixel, but the value will vary depending on the different focal lengths each camera has.
+The problems that this implementation has is that the measurements are pixel values and not real word value, therefore we cannot know the exact distance between each person. Solutions such as giving a single pixel a defined real world measurement is plausible by using the average measurements of an object in the image for scale with respective to a pixel, but the value will vary depending on the different focal lengths each camera has.
 
 \vspace{2mm}
 
@@ -523,9 +520,303 @@ In conclusion, this solution is only an estimate to calculating social distancin
 
 \section{Detecting social distancing by matrix transformation}
 
-The previous method uses the floor in the images/videos as a planar surface for better precision when calculating the final output. This method takes the same ideas and uses a matrix transformation to augment the image into a top down view. This is done by selecting 4 points in the image where each point is pointing towards the floor (Most likely the points connect to a irregular quadrilateral). The system is able to utilise a function from OpenCV called 'getPerspectiveTransform' which is able to calculate a matrix that transforms the 4  connected points to another irregular quadrilateral or rectangle. The relationship between the images produce is called homography (OpenCV: Basic concepts of the homography explained with code, 2021) as they both represent the same planar surface in the real world.
+The previous method uses the floor in the images/videos as a planar surface for better precision when calculating the final output. This method takes the same ideas and uses a matrix transformation to augment the image into a top down view. The user selects 4 points in the image where each point is pointing towards the floor with an x and y component (Most likely the points connect to a irregular quadrilateral). The system is able to utilise a function from OpenCV called 'getPerspectiveTransform' which is able to calculate a 3x3 matrix that transforms the 4 connected points to another irregular quadrilateral or rectangle. The relationship between the images produce is called homography (OpenCV: Basic concepts of the homography explained with code, 2021) as they both represent the same planar surface in the real world.
 
-Once the matrix is acquired, OpenCV has another function that  
+\vspace{2mm}
+
+Once the matrix is acquired, OpenCV has another function that transforms the image with the new found matrix from 'getPerspectiveTransform' by using the function 'warpPerspective'. Figure 5.8 features 'video 6' with a red quadrilateral draw on. The 4 corners in image coordinates (x,y) are the inputs to 'getPerspectiveTransform' with (150,222), (594,170), (2620,560), (370,1494) (top left, top right, bottom right, and bottom left respectively). Do note that the quadrilateral drawn is an estimate of a rectangular surface in the real world.
+
+\begin{center}
+	\includegraphics[width=80mm]{./images/appendix/QuadSelected.JPG}
+	
+	{\footnotesize Figure 5.7: 'Video 6' with the 4 connected coordinates.}
+\end{center}
+
+The image shown in figure 5.8 represents a concatenated image of both the before and after transformation. The concatenation was performed using a function that numPy provides. The image on the right in figure 5.8 tries to simulate a top down view of the selected area in figure 5.7. 
+
+\vspace{2mm}
+
+With this function in place, the system can perform object detection on the original video and transform each interest point (which is the bottom of the bounding box discussed in the previous section) with the matrix M. Each interest point will be measured between each other, similar to the the previous method using Pythagoras. The equation of finding the transformed interest point (x',y') with the transformation matrix M where (x ,y) are the original points is:
+
+\begin{equation*}
+a
+\begin{bmatrix}
+x' \\
+y' \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+ax' \\
+ay' \\
+a
+\end{bmatrix}
+= M
+\begin{bmatrix}
+x \\
+y \\
+1
+\end{bmatrix}
+\end{equation*}
+
+\begin{center}
+	\includegraphics[width=120mm]{./images/appendix/ConcatenateImages.JPG}
+	
+	{\footnotesize Figure 5.8: 'Video 6' with the before and after transformation concatenated into one image.}
+\end{center}
+
+Figure 5.9 showcases the output of calculating social distancing after the transformation. Only people who are in the red box in figure 5.7 are used to calculate social distancing as the transformation only produces a top down view of that specific area. This is done by putting a threshold that filters out any interest point that were not in the red box after transformation. 
+
+\vspace{2mm}
+
+The threshold used in figure 5.9 to be not 'social distancing' is 400 pixels on the transform image. The threshold successfully identified the correct people as not 'social distancing' (people with red circles). Since the method tries to produce a top down view of the plane select, the system is able to allocate a fixed real world distance to a single pixel if necessary. Appendix 5 shows more screenshots of matrix transformation with 'video 6'.
+
+
+\begin{center}
+	\includegraphics[width=130mm]{./images/appendix/MatrixTransExample3.JPG}
+	
+	{\footnotesize Figure 5.9: 'Video 6' with detecting social distancing with matrix transformation.}
+\end{center}
+
+\section*{Conclusion of detecting SD by matrix transformation}
+
+When comparing methods between the two discussed social distancing detectors, matrix transformation has the benefit of having easier and less parameters to tune. Matrix transformation only requires 4 points in the image as parameters compared to 5 parameters for the previous version. The beneficiaries also do not need to worry about trial and error for tuning the parameter for results that are only an estimate to calculating real world distances between people.
+
+\vspace{2mm}
+
+The downside to the matrix transformation is that it can only include people within the red box seen in figure 5.7 to be considered when calculating social distancing. This may be seen as a limiting factor for beneficiaries who have non-quadrilateral rooms for their offices. It is recommended to use a low focal length to get a better view of the area when using this method.
+
+\vspace{2mm}
+
+Another issue with this method is that it does not count for distortion within the images. This can be seen as very problematic when looking for accurate results. Looking at figure 5.7 and the right side of figure 5.8, there are curves in the images due to distortion of the camera. A way to combat this is to use calibrated cameras to find distortion coefficients (This is in the form of a 5 value vector) to account for non-linear errors in the image.
+
+\vspace{2mm}
+
+Figure 5.10 uses a function provided by OpenCV called 'undistort' to remove distortion in the image. The camera parameters needed for this function is the camera matrix which describe the mapping of a pinhole camera from 3D points in the world to 2d points in an image and distortion coefficients. This function is used before the 'yolov3' model detects any objects within the image.
+
+\vspace{2mm}
+
+The results of removing the distortion straighten the lines on floor in both the original and transformed images. The transform image can now be seen as a more accurate top down view image than before.
+
+\begin{center}
+	\includegraphics[width=130mm]{./images/appendix/UndistortedImageWithMatrixTransformation.JPG}
+	
+	{\footnotesize Figure 5.10: 'Video 6' with no distortion.}
+\end{center}
+
+Matrix transformation with distortion coefficients is very suited for commercial uses and can be seen used in other social distancing detectors (Y. C. Hou, 2020). The paper uses the same method but without using distortion coefficients, producing less accurate results.
+
+\section{Detecting SD by calibrated camera.}
+
+Camera calibration is the process of acquiring intrinsic and extrinsic values of the camera. The extrinsic parameter describes the location of the camera in the real world, usually described by both a rotation matrix/vector and a translation vector. Normally the origin of the coordinates is with respect to camera's focal points. The WILDTRACK dataset feature multiple static cameras, therefore they share a single origin which is not directly pointing at any of the cameras.
+
+\vspace{2mm}
+
+The intrinsic parameters holds the values of the focal length and principle point of the camera in a single matrix which is regularly called the 'camera matrix' as well as holding the distortion coefficients. The camera matrix maps the scene in front of the camera to pixel coordinates.
+\vspace{2mm}
+
+With the combination of both the intrinsic and extrinsic parameters the equation to map real world coordinates to an image plane is (Robert Collins):
+
+\begin{equation*}
+\begin{bmatrix}
+x \\
+y \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+f_{x} & 0 & c_{x} \\
+0 & f_{y} & c_{y} \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+r_{11} & r_{12} & r_{13} & t_{1}\\
+r_{21} & r_{22} & r_{23} & t_{2}\\
+r_{31} & r_{32} & r_{33} & t_{3}
+\end{bmatrix}
+\begin{bmatrix}
+X \\
+Y \\
+Z \\
+1
+\end{bmatrix}
+\end{equation*}
+
+or an abbreviated version:
+\begin{equation*}
+\begin{bmatrix}
+x \\
+y \\
+1
+\end{bmatrix}
+= ^{c}M[R \ |\ T]
+\begin{bmatrix}
+X \\
+Y \\
+Z \\
+1
+\end{bmatrix}
+\end{equation*}
+
+
+There are multiple algorithms to calibrate a camera (Remondino et al. 2005). The WILDTRACK dataset uses the pinhole model to calibrate their cameras (Wikipedia [2017b]). Do note that this type of camera calibration only produces a near estimate of the parameters but is very close. Appendix 6a is an illustration of how the cameras overlap in view made by the creators of the WILDTRACK dataset and also a plot of the cameras using MATLAB in appendix 6b.
+
+\vspace{2mm}
+
+The biggest problem with transforming 3d points in space to a 2d point in an image plane is that there is a lot of information lost in the process, essentially losing the Z axis. Therefore reversing the process can prove troublesome if the camera calibration is done incorrectly.
+
+\vspace{2mm}
+
+One of the ways beneficiaries can transform 2d image points to 3d image points using the intrinsic and extrinsic parameters is to calibrate the camera so that the floor is at 0 with the z-axis with respect to the camera. Acquiring these extrinsic parameters, we can use the inverses of the intrinsic and extrinsic parameters (multiplied together creates a homography matrix) with this equation where u,v are image coordinates and X,Y are 3d coordinates :
+
+\begin{equation*}
+\begin{bmatrix}
+X \\
+Y \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+f_{x} & 0 & c_{x} \\
+0 & f_{y} & c_{y} \\
+0 & 0 & 1
+\end{bmatrix}
+^{-1}
+\begin{bmatrix}
+r_{11} & r_{12} & t_{1}\\
+r_{21} & r_{22} & t_{2}\\
+r_{31} & r_{32} & t_{3}
+\end{bmatrix}
+^{-1}
+\begin{bmatrix}
+u \\
+v \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+h_{11} & h_{12} & h_{13}\\
+h_{21} & h_{22} & h_{23}\\
+h_{31} & h_{32} & h_{33}
+\end{bmatrix}
+^{-1}
+\begin{bmatrix}
+u \\
+v \\
+1
+\end{bmatrix}
+\end{equation*}
+
+While the camera calibrations in the WILDTRACK dataset are not calibrated specifically for this equation, the method was still attempted to see if the system could produce a good estimate of the person's position which can then be used measure social distancing.
+
+\vspace{2mm}
+
+The method was tested on the same person using 2 different cameras (the first frame of both camera 1 and camera 6). The extrinsic parameters that the WILDTRACK dataset provides is both a rotation vector and translation vector. As we need a rotation matrix, OpenCV provides a function called cv2.Rodrigues that outputs a rotation matrix with an input of a rotation vector and vice versa.
+
+\vspace{2mm}
+
+The x,y output of the same person with different cameras were mismatched which was expected as the cameras were not calibrated to allow for the floor to be 0 in the Z-axis. In terms of producing a good estimate of where each person in the frame were with respective to each other was good, the vector output seemed to be surprisingly well done. Figure 5.11 showcases each person in 'video 8'  who is being detected to have their bounding box coordinates transformed by the formula above and be plotted on a graph. When paying close attention to the groups of dots in the plot, it represents a good estimation of where the respective groups are in the real world.
+
+\vspace{2mm}
+
+This ultimately means that this method is feasible for calculating social distancing. So the next step that was taken is applying Pythagoras' theorem to calculate the distance between each person and apply a threshold to mark people as 'social distancing'.
+
+
+
+\begin{center}
+	\includegraphics[width=150mm]{./images/appendix/HomographyMapping.JPG}
+	
+	
+	{\footnotesize Figure 5.11: 'video 8' with homography transformation.}
+\end{center}
+
+The implementation was carried through similar to the matrix transformation section which was using a static threshold to detect people who were not 'social distancing'. Figure 5.12 displays two different frames of 'video 8' with the implementation.
+
+\vspace{2mm}
+
+While the transformation output has no relevance to the actual real world coordinates of the people, the output could be seen as pseudo real world coordinates that are only relevant to the camera output alone. Since we are working with pseudo real world coordinates, the threshold used in figure 5.12 was less than 5 units unlike the previous examples where the threshold was 3 digits minimum. The overall output worked well, being able to identify clusters of people as not 'social distancing' whenever applicable.
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/HomographyExample1.JPG}
+	\includegraphics[width=65mm]{./images/appendix/HomographyExample2.JPG}
+	
+	{\footnotesize Figure 5.12: 'video 8' with homography Social Distancing detection applied.}
+\end{center}
+
+Another method that was tested was to use an estimated homography matrix which is formed by a OpenCV function called cv2.findHomography which takes 4 points on the image planar surface and real world surface (Kriegman D. 2007). The 4 points that correspond to the real world should create a square on the planar surface when connected, while the other 4 points are image coordinates should correspond to where the real world coordinates are. The goal is to create a variation of the matrix acquired in the previous method to transform an image point to real world coordinates.
+
+
+\vspace{2mm}
+
+The implementation is possible due to the data that the WILDTRACK dataset provides, giving annotations of people's position in the real world within a certain frame of the video. The system can use this information for the parameters needed. While this doesn't directly use the calibrated cameras, the accuracy of the annotations were obtained by using camera calibration.
+
+\vspace{2mm}
+
+The outcome of the method was similar to the previous camera calibration method, but seemed less accurate overall. This is because the parameters used in 'findHomography' function did not form a proper square in the real world. Therefore, every transformed point was slightly skewed. Figure 5.13 shows how the image coordinates are transformed by the estimated homography. The group of pedestrians are still in clusters after transformation, but the perspective does not match where the people are in the real world.
+
+\begin{center}
+	\includegraphics[width=150mm]{./images/appendix/EstimatedHomographyP.JPG}
+	
+	{\footnotesize Figure 5.13: 'video 8' with an estimated homography transformation plot.}
+\end{center}
+
+\subsection*{Conclusion of detecting SD by camera calibration}
+
+The camera calibration technique to form the homography matrix with both the intrinsic and extrinsic parameters is somewhat on par with accuracy of the matrix transformation for a top down view, with the added benefit of not being restricted to a quadrilateral space within the image. One of the problems with camera calibration is that the camera must be static after calibration as the extrinsic values with vary depending on the position of your camera.
+
+\vspace{2mm}
+
+The technique to form an estimated homography matrix from points in the real world and image plane should in theory produce very accurate results, but the parameters used in the example were inaccurate, therefore the function did not work out for this project.
+
+\vspace{2mm}
+
+Camera calibration can seem like a daunting task, but the only material that is needed are multiply images of a measured checker board (preferably 20 images) taken by the camera that needs calibration. (OpenCV: camera calibration, 2021)
+
+\section{Plotting pedestrians on a top down view}
+
+Creating a top down view of the pedestrians will give better clarity to the beneficiaries as to where the people are in the real world. It will show how each method transforms a image point to a 3d point. Each pedestrian detected will be plotted on a black window which will be in sync with the video/image input. Like the output videos, the top down will draw a line between pedestrians who are close to each other. All outputs will be done with 'video 5' for easy comparisons.
+
+\vspace{2mm}
+
+The first and easiest method to achieve the top down view is the matrix transformation. Looking at figure 5.9, the image already has a good template to work with. The right side of the image will be replaced with a black window instead of the transformed image.
+
+\vspace{2mm}
+
+Figure 5.14 shows a frame of 'video 5' with the implemented top down view over a black window. The green circles in the black window indicates people who are social distancing and yellow circles indicate otherwise. The output of the plots are well synced with the video and has a smooth transition between frames.
+\begin{center}
+	\includegraphics[width=150mm]{./images/appendix/BlackBoxMatrixTransformation.JPG}
+	
+	{\footnotesize Figure 5.14: 'video 5' with a top down view using matrix transformation.}
+\end{center}
+
+The next method that implemented the top down view is the camera calibration. Unlike the matrix transformation which returned image coordinates as its output, the camera calibration has its own units where the values could be negative. Therefore plotting the points on a image plane is not sufficient enough. In order to combat this, the coordinates are normalized between 0 and 1. The normalized coordinates will then be multiplied by a number that is slightly less than the resolution of the black window to allow for every pedestrian to fit on the top down view.
+
+\vspace{2mm}
+
+The first iteration did successfully plot all of the identified pedestrians on the image plane, but a problem occurs when the each frame is treated as independent to one another. The normalization works by making the largest coordinate value after transformation the upper bound of the normalization (This is equal to one.) and the smallest coordinate value to be the lower bound (This is equal to zero). Since the upper and lower bound changes every frames, the coordinates are not stable when plotted on the black screen and creates chaos. Appendix 6a shows how two different frames that are close in time plot each pedestrian with different lower and upper bounds.
+
+\vspace{2mm}
+
+The solution to solving this problem is snapshotting the upper and lower bounds of the first frame of the video and passing the parameters to the next consecutive frame to create a global normalization across all frames of the video. The upper and lower bounds will be updated if the current bounds are a better fit. This plots are now more stable and less chaotic when moving onto the next frame. Figure 5.15 shows the final output of creating a top down view using the camera calibration output coordinates.
+
+\begin{center}
+	\includegraphics[width=150mm]{./images/appendix/Stable.JPG}
+	
+	{\footnotesize Figure 5.15: A frame of 'video 5' with the final top down view output of camera calibration.}
+\end{center}
+
+\subsection*{Conclusion of creating a top down view.}
+
+This section discusses creating a top down view using two out of the three methods used in the report. While the third method (SD by bounding box) is possible, the results are probably not as accurate as the others, therefore producing an output seemed redundant.
+
+\vspace{2mm}
+
+When comparing the two methods discussed, the camera calibration is more flexible with pedestrian plotting and is not limited to a quadrilateral space in the image plane. But looking at figure 5.15, the angle of the black window output can seem confusing to the user. There are solutions to the problem such as applying a rotation matrix to the coordinates, but overall both methods are very successful at what task was trying to achieve.
+
+\section{Identifying groups of people and marking them as ’safe’}
+
+Currently the system mainly benefits beneficiaries who work in small offices as every individual is marked independently to one another. If the system were to be used in a more public area, the system would need to be able to identify people in groups as there could be a group of both a parent and child. Having a pair detected as not 'social distancing' could do more harm than good.
+
 
 
 \chapter*{Appendix}
@@ -579,6 +870,34 @@ b)
 
 \includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest3.JPG}
 \includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest5.JPG}
+
+\section*{Appendix 5: 5.4 outputs}
+\includegraphics[width=130mm]{./images/appendix/MatrixTransExample1.JPG}
+
+\includegraphics[width=130mm]{./images/appendix/MatrixTransExample2.JPG}
+
+\includegraphics[width=130mm]{./images/appendix/MatrixTransExample4.JPG}
+
+
+\section*{Appendix 5: 5.5 outputs}
+
+a)
+
+
+\includegraphics[width=130mm]{./images/appendix/CameraOverlapIllustration.JPG}
+
+b)
+
+
+\includegraphics[width=130mm]{./images/appendix/MATLABPlot.JPG}
+
+\includegraphics[width=130mm]{./images/appendix/MATLABPlot2.JPG}
+
+\section*{Appendix 6: 5.6 outputs}
+
+\includegraphics[width=130mm]{./images/appendix/Unstable4.JPG}
+
+\includegraphics[width=130mm]{./images/appendix/Unstable5.JPG}
 
 \end{document}
 

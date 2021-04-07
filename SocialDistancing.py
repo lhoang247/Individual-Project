@@ -7,6 +7,10 @@ import timeit
 import random
 import matplotlib.pyplot as plt
 from skimage import util, data
+from SDBoundingBox import SDBoundingBox
+from MatrixTransformation import SDMatrixTransformation
+from CameraMatrix import returnCameraParameters
+from SDCalibratedCamera import SDCalibratedCamera
 
 #Setting up directories
 
@@ -46,8 +50,14 @@ def sp_noise(img,prob):
 
 #Reading an image from file directory
 
-img = cv2.imread('D:\year3\IN3007-IndividualProject\images used/00000030.png')
+img = cv2.imread('D:/Users/LeeHoang/Downloads/Wildtrack_dataset_full/Wildtrack_dataset/Image_subsets/C6/00000000.png')
 
+
+cv2.rectangle(img, (293,116), (325, 239), (255,0,255), 2)
+cv2.rectangle(img, (400,119), (433, 250), (255,0,255), 2)
+cv2.rectangle(img, (344,127), (386, 289), (255,0,255), 2)
+cv2.rectangle(img, (1222,152), (1287, 381), (255,0,255), 2)
+cv2.rectangle(img, (31,116), (68, 250), (255,0,255), 2)
 '''
 #Data augmentation
 
@@ -60,9 +70,6 @@ img = sp_noise(img,0.05)
 img = cv2.resize(img,(1280,720))
 '''
 blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
-
-
-
 
 #Getting the resolution of the image
 
@@ -115,7 +122,7 @@ toc = timeit.default_timer()
 
 print("here: " , toc - tic)
 
-indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.5)
+indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.9, 0.5)
 
 font = cv2.FONT_HERSHEY_PLAIN
 
@@ -142,21 +149,7 @@ if len(indexes)>0:
 
 
 
-for i in range(len(filterPeople)):
-    SD = True
-    for j in range(len(filterPeople)):
-        if (i != j):
-            pixelDistance = np.sqrt(abs(float(filterPeople[i][0]+(filterPeople[i][2]*0.5)) - float(filterPeople[j][0]+(filterPeople[j][2]*0.5)))**2 + abs(float(filterPeople[i][1]+(filterPeople[i][3]*0.99))*2 - float(filterPeople[j][1]+(filterPeople[j][3]*0.99))*2)**2)
-            middleDistance = (filterPeople[i][1]+filterPeople[i][2]+filterPeople[j][1]+filterPeople[j][2]) / 2
-            if (pixelDistance < 400 - (800/middleDistance)*50):
-                cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (233,255,0), thickness= 2)
-                SD = False
-            #elif ( pixelDistance < 600 + 800/middleDistance):
-            #    cv2.line(img, (int(filterPeople[i][0]+(filterPeople[i][2]*0.5)), int((filterPeople[i][1]+filterPeople[i][3]*0.99))), (int(filterPeople[j][0]+(filterPeople[j][2]*0.5)), int((filterPeople[j][1]+filterPeople[j][3]*0.99))), (0, 255, 0), thickness= 2)
-    if (SD):
-        cv2.rectangle(img, (filterPeople[i][0],filterPeople[i][1]), (filterPeople[i][0]+filterPeople[i][2], filterPeople[i][1]+filterPeople[i][3]), (0,255,0), 2)
-    else:
-        cv2.rectangle(img, (filterPeople[i][0],filterPeople[i][1]), (filterPeople[i][0]+filterPeople[i][2], filterPeople[i][1]+filterPeople[i][3]), (0,0,255), 2)
+img = SDBoundingBox(img,filterPeople)
 
 count = 0
 
@@ -189,6 +182,9 @@ for (startX, startY, endX, endY) in boxes:
         cv2.imshow(str(n), img_blob)
 '''
 
+SDMatrixTransformation(img,filterPeople,matrix)
+
+
 cameraMatrix = np.matrix([1743.4478759765625,0.0,934.5202026367188,0.0,1735.1566162109375,444.3987731933594,0.0,0.0,1.0])
 cameraMatrix = np.reshape(cameraMatrix, (3,3))
 print(np.linalg.inv(cameraMatrix))
@@ -198,23 +194,24 @@ print(distortionCoefficient)
 
 rvec =  np.matrix([1.759099006652832,0.46710100769996643 ,-0.331699013710022])
 tvec = np.matrix([525.8941650390625 ,45.40763473510742 ,986.7235107421875])
-R_mat = cv2.Rodrigues(rvec)[0].reshape(3,3)
+R_mat = np.transpose(cv2.Rodrigues(rvec)[0].reshape(3,3))
 print(R_mat)
-
-
 
 
 dst = cv2.warpPerspective(img,cameraMatrix,(1000,1000))
 
+realWorld = np.array([[0.9750000000003638,17.00828125],[326.15000000000146,14.685729166666668],[444.875,9.933072916666667],[330.375,0.6945312500000007]])
+imagePoints = np.array([[309, 115],[365, 118],[416, 127],[1254, 151]])
+
+h, status = cv2.findHomography(imagePoints, realWorld)
 
 img = cv2.resize(img, (1024,668))
 blackBox = cv2.resize(blackBox, (500,668))
 blackBox = blackBox - 1
+blackBox = SDCalibratedCamera(blackBox,filterPeople)
 combined = np.concatenate((img,blackBox),axis=1)
-cv2.rectangle(combined,(1300,300),(1500,500), (0, 0, 255), 2)
 
 
-
-cv2.imshow('Image', img)
+cv2.imshow('Image', combined)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

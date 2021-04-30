@@ -1,0 +1,129 @@
+Hello, this is lee and im here to showcase my project which is a social distancing
+detecting using the wildtrack dataset.
+
+For an introduction to the wildtrack dataset, the dataset is a multi camera person dataset
+that contains 7 different cameras that have overlapping views. Each video is shot at 
+60fps and 1080p resolution. The project does however reduce the videos to 30fps to reduce
+the amount of computational time needed to process the videos for testing purposes,
+therefore speed is not a big factor for the final output.
+
+The object detection seen in the clips are detected using the yolov3 pretrained model.
+The model is trained with the COCO dataset that contains 80 different classifications.
+yolov3 specialises in detecting objects with only one pass through the neural network,
+making it very fast compared to faster RCNN as the object detection needs
+multiply passes through the network in order to detect more than one object.
+
+The main motivation for this project is to allow small companies or office workers to 
+have safe face to face contain while maintaining a safe distance between each other
+during any global pandemic as having face to face contain produces a more productive
+environment. 
+
+The project produces 3 different methods to calculating social distancing which are
+calculating social distancing by bounding box.
+calculating social distancing by matrix transformation
+and calculating social distancing by using camera calibrations.
+The report also features an indepth analysis on how the object detector fairs with
+different camera qualities to tell the beneficiaries how to tune the parameters for their
+own need.
+Finally, the report also produces a method to detecting groups of people within an image
+for the purpose of detecting parents and children who are not meant to be seperated in
+public areas.
+
+
+The first clip showcases measuring the pixel distance between bounding boxes.
+As images loses their third dimension when comparing to the 3d world, it is hard to 
+calculate the exact perception within the image. This method showcases how linear
+scaling can solve this problem and give a good estimate of measuring perception.
+
+The system uses a threshold to calculate if a person is not social distancing. The distance is 
+measuring using pythagoras with the x and y coordinates of the people with in the image.
+Increasing the linear scalars which essentially maps an image coordinate to another coordinate
+can reduce the effect of detecting people who are not not social distancing. This can 
+be seen as a stretch in both the x and y axis of the image plane.
+
+Here we have examples of increasing the scalars incrementally, as you can see, the blue lines
+that represent not social distancing slowly disappear. In the end, only adjacent people are
+detected as not social distancing and the people with green bounding boxes which represent safe social 
+distancing increases.
+
+This is an example of no scalars applied the x and y coordinates of the image. The system does 
+not detect anyone as social distancing as everyone has a red box. The green lines represent
+social distancing while the red lines represent not.
+
+The next method used to calculating social distancing is the use of matrix transformation.
+We are able to take 4 points in an image. When connected it represents a quadrilaterial in 
+the image plane and a square or rectangle in the real world.
+
+The 4 points are put into a opencv function which calculates the matrix transformation and
+then the original image is transformed with warp perspective.
+
+Here you can see the transformation taking place. The system tries to flatten the original image
+to mimic a top down view of the area. The down side of this method is that it excludes the
+surroundings of the red space.
+
+To further improve this method, the system used camera calibration to remove any distortion
+within the video. The output is now more sharp and removes a lot of the errors in the video.
+
+Like the previous method, we use pythagoras to calculate the distance between each person.
+This time, we do not need to worry about scaling the threshold depending on the x and y
+coordinate of the people in the video, as the units are now purportional to real world units
+
+The third method uses camera calibration to produce a homography matrix. First i will give an
+introduction to both camera calibration and homography matrix.
+
+Camera calibration is the process of estimating the intrinsic and extrinsic parameters of the
+camera. Extrinsic parameters describes the cameras position and orientation
+in the 3d world. This usually contains a translation vector and a rotation matrix. 
+
+Intrinsic parameters describe the cameras characterstics and maps 3d points to image points.
+The parameter includes a matrix that holds the focal length and principle point of the camera.
+As well as produces a distortion cooefficent that removes all distortion which was seen in the
+previous method
+
+Homography describes the relationship between two planes that are the same planar surface.
+To reiterate the problem we are trying to solve. Mapping 3d points to an image plane
+loses a lot of information about
+the third axis. Therefore retrieving the data can be troublesome. We use the floor as a plane
+in both the image and real world to produce a homography matrix. 
+
+With perfect camera calibration, 
+we can remove the third dimension from the extrinsic parameters to create the homography matrix.
+Therefore we do not need to worry about the third dimension. We are able to transform image points
+to a point in the 3d world. But this is limited to a point on a plane in the 3d world.
+
+
+Here is an example of the homography transformation in action. Due to the WILDTRACK dataset
+having their camera calibration set globally across all 7 cameras. the units created by the
+transformation are only specific for this camera only and has nothing to do with each pedestrians
+coordinate in the 3d world.
+
+Looking at the plot, the shape of the plot is very close the formation of people in the 3d world.
+The transformation solves perception with in image and does a good job maintaining the groups of
+people.
+
+One of the problem that this method had was normalizing the plot from a video in order to create
+a top down view of the video. Each frame of the
+video is looked at independantly, therefore normalizing each frame independantly and then plotting
+each point on a black screen created a very volatile top down view, where pedestrians with hop 
+around everywhere.
+
+In order to fix this problem, the system loops the lower and upper bounds of each plot in every
+consequetive frame, and uses the best fit throughout the video.
+
+
+looking at the third clip again, the top down view is very volitile at the beginning. This is because
+tries to maintain a global normalization through the video but each frame is fed through chronologically.
+therefore we do not find the best fit upper and lower points until the mid point of the video.
+ The upper and lower bounds will be updated if there is a larger or lower one
+respectively.
+
+
+The final implementation of the report features a method of grouping pedestrians into groups and 
+identifying them as 'safe' despite not social distancing.
+
+This implementation can be split into two parts. Creating a key for each pedestrian, and group
+the pedestrians together.
+
+The problem with keep track of which pedestrian is who in a video is that each frame is fed into the 
+object detection model indenpendantly, therefore the order of the output will most likely not be
+the same.

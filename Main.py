@@ -1,3 +1,3 @@
 from VideoPlayer import VideoPlayer
 
-VideoPlayer("GroupDetection")
+VideoPlayer("Homography",True,"1.mp4")

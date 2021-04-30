@@ -53,45 +53,28 @@ def sp_noise(img,prob):
 img = cv2.imread('D:/Users/LeeHoang/Downloads/Wildtrack_dataset_full/Wildtrack_dataset/Image_subsets/C6/00000000.png')
 
 
-cv2.rectangle(img, (293,116), (325, 239), (255,0,255), 2)
-cv2.rectangle(img, (400,119), (433, 250), (255,0,255), 2)
-cv2.rectangle(img, (344,127), (386, 289), (255,0,255), 2)
-cv2.rectangle(img, (1222,152), (1287, 381), (255,0,255), 2)
-cv2.rectangle(img, (31,116), (68, 250), (255,0,255), 2)
-'''
-#Data augmentation
-
-#Adding noise to the chosen img
-
-img = sp_noise(img,0.05)
-
-#Resizing image
-
-img = cv2.resize(img,(1280,720))
-'''
-blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
-
-#Getting the resolution of the image
-
+currentFrame = []
+#read the current frame from the video
+_ , img = cap.read()
 height, width, _ = img.shape
-
+#Load camera matrix and remove distortion
+rm, tm, cm, dc = returnCameraParameters(6)
+img = cv2.undistort(img,cm,dc ,None, cm)
+#Forward the image
 blob = cv2.dnn.blobFromImage(img, 1/255,(416,416),(0,0,0), swapRB=True, crop =False)
-
 #net.setInput is used to add an input to the network.
-
 net.setInput(blob)
-
 #Getting the output layer's names
 output_layers_names = net.getUnconnectedOutLayersNames()
-
 tic = timeit.default_timer()
-
 #passing the input through the layers.
 layerOutputs = net.forward(output_layers_names)
-confidence_test = []
-loopcount = []
+#Boxes record the coordinates of the bounding boxes
 boxes = []
+
+#Confidence records the confidence percentage of the object detected
 confidences = []
+#ClassID records the 
 class_ids = []
 for output in layerOutputs:
     for detection in output:
@@ -108,34 +91,23 @@ for output in layerOutputs:
             boxes.append([x,y,w,h])
             confidences.append((float(confidence)))
             class_ids.append(class_id)
-confidence_test.append(len(boxes))
-'''
-plt.title("Objects detected after confidence filtering")
-plt.locator_params(nbins = 20)
-plt.plot(loopcount,confidence_test)
-plt.xlabel("Confidence (%)")
-plt.ylabel("Objects left after filtering")
-plt.show()
-print(confidence_test)
-'''
-toc = timeit.default_timer()
+#This function applies the bounding boxes found in the previous for loop without the use of Non max suppression
+NONMS = False
+if (NONMS):
+    count = 0
+    font = cv2.FONT_HERSHEY_PLAIN
+    for (startX, startY, endX, endY) in boxes:
+        cv2.rectangle(img, (startX, startY), (startX+endX, startY+endY), (0, 0, 255), 2)
+        label = str(classes[class_ids[count]])
+        confidence = str(round(confidences[count],2)) 
+        cv2.putText(img, label + " " + confidence, (startX,startY + 20), font , 2, (255,255,255), 2)
+        count += 1
 
-print("here: " , toc - tic)
-
-indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.9, 0.5)
-
-font = cv2.FONT_HERSHEY_PLAIN
-
-colours = np.random.uniform(0,255, size = (len(boxes), 3))
-
-
-'''cv2.rectangle(img,(1510,139),(1561,299),(255,255,255),1)
-cv2.rectangle(img,(1273,129),(1319,282),(0,255,255),1)
-cv2.rectangle(img,(69,147),(152,378),(0,255,255),1)
-'''
-
+#Non max suppression
+indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.7, 0.5)
+#filterPeople adds the bounding box coordinates to a list
 filterPeople = []
-
+colours = np.random.uniform(0,255, size = (len(boxes), 3))
 if len(indexes)>0:
     for i in indexes.flatten():
         if (str(classes[class_ids[i]]) == "person"):
@@ -143,73 +115,65 @@ if len(indexes)>0:
             x, y, w, h = boxes[i]
             label = str(classes[class_ids[i]])
             confidence = str(round(confidences[i],2))
-    
             colour = colours[i]
-            cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0), 2)
-
-
-
-img = SDBoundingBox(img,filterPeople)
-
-count = 0
-
-'''cv2.circle(img,(0,1000),5,(255,0,0), -1)
-cv2.circle(img,(1700,700),5,(255,0,0), -1)
-cv2.circle(img,(300,500),5,(255,0,0), -1)
-cv2.circle(img,(980,450),5,(255,0,0), -1)
-'''
-pt1 = np.float32([[0,0],[1700,700],[1000,500],[980,450]])
-pt2 = np.float32([[0,0],[1040,0],[0,668],[1040,668]])
-
-matrix = cv2.getPerspectiveTransform(pt1,pt2)
-
-print("MAtrix = ", matrix)
-
-result = cv2.warpPerspective(img,matrix, (1040,668))
-
-'''
-for (startX, startY, endX, endY) in boxes:
-    cv2.rectangle(img, (startX, startY), (startX+endX, startY+endY), (0, 0, 255), 2)
-    label = str(classes[class_ids[count]])
-    confidence = str(round(confidences[count],2))
-    cv2.putText(img, label + " " + confidence, (startX,startY + 20), font , 2, (255,255,255), 2)
-    count += 1
-'''
-
-
-'''for b in blob:
-    for n, img_blob in enumerate(b):
-        cv2.imshow(str(n), img_blob)
-'''
-
-SDMatrixTransformation(img,filterPeople,matrix)
-
-
-cameraMatrix = np.matrix([1743.4478759765625,0.0,934.5202026367188,0.0,1735.1566162109375,444.3987731933594,0.0,0.0,1.0])
-cameraMatrix = np.reshape(cameraMatrix, (3,3))
-print(np.linalg.inv(cameraMatrix))
-
-distortionCoefficient = np.array([0.43248599767684937,0.6106230020523071,0.008233999833464622,0.0018599999602884054,-0.6923710107803345])
-print(distortionCoefficient)
-
-rvec =  np.matrix([1.759099006652832,0.46710100769996643 ,-0.331699013710022])
-tvec = np.matrix([525.8941650390625 ,45.40763473510742 ,986.7235107421875])
-R_mat = np.transpose(cv2.Rodrigues(rvec)[0].reshape(3,3))
-print(R_mat)
-
-
-dst = cv2.warpPerspective(img,cameraMatrix,(1000,1000))
-
-realWorld = np.array([[0.9750000000003638,17.00828125],[326.15000000000146,14.685729166666668],[444.875,9.933072916666667],[330.375,0.6945312500000007]])
-imagePoints = np.array([[309, 115],[365, 118],[416, 127],[1254, 151]])
-
-h, status = cv2.findHomography(imagePoints, realWorld)
-
-img = cv2.resize(img, (1024,668))
-blackBox = cv2.resize(blackBox, (500,668))
-blackBox = blackBox - 1
-blackBox = SDCalibratedCamera(blackBox,filterPeople)
-combined = np.concatenate((img,blackBox),axis=1)
+#If the system runs through the first frame of the video, the positions will be added
+if not previousFrame:
+    for x in range(len(filterPeople)):
+        previousFrame.append([int(filterPeople[x][0]+(filterPeople[x][2]*0.5)),int(filterPeople[x][1]+filterPeople[x][3]*0.99)])
+#Add current positions
+for x in range(len(filterPeople)):
+    currentFrame.append([int(filterPeople[x][0]+(filterPeople[x][2]*0.5)),int(filterPeople[x][1]+filterPeople[x][3]*0.99)])
+#Selection of calculating social distancing
+if (method == "Homography"):
+    #Blackbox for top down view.
+    blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
+    #resize black box to concatenate with img later
+    blackBox = cv2.resize(blackBox, (1920,1080))
+    img,blackBox,stablizer,sBool, notSD = SDCalibratedCameraWithNoZ(img,blackBox,filterPeople,stablizer,sBool)
+    blackBox = cv2.resize(blackBox, (800,1080))
+    img = np.concatenate((img,blackBox),axis=1)
+elif (method == "EstimateHomography"):
+    blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
+    blackBox = blackBox
+    img = SDCalibratedCamera(img,filterPeople)
+    img = cv2.resize(img, (1200,668))
+    img = np.concatenate((img,blackBox),axis=1)
+elif (method == "MatrixTransformation"):
+    blackBox = cv2.imread('D:\year3\IN3007-IndividualProject/blackbox.png')
+    blackBox = cv2.resize(blackBox, (2600,1270))
+    #Points in the image to transform
+    pt1 = np.float32([[55,209],[590,170],[2600,526],[423,1270]])
+    pt2 = np.float32([[0,0],[2600,0],[2600,1270],[0,1270]])
+    #Create matrix transformation and transform image
+    matrix = cv2.getPerspectiveTransform(pt1,pt2)
+    result = cv2.warpPerspective(img,matrix, (2600,1270))
+    result, greenPeople, redPeople = SDMatrixTransformation(blackBox,filterPeople,matrix)
+    #Mark people who are social distancing as green, otherwise red
+    for i in greenPeople:
+        cv2.circle(img,(filterPeople[i][0]+int(filterPeople[i][2]/2),filterPeople[i][1]+int(filterPeople[i][3]*0.99)),20,(0,255,0), 3)
+    
+    for i in redPeople:
+        cv2.circle(img,(filterPeople[i][0]+int(filterPeople[i][2]/2),filterPeople[i][1]+int(filterPeople[i][3]*0.99)),20,(0,0,255), 3)
+    
+    blackBox = cv2.resize(blackBox, (500,668))
+    img = cv2.resize(img, (1200,668))
+    result = cv2.resize(result, (500,668))
+    img = np.concatenate((img,result),axis=1)
+elif(method == "SDBoundingBox"):
+    img = SDBoundingBox(img,filterPeople)
+    img = cv2.resize(img, (1200,668))
+#This is to enable the 'group' detection        
+if(GD):
+    img, peopleMap, peopleWhoAreGrouped,uniquePeople = GroupDetection(img,filterPeople, previousFrame,currentFrame, peopleMap, notSD, peopleWhoAreGrouped, uniquePeople)
+    img = cv2.resize(img, (1200,668))
+#PreviousFrame is now the current frame as we are going to the next frame.
+previousFrame = currentFrame
+#Resize image to fit on a screen
+img = cv2.resize(img, (1700,668))
+#Show the current frame
+cv2.imshow('result', img)
+#Record the current frame
+out.write(img)
 
 
 cv2.imshow('Image', combined)

@@ -17,43 +17,201 @@
 		\vspace*{1cm}
 		
 		{\Huge \textbf{Social distancing detection with computer vision techniques}}
-		
-		\vspace{0.5cm}
+		\vspace{2mm} \\
+{\LARGE 
+		\vspace{2mm}
+		\textbf{by Lee Hoang}}
+		\vspace{2mm}
 	
 		
 		\vspace{1.5cm}
 		
-		\textbf{Lee Hoang}
-		
 		\vfill
+		{\Large \textbf{Project supervisor: Dr Cristina Gacek}}
 		
 		\vspace{0.8cm}
 		
-		BSc Computer Science\\
-		City University, London\\
-		Date
+{\Large 		\textbf{BSc Computer Science\\
+		City, University of London\\
+		Academic Year: 2020-21\\}}
 		
 	\end{center}
 \end{titlepage}
 
 \tableofcontents
 
+
+\pagebreak
+
+\chapter*{Abstract}
+
+The project aims to detect social distancing between pedestrians using computer vision techniques. Each video input generates different coloured bounding boxes for each person depending on their social distancing status. The system allows small offices to monitor their worker's movement and grants face-to-face communication at a safe distance.
+
+\vspace{2mm}
+The report discusses three solutions which includes calibrated cameras to calculating social distancing within an image or video and an in depth analysis on how different camera qualities affect the output of the system. An additional feature is added to detect groups of people who enter the frame of the camera to allow people to walk in groups. 
+
+
 \chapter{Introduction}
+
+\section{Problem solved}
+
+Corona virus has become an issue for many countries, resulting in lockdown of many companies and public areas, restricting students and workers from having face-to-face communication with their peers and having to work at home. As a result, it influences the flow of work negatively (Lewis and Kuhfeld, 2021). Social distancing has been used to combat the outbreak of the corona virus to reduce the spread. 
+
+\vspace{2mm}
+
+The purpose of this project is to detect social distancing in a public area from a image or video source, with and without the use of calibrated cameras. The software allows for better surveillance in public areas and workplaces, granting people to have safe contact within an area while having a more productive workflow.
+
+\vspace{2mm}
+
+Three different methods to calculating social distancing are achieved as well as an algorithm developed to detect groups of people who are coming into the frame of the camera. One of the methods discussed is also used in an existing system (Y. C. Hou, 2020) which is discussed in the background research chapter. To build from the existing system's method, the author uses camera calibration to remove distortion within each video frame to produce higher accuracy when calculating social distancing.
+
+\section{Project objectives}
+
+The sub objectives that are presented in the report are different from the sub objectives seen in the PDD. For example, the PDD mentions using two different object detection models to compare speed and accuracy. In the end, the report only used the 'yolov3' model for object detection. The primary objective still remains the same.
+
+\subsection{Primary objectives}
+
+Detect and calculating social distancing between pedestrians. Mark people within the dataset who are not 'social distancing' with a red bounding box, otherwise mark the person with a green border. The final output must have a top down view/plot of the pedestrians which is in sync of the video used.
+
+\subsection{Sub objectives}
+
+\noindent
+1 - Detect a human being within a frame of a video using OpenCV. Later detect the human being moving in the video. Goal is to display a bounding box around the person and add a label to identify that they are human.
+
+\vspace{2mm}
+
+\noindent
+2 - Produce an analysis on how the 'yolov3' architecture performs under different camera qualities by adding artificial noise and resizing the resolution of the image/video. 
+
+\vspace{2mm}
+
+\noindent
+3 - Calculate the distance between two people by pixels. Also calculating the distance with the use of calibrated cameras for greater accuracy.
+
+\vspace{2mm}
+
+\noindent
+4 - Create a top-down view/plot of the people in the video, identifying their location and proximity to others nearby. The program will display a top-down transformation that maps the people we have detected. The display will be in sync with the video.
+
+\vspace{2mm}
+
+\noindent
+5 - Identify groups of people who are close in the dataset as “safe distancing”. The test for this is to allow groups of people to be “safe” when close as they are recognized as friends or family.
+
+
+\section{Project Beneficiaries}
+
+This project helps office workers and small businesses to have safe face-to-face contact as the system will monitor their distance from each other. While the project does not include a real time camera, the program can be changed to do so and still maintain the core functionality of calculating social distancing. The system may be applicable to a small class within a school, this allows students to interact with their teachers and school equipment.
+
+\section{Work performed}
+
+The primary and sub objectives discussed in section 1.2 has been completed. The system is able to calculate social distancing within an image or video and mark pedestrians with the corresponding coloured bounding boxes. The fifth sub objective is seen as an optional task as a complete solution is very complex, therefore the task was completed to a satisfactory level.
+
+
+\section{Assumptions}
+
+The object detection used (YOLO) has limitations in what it can detect depending on the position of the object. For example, the model has trouble detecting a person hiding behind another person. This leads to the report giving leniency to the model and disregards most mistakes that 'yolov3' outputs. This is further discussed in section 5.1.
 
 \chapter{Output Summary}
 
+\section{Social distancing detector application}
+
+\begin{tabular}{|p{2.2cm}|p{11cm}|}
+	\hline
+	Description & The source code for the social distancing detector\\
+	\hline
+	Output Type: & The project source code contains 9 python files that comprises of approximately 700 lines of code. Approximately 20 lines of code was adapted from an external source which is loading the 'yolov3' model using OpenCV functions.  \\
+	\hline
+	Usage: & User is able to input an image or video and the system will calculate social distancing between the people within the input and output a plot that represents the top down view of the input. \\
+	\hline
+	Recipient: & Author and beneficiaries \\
+	\hline
+	Appendix Link: & GitHub link: 
+	
+	https://github.com/lhoang247/Individual-Project \\
+	\hline
+\end{tabular}
+
+\section{Screenshots of the system's development}
+
+\begin{tabular}{|p{2.2cm}|p{11cm}|}
+	\hline
+	Description & Screenshots of the WILDTRACK dataset with additional drawings using OpenCV added by the system\\
+	\hline
+	Output Type: & The system produces images/frames that are converted to screenshots by the author. The file type is either JPG or PNG  \\
+	\hline
+	Usage: & The images are the outputs of the system from early stages of the development to provide the reader with visual examples of what the system outputs. \\
+	\hline
+	Recipient: & Author and reader \\
+	\hline
+	Appendix Link: & The results chapter, Appendix 4, 5, 6, 7. GitHub link: 
+	
+	https://github.com/lhoang247/Individual-Project/tree/main/report/images \\
+	\hline
+\end{tabular}
+
+\pagebreak
+
+\section{Video outputs from the system}
+
+\begin{tabular}{|p{2.2cm}|p{11cm}|}
+	\hline
+	Description & Videos of the WILDTRACK dataset with additional drawings using OpenCV added by the system\\
+	\hline
+	Output Type: & The system outputs a video and is saved using OpenCV functions \\
+	\hline
+	Usage: & The videos provide visual examples of the system outputs. \\
+	\hline
+	Recipient: & Author and reader \\
+	\hline
+	Appendix Link: & The results chapter, Appendix 4, 5, 6, 7. GitHub link: 
+	
+	https://github.com/lhoang247/Individual-Project/tree/main/report/images \\
+	\hline
+\end{tabular}
+
+\section{Demonstration video/presentation of system and code}
+
+\begin{tabular}{|p{2.2cm}|p{11cm}|}
+	\hline
+	Description & Video showcasing the functionality and code of the system.\\
+	\hline
+	Output Type: & The video is recording using OBS and is formatting to a mp4 file.  \\
+	\hline
+	Usage: & The video presents and explains part of the code to the reader for better understanding of the system. \\
+	\hline
+	Recipient: & Author and reader \\
+	\hline
+	Appendix Link: & Moodle submission \\
+	\hline
+\end{tabular}
+
+\section{UML Diagrams}
+
+\begin{tabular}{|p{2.2cm}|p{11cm}|}
+	\hline
+	Description & UML diagrams showcasing the functionality of the overall system.\\
+	\hline
+	Output Type: & Diagrams are .PNG files that are imported to the report.  \\
+	\hline
+	Usage: & The diagrams give clarification to the reader about the overall design of the system. It is also a method of planning for the author. \\
+	\hline
+	Recipient: & Author and reader \\
+	\hline
+	Appendix Link: & The method chapter, Appendix 2, 3 \\
+	\hline
+\end{tabular}
+
 \chapter{Background Research}
+
 \section{What is computer vision?}
 
-Computer vision (CV) is a scientific discipline that studies how computer scan efficiently perceive, process, and understand information from visual data such as images and videos.
+Computer vision (CV) is a scientific discipline that studies how computer can efficiently perceive, process, and understand information from visual data such as images and videos.
 
 \vspace{2mm}
 
 As humans, we can classify three-dimensional objects with ease, whether the pictures are the same object with different colours or angles, we are good at determining the object we are classifying. 
 Computer vision has been developed to detect edges from a pixelated image, face detection, and has been used to develop 3D models from a snapshot yet the technology we have today could be compared to a young child's biological vision. 
-
-\vspace{2mm}
-
 Computer vision is used in various real world application such as traffic surveillance or medical imaging (SZELISKI, 2020), where people are now able to utilize magnetic resonance imaging (MRI) to safely analysis the heart wall motion where the end result is a 3d model of the heart pumping (Metaxas, 1997). 
 
 \vspace{2mm}
@@ -67,7 +225,7 @@ Deep learning uses artificial intelligence (AI) to try and simulate the choices 
 
 \subsection{Neural networks (NN)}
 
-Neural networks is a network formed of interconnected perceptrons which each carry weights and biases. The weights (w) and biases (b) are each represented by a float value which are used to multiply and add to the input respectively. The outcome is then put into an activation function (e.g. ReLU or sigmoid) which determines if the neuron should be activated. These activations chain together to output a value of what the neural network thinks the solution is. 
+Neural networks is a network formed of interconnected perceptrons which each carry weights and biases. The weights (w) and biases (b) are each represented by a float value which are used to multiply and add to the input respectively. The output from the weight and bias is then put into an activation function (e.g. ReLU or sigmoid) which determines if the neuron should be activated. These activations chain together to output a value of what the neural network thinks the solution is. 
 
 \vspace{5 mm}
 
@@ -94,11 +252,11 @@ The information about the deep learning architectures have been discussed were i
 
 \section{WILDTRACK dataset}
 
-The 'WILDTRACK' dataset provides footage of pedestrians from 7 different angle, each video having a length of 35 minutes and were filmed using three 'GoPro Hero 4' and four 'GoPro Hero 3' at high resolution (1920x1080). The location of the video took place near a public research university called ETH Zurich, Switzerland. The cameras used were calibrated to allow for precise calculations when wanting the distance between two objects.
+The 'WILDTRACK' dataset provides footage of pedestrians from 7 different angle, each video having a length of 35 minutes and were filmed using three 'GoPro Hero 4' and four 'GoPro Hero 3' at high resolution (1920x1080). The location of the video took place near a public research university called ETH Zurich, Switzerland. The dataset was supported by the Swiss National Science Foundation. The cameras used were calibrated to allow for precise calculations when wanting the distance between two objects.
 
 \vspace{2mm}
 
-While there are other datasets that offer similar features such as the 'EPFL-RLC' dataset, the videos themselves do not contain the same density of pedestrians relative to the 'WILDTRACK' dataset.Footage from other datasets showcase people who are more static, making it less challenging for the project.
+While there are other datasets that offer similar features such as the 'EPFL-RLC' dataset, the videos themselves do not contain the same density of pedestrians relative to the 'WILDTRACK' dataset. F0000000000000ootage from other datasets showcase people who are more static, making it less challenging for the project.
 
 \subsection{Research papers with WILDTRACK dataset}
 
@@ -111,15 +269,19 @@ Many different social distancing detections have been made ever since the outbre
 
 \subsection{Example (Y. C. Hou, 2020)}
 
-This system uses a combination of the YOLO (You Only Look Once) model with the COCO (Common Objects in Context) dataset to train their model. The goal of the project was to produce a top down view of the pedestrians, showing the distance between each person who were identified within the frame. The results of the system were very accurate, as they were able to make use of calibrated cameras. What was very interesting about the project is that some pedestrians were not classified due to hiding behind others. This showcases the limitation of the dataset used, as there were no overlapping footage of the field of view. Further improvements to the system were suggested such as mask and human body temperature detection. The system overall is similar to what this project will achieve with the difference of dataset.
+This system uses a combination of the YOLO (You Only Look Once) model with the COCO (Common Objects in Context) dataset to train their model. The goal of the project was to produce a top down view of the pedestrians, showing the distance between each person who were identified within the frame. The results of the system were very accurate, as the images used already removed their distortion. What was very interesting about the project is that some pedestrians were not classified due to hiding behind others. This showcases the limitation of the dataset used, as there were no overlapping footage of the field of view. Further improvements to the system were suggested such as mask and human body temperature detection. The method seen in the paper will be further improved in this report by using distortion coefficients and camera calibration to remove distortion within a video.
 
 \chapter{Method}
 
 \section{Agile development}
 
-An agile approach with sprints were used during the development of the project. The approach gave time to reflect and adjust the work being done through out the weeks while allowing focus on the core functionalities of the software being produced. 
+An agile approach with sprints is used during the development of the project. The approach gave time to reflect and adjust the work being done through out the weeks while allowing focus on the core functionalities of the software being produced. 
 
 The outcome of each sprint allowed for early prototypes of the system, easier analysis on code and product, and fixing any bugs within the code. The consequences of only partially completing a sprint's objective can be solved by adding more time for further development. Partially completion of the sprints are inevitable therefore spacing out the sprints instead of one immediately after the other will help allocate more time. 
+
+\vspace{2mm}
+
+A waterfall design was considered for the project, but the project most likely needed adaptation throughout the each task, therefore agile was more suitable. 
 
 \section{Management tools}
 
@@ -136,26 +298,26 @@ Deep learning has been a foundation for modern computer vision, allowing object 
 
 \subsection{YOLO (You Only Look Once)}
 
-YOLO is a object detection architecture that uses convolutional neural networks to divide the image/input into a grid. Each box in the grid is then associated with a high dimensional vector which record data such as: if there is an object within the grid, the predicted position of the bounding box, and the class id of the object. The vector can be expanded if there is more than one object within the box which is called anchor boxes. See appendix 1 for a flowchart of YOLO.
+YOLO is a object detection architecture that uses convolutional neural networks to divide the image/input into a grid. Each box in the grid is then associated with a high dimensional vector which record data such as: if there is an object within the grid, the predicted position of the bounding box, and the class id of the object. The vector can be expanded if there is more than one object within the box which is called anchor boxes. See appendix 2 for a flowchart of YOLO.
 
 \vspace{2mm}
 
-It is possible for the architecture to identify the same object twice within the same box creating redundancy. Since the predictions are based on probability, the architecture chooses the highest probability and uses there bounding box to identify the object. This feature is called 'Non-Max suppression'.
+It is possible for the architecture to identify the same object twice within the same box creating redundancy. Since the predictions are based on probability, the architecture chooses the highest probability and uses their bounding box to identify the object. This feature is called 'Non-Max suppression'.
 
 \vspace{2mm}
 
-There are many versions of the 'yolo' such as 'yolov2' but during 2018, 'yolov3' was released (REDMON J. 2018). When comparing to previous versions, it offers an increase in speed and efficiency when computing while also providing a better backbone classifier (The core convolutional neural network). 
+There are many versions of the 'yolo' architecture such as 'yolov2' but during 2018, 'yolov3' was released (REDMON J. 2018). When comparing to previous versions, it offers an increase in speed and efficiency when computing while also providing a better backbone classifier (The core convolutional neural network). 
 
 \vspace{2mm}
 There are also different models of 'yolov3' that perform better speed wise but at the cost of accuracy such as 'yolov3-tiny' which can compute videos at 220 frames per second (Benchmarked with 4 Titan X graphic cards). This project specifically will use 'yolov3-320' which will detect objects within a video at 45 frames per second while still having good accuracy. The reason for using this model is that realistically, cameras used in offices or public areas for surveillance will most likely be around 30 frames per second.
 
 \vspace{2mm}
 
-While this method of object detection is proven to be very effective, it comes with the drawback of not being very flexible when wanting to change the overall structure of the neural network. Its very likely that tweaking the structure if possible could make the outcome of the object detection worst, by also spoils the chances of improving it.
+While this method of object detection is proven to be very effective, it comes with the drawback of not being very flexible when wanting to change the overall structure of the neural network. It is very likely that tweaking the structure will make the outcome of the object detection worst, but also spoils the chances of improving it.
 
 \section{Pre-trained models (With COCO dataset)}
 
-The Microsoft 'COCO' (Common Objects in Context) dataset is a large-scale object detection dataset that contains over 330,000 images and more than 80 different object categories. This project used a pre-trained 'yolov3-320' model with the 'COCO' dataset to detect people within an image. The reasoning for using this is that the dataset is very large, and will take several days to train the network. In comparison, downloading the pre-trained weights (Redmon, 2021) took a few minutes. 
+The Microsoft 'COCO' (Common Objects in Context) dataset is a large-scale object detection dataset that contains over 330,000 images and more than 80 different object categories. This project uses the 'yolov3-320' model with the 'COCO' dataset (already pre-trained) to detect people within an image. The reasoning for using this is that the dataset is very large, and will take several days to train the network. In comparison, downloading the pre-trained weights (Redmon, 2021) took a few minutes. 
 
 \vspace{2mm}
 
@@ -163,22 +325,18 @@ Another reason for using 'COCO' is that it is a well documented dataset (Lin et 
 
 \vspace{2mm}
 
-The objects that are in the dataset range from living beings such as 'person' and 'cat' to everyday objects such as 'bottle' and 'cup'. The main focus of the project is to detect 'person', therefore we will need to filter out the other objects within the code, but this means that the forward pass in the neural network will still detect other objects, possibly affecting the time spent to compute a simple image. 
+The objects that are in the dataset range from living beings such as 'person' and 'cat' to everyday objects such as 'bottle' and 'cup'. The main focus of the project is to detect 'person', therefore we will need to filter out the other objects within the code, this means that the forward pass in the neural network will still detect other objects, possibly affecting the time spent to compute a simple image. 
 
 \section{Hardware used}
 
-The results were produced with a Intel Core i7-7700K and a Nvidia GeForce GTX 1080. The GPU is used to speed up the process of forwarding each frame of the video to the network. While speed is a factor in a real time software, this report mainly focuses on the detection of social distancing, therefore the results of the report can be replicated with a CPU only.
+The results were produced with an Intel Core i7-7700K and a Nvidia GeForce GTX 1080. The GPU is used to speed up the process of forwarding each frame of the video to the network. While speed is a factor in a real time software, this report mainly focuses on the detection of social distancing, therefore the results of the report can be replicated with a CPU only.
 \section{Programming language and libraries}
 
 This section discusses the chosen programming language and libraries used in the project, giving examples of functionalities within the coding aspect.
 
 \subsection*{Python}
 
-Python was chosen for flexibility when organising and presenting code through out the project. Python allows the user to call modules from different files that contained reusable classes and functions, making the overall structure of the code less cluttered.
-
-\vspace{2mm}
-
-Python has compatibility with libraries needed for the project which were installed using 'pip' which is a package management system.
+Python was chosen for flexibility when organising and presenting code through out the project. Python allows the user to call modules from different files that contained reusable classes and functions, making the overall structure of the code less cluttered. Python has compatibility with libraries needed for the project which were installed using 'pip' which is a package management system.
 
 \subsection*{NumPy}
 
@@ -186,11 +344,7 @@ NumPy specialises in matrix/array arithmetic, being able compute high dimensiona
 
 \subsection*{OpenCV}
 
-OpenCV is a cross-platform library which can be used to develop real-time computer vision applications. OpenCV can be used to utilise the pre-trained weights previously discussed, allowing to input an image and filter out the objects within the image.
-
-\vspace{2mm}
-
-Another functionality of the OpenCV library is image transformation, transforming a plane in an image to a 'flat surface'.
+OpenCV is a cross-platform library which can be used to develop real-time computer vision applications. OpenCV can be used to utilise the pre-trained weights previously discussed, allowing the user to input an image and filter out the objects within the image. Another functionality of the OpenCV library is image transformation, transforming a plane in an image to a 'top down view'.
 
 
 \subsection*{Matplotlib with Seaborn}
@@ -203,11 +357,11 @@ The dataset features 7 videos of pedestrians walking in a public space (each vid
 
 \vspace{2mm}
 
-Due to the large dataset, this project will be utilising samples of screenshots from each camera used to test the capabilities of the 'yolov3' architecture, and will be augmented with artificial noise which allows for extreme test.
+Due to the large dataset, this project will be utilising samples of screenshots from each camera used to test the capabilities of the 'yolov3' architecture, and will be augmented with artificial noise for extreme testing.
 
 \vspace{2mm}
 
-The videos are sampled to 5 - 10 second clips using windows video editor. Each clip will contain a variety of pedestrians doing different actions such as being stationary or walking side by side in a group. The clips are still at 1920x1080 resolution, but are reduced to 30 frames per second. This is because the industry standard for surveillance cameras are 30 frames per second and it will take less time to compute a video.
+The videos are sampled to 5 - 10 second clips using windows video editor. Each clip will contain a variety of pedestrians doing different actions such as being stationary or walking side by side in a group. The clips are still at 1920x1080 resolution, but are reduced to 30 frames per second. This is because the industry standard for surveillance cameras are 30 frames per second and it will take less time to compute when testing.
 
 \vspace{2mm}
 
@@ -227,7 +381,7 @@ Figure 4.1 is a table that labels each image/video used in the report, giving a 
 		\hline
 		image 3 & 4 & 950 & N/A & A cluster of people close to the camera and in the background. \\
 		\hline
-		image 4 & 5 & 30 & N/A & Two people standing next to each other with back facing the camera. \\
+		image 4 & 5 & 30 & N/A & Two people standing next to each other with their back facing the camera. \\
 		\hline
 		video 1 & 1 & 15:02 & 8 & Group of stationary people with a person walking by. \\
 		\hline
@@ -250,23 +404,20 @@ Figure 4.1 is a table that labels each image/video used in the report, giving a 
 		video 10 & 7 & 14:30 & 8 & Stationary group and a moving group side by side. \\
 		\hline
 	\end{tabular}
-\vspace{4mm}
 
-{Figure 4.1: Table of images and video samples used.}
+\vspace{2mm}
+
+{\footnotesize Figure 4.1: Table of images and video samples used.}
 
 \end{center}
 
 \section{System model}
 
-This section discusses the overall flow of the system, how it uses pre-trained model, and the different approaches to detecting close proximity 
+This section discusses the overall flow of the system, how it uses the pre-trained model, and the different approaches to detecting social distancing.
 
 \vspace{2mm}
 
-The flow of the system was model with a activity diagram (figure 4.2), showcasing the step by step process of the overall system and how it interacts with 'yolov3'. The system has three different methods to calculate close proximity of two people and will be later discussed in the results section.
-
-\vspace{2mm}
-
-The goal of the system is to mark pedestrians who are close to each other with a red bounding box and the people who are not close with a green bounding box. The system should be able to mark these onto a side panel which represents the top down view of the image. If the input is a video, then the system should calculate all of the step for every frame within the video, the outcome should be the same video but with new annotations included.
+The flow of the system was model with an activity diagram (figure 4.2), showcasing the step-by-step process of the overall system and how it interacts with 'yolov3'. The system has three different methods to calculating social distancing between two people and will be later discussed in the results section.
  
 \vspace{10mm}
 
@@ -278,7 +429,7 @@ The goal of the system is to mark pedestrians who are close to each other with a
 
 \vspace{10mm}
 
-A class diagram (appendix 2) was created to show the functions that occur through out the system with the inputs and outputs. Each function also includes the key parameters needed, as well as the function data type.
+A class diagram (appendix 3) was created to show the functions that occur through out the system with the inputs and outputs. Each function also includes the key parameters needed, as well as the function's data type.
 
 \section{Development phases}
 
@@ -286,11 +437,11 @@ The project has several development phases to give time to thoroughly test each 
 
 \subsection*{Object detection with YOLO}
 
-This phase will focus on forwarding images to the network to test how well the object detection works. The images used in the testing will have different density of population in the image, where some images will contain people overlapping another. The same images will also be artificially augmented by adding noise or rotation to image to limit test the architecture. This phase will also be testing videos as inputs, the main measurement of success will be how smooth each individual is tracked through out the processing.
+This phase will focus on forwarding images to the network to test how well the object detection works. The images used in the testing will have different density of population in the image, where some images will contain people overlapping another. The same images will also be artificially augmented by adding noise to image to limit test the architecture. This phase will also be testing videos as inputs, the main measurement of success will be how smooth each individual is tracked through out the processing.
 
 \subsection*{Detecting social distancing by bounding box distance}
 
-By using the found bounding box in the first phase, the program should be able to compute the distance between two people using pixels as a estimated measurement. This will be tested with different camera angles to see how effective the implementation is.
+By using the found bounding box in the first phase, the program should be able to compute the distance between two people using pixels as a estimated measurement. Different linear scalars will be applied to the coordinates, solving the issue of perception.
 
 \subsection*{Detecting social distancing by matrix transformation}
 
@@ -302,10 +453,11 @@ The dataset provides intrinsic and extrinsic values for the cameras used. This e
 
 \subsection*{Plotting pedestrians on a top down view of the image}
 
-The system will create a side panel showcasing the topdown view of the pedestrians and if they are close to each other with a green or red highlight. This can be used to compared the social distancing detection methods.
+The system will create a side panel showcasing a top-down view of the pedestrians and if they are social distancing with a green or red highlight. This can be used to compared the social distancing detection methods.
 
 \subsection*{Identifying groups of people and marking them 'safe'}
 
+An algorithm will be developed to detect groups of people within a video. The system should be able to identify each person with their own key number in every frame. The motivation for this implementation is to allow parents and children to still maintain close contact and still be marked as social distancing.
 
 \chapter{Results}
 
@@ -313,23 +465,23 @@ This section discusses the results found throughout the project.
 
 \section{Detecting objects with 'yolov3' (Analysis)}
 
-OpenCV enabled the use of 'yolov3' with the built in functions of loading the weights of the neural network and forwarding an image to output the objects detected. 
+OpenCV enabled the use of 'yolov3' with the built-in functions of loading the weights of the neural network and forwarding an image to output the objects detected. 
 
 \vspace{2mm}
 
-The first image that was forwarded was 'image 2' (figure 5.1). The main focus of using this specific image was to look at how well the model detected people who were overlapping each other. The outcome of model was over 5,000 objects detected within the image, taking 0.54 seconds to compute. The amount of objects detected might seem unnecessary, but the model was trained to detect 80 different objects, therefore will provide a large number of classifications per image.
+The first image that was forwarded was 'image 2' (figure 5.1). The focus of using this specific image was to look at how well the model detected people who were overlapping each other. The outcome of model was over 5,000 objects detected within the image, taking 0.54 seconds to compute. The amount of objects detected might seem unnecessary, but the model was trained to detect 80 different objects, therefore will provide a large number of classifications per image.
 
 \vspace{2mm}
 
-Each bounding box that the model outputs comes with a probability that the object detected is the correct classification. Therefore objects that are a 'person' could also have a probability of being identified as a 'car'.
+Each bounding box that the model outputted produces several probabilities that the object detected is the correct classification. Therefore objects that are a 'person' will also have a probability of being identified as a 'car'.
 
 \subsection{Filtering classification methods}
 
-The probabilities can be filtered by extracting the highest probability that the model gave to a object within the image by using the argmax function that NumPy provides. This method of filtering removes 98.75 percent of the objects identified by YOLO, as it chooses 1 object from 80 different classifications, reducing the total number of objects left to 71 for 'image 2'.
+The probabilities can be filtered by extracting the highest probability that the model gave to an object within the image by using the argmax function that NumPy provides. This method of filtering removes 98.75 percent of the objects identified by YOLO. Since the model is trained to identify over 80 different classifications, there is only 71 objects detected when filtering 'person' from 'image 2'.
 
 \vspace{2mm}
 
-Another method of filtering was to apply a probability threshold. Increasing the threshold filtrates all probabilities that are below a certain percentage. Figure 5.1 shows a plot that focuses on the amount of objects that are detected with different levels of confidence with a 2 percent increment. Having a really high percentage means that model almost guarantees the object classification if correct. This has the draw back of not being able to detect any pedestrians far in the background (Appendix 3a), as they have lower classification percentage that the people closer to the camera. It is more optimal to have a lower percentage in 'image 2' as the system is able to pick up people who are hiding behind others even though they are close to the front of the camera which is important in an office environment.
+Another method of filtering was to apply a probability threshold (Confidence). Increasing the threshold filtrates all probabilities that are below a certain percentage. Figure 5.1 shows a plot that focuses on the number of objects that are detected with different levels of confidence with a 2 percent increment. Having a really high percentage means that model almost guarantees the object classification if correct. This has the draw back of not being able to detect any pedestrians far in the background (Appendix 4a), as they have lower classification percentage that the people closer to the camera. It is more optimal to have a lower percentage in 'image 2' as the system is able to pick up people who are hiding behind others even though they are close to the front of the camera which is important in an office environment.
 
 \begin{center}
 \includegraphics[width=75mm]{./images/appendix/ConfidencePlot.PNG}
@@ -345,11 +497,11 @@ The choice of having a small confidence has a clear down side of an increased am
 
 \vspace{2mm}
 
-Non-max suppression (NMS) has a parameter that can be tuned to either increase or decrease the effectiveness of NMS where a smaller parameter filters more bounding boxes on the same object. The function was testing with 'image 2' (30 percent confidence). Opposite to the confidence parameter, having an extremely low parameter for NMS loses too much information in the process. 
+Non-max suppression (NMS) has a parameter that can be tuned to either increase or decrease the effectiveness of NMS where a smaller parameter filters more bounding boxes on the same object. The function was testing with 'image 2' with a 30 percent confidence.
 
 \vspace{2mm}
 
-In this image specifically using 0.1 as the parameter, the person who is hiding behind the other in front of the camera view is not being detected in the finished output and some people in the background also lost their bounding boxes. Losing the people in the background is less problematic if the system were to be used in an small office space, but, having a low parameter could harm the people who are hiding behind others as they will not be considered when calculating the social distancing. In this image, the person in front would be marked as 'safe' when calculating social distancing.
+Contrary to the confidence parameter, having an extremely low parameter for NMS loses too much information in the process. Using 0.1 as the parameter with 'image 2', the person who is hiding behind the other in front of the camera view is not being detected in the finished output and majority of people in the background lost their bounding boxes. Losing the people in the background is less problematic if the system were to be used in an small office space, but, having a low parameter could harm the people who are hiding behind others as they will not be considered when calculating the social distancing. In this image, the person in front would be marked as 'safe' when calculating social distancing.
 
 \vspace{2mm}
 
@@ -357,11 +509,12 @@ On the other hand, having a larger parameter value will keep too much informatio
 
 \vspace{2mm}
 
-While there is a parameter value that voids all overlapping boxes and detects the person hiding behind the other in 'image 2' (value 0.6), the bounding box that NMS chose was suboptimal and was bigger than the person's body (Appendix 3b). Solving the problem by adjusting the 'yolov3' architecture can be difficult as the image itself was intentionally used as an extreme example and may even take humans a second to see that there is a person behind the other as there is only hair and a leg showing.
+While there is a parameter value that voids all overlapping boxes and detects the person hiding behind the other in 'image 2' (value 0.6), the bounding box that NMS chose was suboptimal and is bigger than the person's body (Appendix 4b). Solving the problem by adjusting the 'yolov3' architecture can be difficult as the image itself was intentionally used as an extreme example and may even take humans a second to see that there is a person behind the other as there is finite detail of the person's body.
 
 \vspace{2mm}
 
-A higher camera angle when taking this picture could be a solution for hidden people, allowing for more exposure on the person's figure. Likely, a perfect angle for detecting people with this architecture would be close to a top down view of the floor which acts as a planar surface, allowing to see every single person in view without the worry of hiding behind someone else. Achieving a fully working object detection on the image goes beyond what is capable of the YOLO architecture. Moving forward, any frames within a video that experiences the same level of object interference will be seen as an 'outlier' frame for simplicity. 
+A higher camera angle when taking this picture could be a solution for hidden people, allowing for more exposure on the person's figure. Likely, a perfect angle for detecting people with this architecture would be close to a top-down view of the floor which acts as a planar surface, allowing to see every single person in view without the worry of hiding behind someone else. Achieving a fully working object detection on 'image 2'
+ goes beyond what is currently capable of the YOLO architecture. Moving forward, any frames within a video that experiences the same level of object interference will be seen as an 'outlier' frame for simplicity. 
 
 \subsection{Image augmentation}
 
@@ -373,11 +526,11 @@ This test will use 'image 4' for a baseline example and will be augmented, mainl
 
 \vspace{2mm}
 
-The images will have artificial noise added using a technique called 'salt and pepper' (adding black and white pixels to random spots). The amount of 'salt and pepper' that are added to an image can be controlled by a parameter that determines the probability that a pixel in the image will either turn black/white or stay the same where turning black and white are same probability. This technique is done manually using a 'for' loop where the loop goes through every pixel of the image. A number is rolled each time within the for loop and is not set, this means that running the program again with the same parameters may lead to different results.
+The images will have artificial noise added using a technique called 'salt and pepper' (adding black and white pixels to random spots). The amount of 'salt and pepper' that is added to an image can be controlled by a parameter that determines the probability that a pixel in the image will either turn black/white or stay the same where turning black and white are same probability. This technique is done manually using a 'for' loop where the loop goes through every pixel of the image. A number is rolled each time within the for loop and is not set, this means that running the program again with the same parameters may lead to different results.
 
 \vspace{2mm}
 
-The first test using 10 percent probability produced similar bounding boxes to the original image, with a slight difference of bounding box height/width and the probability of correct classification also varies. While it is only a sample of one, 'yolov3' seems to work well with different resolutions and noise as shown in figure 5.2, successfully identifying the two people who are on the left.
+The first test using a 10 percent probability produced similar bounding boxes to the original image, with a slight difference of bounding box height/width and the probability of 'correct classification' also varied. While it is only a sample of one, 'yolov3' seems to work well with different resolutions and noise which is shown in figure 5.2, successfully identifying the two people who are on the left.
 
 \vspace{2mm}
 
@@ -385,7 +538,7 @@ When increasing the intensity of noise, the bounding boxes that are shown decrea
 
 \vspace{2mm}
 
-With a 0 percent confidence and without NMS (Appendix 3c), all variations of the images do identify the two people. This concludes that not having a high quality image may affect the probability that the system correctly classifies an object, but can be solved by lowering the confidence threshold. The drawback of having a lower quality camera is that it reduces the total amount of bounding boxes which may lead to people being unidentified by the system.
+With a 0 percent confidence and without NMS (Appendix 4c), all variations of the augmented images do identify the two people. This concludes that not having a high quality image may affect the probability that the system correctly classifies an object, but can be solved by lowering the confidence threshold. The drawback of having a lower quality camera is that it reduces the total number of bounding boxes which may lead to people being unidentified by the system.
 
 
 \begin{center}
@@ -408,7 +561,7 @@ The architecture worked well for all images that were tested but have limitation
 
 \section{Using a video as an input}
 
-A while loop is used to read each frame of the video in chronological order and is fed to the model. With the help of GPUs, the process of forwarding each frame to the network is sped up by roughly 4 times compared to using a CPU only. See appendix 4 for screenshots of 'video 3'
+A while loop is used to read each frame of the video in chronological order and is fed to the model. With the help of GPUs, the process of forwarding each frame to the network is sped up by roughly 4 times compared to using a CPU only. See appendix 5 for screenshots of 'video 3'
 
 \vspace{2mm}
 
@@ -416,13 +569,13 @@ Beneficiaries are able to use their webcam/surveillance cameras as an input in r
 
 \section{Detecting social distancing by bounding box}
 
-Using the bounding boxes that 'yolov3' architecture has identified, the system in theory should be able to mark the middle of every 'person' in the image/video. To calculate the middle of bounding box coordinates, the model provides the position of the left-upper corner of the bound box represented as (x,y) and also gives the height and width of the bounding box as h and w. Therefore:
+Using the bounding boxes that 'yolov3' architecture has identified, the system in theory should be able to mark the middle of every 'person' in the image/video. To calculate the middle of bounding box coordinates, the model provides the position of the left-upper corner of the bound box represented as (x,y) and also gives the height and width of the bounding box as h and w respectively. Therefore:
 \begin{equation*}
 Middle Of Bounding Box Coordinates = (x+\frac{w}{2}, y+\frac{h}{2})
 \end{equation*}
 
 
-To calculate distance between every individual using the bounding boxes given, the system uses a 'for' loop of time complexity O($n^2$) to draw a line between every individual in the image/frame. The line can be measured using Pythagoras' theorem. Once calculated, the system filters lines that are below the social distancing threshold red, else the line is green. For the results produced, some green lines were filtered if they were larger than a certain threshold to give better clarity on the lines that showed 'not social distancing'. See appendix 4a for an example of all the lines in a single image.
+To calculate distance between every individual using the bounding boxes given, the system uses a 'for' loop of time complexity O($n^2$) to draw a line between every individual in the image/frame. The line can be measured using Pythagoras' theorem. Once calculated, the system filters lines that are below the social distancing threshold red, else the line is green. For the results produced, some green lines were filtered if they were larger than a certain threshold to give better clarity on the lines that showed 'not social distancing'. See appendix 6a for an example of all the lines in a single image.
 
 \vspace{2mm}
 
@@ -430,7 +583,7 @@ For the first prototype of the system, the threshold of social distancing is mea
 
 \vspace{2mm}
 
-The results seen in figure 5.3 do correctly identify the two people as not social distancing between each other, but there are connections from the two people at the front to people at the back who are seen by the system as not social distancing when in reality they are far away. This is because the current system does not consider the field of view, therefore the image acts a top down view instead of looking a plane at an inclined angle.
+The results seen in figure 5.3 do correctly identify the two people as not social distancing between each other, but there are connections from the two people at the front to people at the back who are seen by the system as not social distancing when in reality they are far away. This is because the current system does not consider perception, therefore the image plane acts a top-down view of the real world instead of looking a plane at an inclined angle.
 
 \vspace{2mm}
 
@@ -448,7 +601,7 @@ The first improvement to the system was to change the coordinates of where the l
 
 \vspace{2mm}
 
-While the improvement to the system did not classify anyone people as 'social distancing', the connections coming out of the two people at the front and the people in the background  (Figure 5.4) are green, indicating that they are a safe enough distance. This improvement provides flexibility between the images/videos used in the dataset (See Appendix 4b for results on 'video 9'), as the implementation does not need to be tweaked when changing cameras. 
+While the improvement to the system did not classify anyone people as 'social distancing', the connections coming out of the two people at the front and the people in the background  (Figure 5.4) are green, indicating that they are a safe enough distance. This improvement provides flexibility between the images/videos used in the dataset (See Appendix 6b for results on 'video 9'), as the implementation does not need to be tweaked when changing cameras. 
 
 \begin{center}
 	\includegraphics[width=80mm]{./images/appendix/BoundingBoxBottom.JPG}
@@ -506,7 +659,7 @@ As the scalar increases, less and less connections appear in the final output of
 	{\footnotesize Figure 5.6: 'Image 4' before and after scalar adjustments (Non,20,40,50 respectively).}
 \end{center}
 
-\subsection*{Conclusion of detecting SD by bounding box}
+\subsection{Conclusion of detecting SD by bounding box}
 
 The final output of the method worked as intended. The combination of the two equations discussed could be seen as two separate transformation (stretch) to the image to account for the incline angle the camera has to the floor of the image.
 \vspace{2mm}
@@ -520,11 +673,11 @@ In conclusion, this solution is only an estimate to calculating social distancin
 
 \section{Detecting social distancing by matrix transformation}
 
-The previous method uses the floor in the images/videos as a planar surface for better precision when calculating the final output. This method takes the same ideas and uses a matrix transformation to augment the image into a top down view. The user selects 4 points in the image where each point is pointing towards the floor with an x and y component (Most likely the points connect to a irregular quadrilateral). The system is able to utilise a function from OpenCV called 'getPerspectiveTransform' which is able to calculate a 3x3 matrix that transforms the 4 connected points to another irregular quadrilateral or rectangle. The relationship between the images produce is called homography (OpenCV: Basic concepts of the homography explained with code, 2021) as they both represent the same planar surface in the real world.
+The previous method uses the floor in the images/videos as a planar surface for better precision when calculating the final output. This method takes the same ideas and uses a matrix transformation to augment the image into a top-down view. The user selects 4 points in the image where each point is pointing towards the floor with an x and y component (Most likely the points connect to a irregular quadrilateral). The system is able to utilise a function from OpenCV called 'getPerspectiveTransform' which is able to calculate a 3x3 matrix that transforms the 4 connected points to another irregular quadrilateral or rectangle. The relationship between the plane selected and the image produced is called homography (OpenCV: Basic concepts of the homography explained with code, 2021) as they both represent the same planar surface in the real world.
 
 \vspace{2mm}
 
-Once the matrix is acquired, OpenCV has another function that transforms the image with the new found matrix from 'getPerspectiveTransform' by using the function 'warpPerspective'. Figure 5.8 features 'video 6' with a red quadrilateral draw on. The 4 corners in image coordinates (x,y) are the inputs to 'getPerspectiveTransform' with (150,222), (594,170), (2620,560), (370,1494) (top left, top right, bottom right, and bottom left respectively). Do note that the quadrilateral drawn is an estimate of a rectangular surface in the real world.
+Once the matrix is acquired, OpenCV has another function that transforms the image with the new found matrix from 'getPerspectiveTransform' by using the function 'warpPerspective'. Figure 5.7 features 'video 6' with a red quadrilateral draw on. The 4 corners in image coordinates (x,y) are the inputs to 'getPerspectiveTransform' with (150,222), (594,170), (2620,560), (370,1494) (top left, top right, bottom right, and bottom left respectively). Do note that the quadrilateral drawn is an estimate of a rectangular surface in the real world.
 
 \begin{center}
 	\includegraphics[width=80mm]{./images/appendix/QuadSelected.JPG}
@@ -532,7 +685,7 @@ Once the matrix is acquired, OpenCV has another function that transforms the ima
 	{\footnotesize Figure 5.7: 'Video 6' with the 4 connected coordinates.}
 \end{center}
 
-The image shown in figure 5.8 represents a concatenated image of both the before and after transformation. The concatenation was performed using a function that numPy provides. The image on the right in figure 5.8 tries to simulate a top down view of the selected area in figure 5.7. 
+The image shown in figure 5.8 represents a concatenated image of both the before and after transformation. The concatenation was performed using a function that numPy provides. The image on the right in figure 5.8 tries to simulate a top-down view of the selected area in figure 5.7. 
 
 \vspace{2mm}
 
@@ -569,7 +722,7 @@ Figure 5.9 showcases the output of calculating social distancing after the trans
 
 \vspace{2mm}
 
-The threshold used in figure 5.9 to be not 'social distancing' is 400 pixels on the transform image. The threshold successfully identified the correct people as not 'social distancing' (people with red circles). Since the method tries to produce a top down view of the plane select, the system is able to allocate a fixed real world distance to a single pixel if necessary. Appendix 5 shows more screenshots of matrix transformation with 'video 6'.
+The threshold used in figure 5.9 to be not 'social distancing' is 400 pixels on the transform image. The threshold successfully identified the correct people as not 'social distancing' (people with red circles). Since the method tries to produce a top-down view of the plane select, the system is able to allocate a fixed real world distance to a single pixel if necessary. Appendix 7 shows more screenshots of matrix transformation with 'video 6'.
 
 
 \begin{center}
@@ -578,9 +731,9 @@ The threshold used in figure 5.9 to be not 'social distancing' is 400 pixels on 
 	{\footnotesize Figure 5.9: 'Video 6' with detecting social distancing with matrix transformation.}
 \end{center}
 
-\section*{Conclusion of detecting SD by matrix transformation}
+\subsection{Conclusion of detecting SD by matrix transformation}
 
-When comparing methods between the two discussed social distancing detectors, matrix transformation has the benefit of having easier and less parameters to tune. Matrix transformation only requires 4 points in the image as parameters compared to 5 parameters for the previous version. The beneficiaries also do not need to worry about trial and error for tuning the parameter for results that are only an estimate to calculating real world distances between people.
+When comparing methods between the two discussed social distancing detectors, matrix transformation has the benefit of having easier and less parameters to tune. Matrix transformation only requires 4 points in the image as parameters compared to 5 parameters for the previous method. The beneficiaries also do not need to worry about trial and error for tuning the parameter for results that are only an estimate to calculating real world distances between people.
 
 \vspace{2mm}
 
@@ -588,7 +741,7 @@ The downside to the matrix transformation is that it can only include people wit
 
 \vspace{2mm}
 
-Another issue with this method is that it does not count for distortion within the images. This can be seen as very problematic when looking for accurate results. Looking at figure 5.7 and the right side of figure 5.8, there are curves in the images due to distortion of the camera. A way to combat this is to use calibrated cameras to find distortion coefficients (This is in the form of a 5 value vector) to account for non-linear errors in the image.
+Another issue with this method is that it does not count for distortion within the images. This can be seen as very problematic when looking for accurate results. Looking at figure 5.7 and the right side of figure 5.8, there are curves in the images due to the distortion created by the camera. A way to combat this is to use calibrated cameras to find distortion coefficients (This is in the form of a 5 value vector) to account for non-linear errors in the image.
 
 \vspace{2mm}
 
@@ -596,7 +749,7 @@ Figure 5.10 uses a function provided by OpenCV called 'undistort' to remove dist
 
 \vspace{2mm}
 
-The results of removing the distortion straighten the lines on floor in both the original and transformed images. The transform image can now be seen as a more accurate top down view image than before.
+The results of removing the distortion straightens the lines on floor in both the original and transformed images. The transform image can now be seen as a more accurate top down view image than before.
 
 \begin{center}
 	\includegraphics[width=130mm]{./images/appendix/UndistortedImageWithMatrixTransformation.JPG}
@@ -615,7 +768,7 @@ Camera calibration is the process of acquiring intrinsic and extrinsic values of
 The intrinsic parameters holds the values of the focal length and principle point of the camera in a single matrix which is regularly called the 'camera matrix' as well as holding the distortion coefficients. The camera matrix maps the scene in front of the camera to pixel coordinates.
 \vspace{2mm}
 
-With the combination of both the intrinsic and extrinsic parameters the equation to map real world coordinates to an image plane is (Robert Collins):
+With the combination of both the intrinsic and extrinsic parameters, the equation to map real world coordinates to an image plane is (Robert Collins):
 
 \begin{equation*}
 \begin{bmatrix}
@@ -659,7 +812,7 @@ Z \\
 \end{equation*}
 
 
-There are multiple algorithms to calibrate a camera (Remondino et al. 2005). The WILDTRACK dataset uses the pinhole model to calibrate their cameras (Wikipedia [2017b]). Do note that this type of camera calibration only produces a near estimate of the parameters but is very close. Appendix 6a is an illustration of how the cameras overlap in view made by the creators of the WILDTRACK dataset and also a plot of the cameras using MATLAB in appendix 6b.
+There are multiple algorithms to calibrate a camera (Remondino et al. 2005). The WILDTRACK dataset uses the pinhole model to calibrate their cameras (Wikipedia [2017b]). Do note that this type of camera calibration only produces a near estimate of the parameters but is very close. Appendix 8a is an illustration of how the cameras overlap in view made by the creators of the WILDTRACK dataset and also a plot of the cameras using MATLAB in appendix 8b.
 
 \vspace{2mm}
 
@@ -743,7 +896,9 @@ While the transformation output has no relevance to the actual real world coordi
 	{\footnotesize Figure 5.12: 'video 8' with homography Social Distancing detection applied.}
 \end{center}
 
-Another method that was tested was to use an estimated homography matrix which is formed by a OpenCV function called cv2.findHomography which takes 4 points on the image planar surface and real world surface (Kriegman D. 2007). The 4 points that correspond to the real world should create a square on the planar surface when connected, while the other 4 points are image coordinates should correspond to where the real world coordinates are. The goal is to create a variation of the matrix acquired in the previous method to transform an image point to real world coordinates.
+\subsection*{Estimated Homography matrix}
+
+Another method that was tested was to use an estimated homography matrix which is formed by a OpenCV function called cv2.findHomography which takes 4 points on the image planar surface and real world surface (Kriegman D. 2007). The 4 points that correspond to the real world should create a square on the planar surface when connected, while the other 4 points which are image coordinates should correspond to where the real world coordinates are. The goal is to create a variation of the matrix acquired in the previous method to transform an image point to real world coordinates.
 
 
 \vspace{2mm}
@@ -760,7 +915,7 @@ The outcome of the method was similar to the previous camera calibration method,
 	{\footnotesize Figure 5.13: 'video 8' with an estimated homography transformation plot.}
 \end{center}
 
-\subsection*{Conclusion of detecting SD by camera calibration}
+\subsection{Conclusion of detecting SD by camera calibration}
 
 The camera calibration technique to form the homography matrix with both the intrinsic and extrinsic parameters is somewhat on par with accuracy of the matrix transformation for a top down view, with the added benefit of not being restricted to a quadrilateral space within the image. One of the problems with camera calibration is that the camera must be static after calibration as the extrinsic values with vary depending on the position of your camera.
 
@@ -774,7 +929,7 @@ Camera calibration can seem like a daunting task, but the only material that is 
 
 \section{Plotting pedestrians on a top down view}
 
-Creating a top down view of the pedestrians will give better clarity to the beneficiaries as to where the people are in the real world. It will show how each method transforms a image point to a 3d point. Each pedestrian detected will be plotted on a black window which will be in sync with the video/image input. Like the output videos, the top down will draw a line between pedestrians who are close to each other. All outputs will be done with 'video 5' for easy comparisons.
+Creating a top-down view of the pedestrians will give better clarity to the beneficiaries as to where the people are in the real world. It will show how each method transforms a image point to a 3d point. Each pedestrian detected will be plotted on a black window which will be in sync with the video/image input. Like the output videos, the top-down view will draw a line between pedestrians who are close to each other. All outputs will be done with 'video 5' for easy comparisons.
 
 \vspace{2mm}
 
@@ -782,22 +937,22 @@ The first and easiest method to achieve the top down view is the matrix transfor
 
 \vspace{2mm}
 
-Figure 5.14 shows a frame of 'video 5' with the implemented top down view over a black window. The green circles in the black window indicates people who are social distancing and yellow circles indicate otherwise. The output of the plots are well synced with the video and has a smooth transition between frames.
+Figure 5.14 shows a frame of 'video 5' with the implemented top-down view over a black window. The green circles in the black window indicates people who are social distancing and yellow circles indicate otherwise. The output of the plots are well synced with the video and has a smooth transition between frames.
 \begin{center}
 	\includegraphics[width=150mm]{./images/appendix/BlackBoxMatrixTransformation.JPG}
 	
 	{\footnotesize Figure 5.14: 'video 5' with a top down view using matrix transformation.}
 \end{center}
 
-The next method that implemented the top down view is the camera calibration. Unlike the matrix transformation which returned image coordinates as its output, the camera calibration has its own units where the values could be negative. Therefore plotting the points on a image plane is not sufficient enough. In order to combat this, the coordinates are normalized between 0 and 1. The normalized coordinates will then be multiplied by a number that is slightly less than the resolution of the black window to allow for every pedestrian to fit on the top down view.
+The next method that implemented the top-down view is the camera calibration. Unlike the matrix transformation which returned image coordinates as its output, the camera calibration has its own units where the values could be negative. Therefore plotting the points on a image plane is not sufficient enough. In order to combat this, the coordinates are normalized between 0 and 1. The normalized coordinates will then be multiplied by a number that is slightly less than the resolution of the black window to allow for every pedestrian to fit on the top-down view.
 
 \vspace{2mm}
 
-The first iteration did successfully plot all of the identified pedestrians on the image plane, but a problem occurs when the each frame is treated as independent to one another. The normalization works by making the largest coordinate value after transformation the upper bound of the normalization (This is equal to one.) and the smallest coordinate value to be the lower bound (This is equal to zero). Since the upper and lower bound changes every frames, the coordinates are not stable when plotted on the black screen and creates chaos. Appendix 6a shows how two different frames that are close in time plot each pedestrian with different lower and upper bounds.
+The first iteration did successfully plot all of the identified pedestrians on the image plane, but a problem occurs when the each frame is treated independently from one another. The normalization works by making the largest coordinate value after transformation the upper bound of the normalization (This is equal to one.) and the smallest coordinate value to be the lower bound (This is equal to zero). Since the upper and lower bound changes every frames, the coordinates are not stable when plotted on the black screen and creates chaos. Appendix 9a shows how two different frames that are close in time plot each pedestrian with different lower and upper bounds.
 
 \vspace{2mm}
 
-The solution to solving this problem is snapshotting the upper and lower bounds of the first frame of the video and passing the parameters to the next consecutive frame to create a global normalization across all frames of the video. The upper and lower bounds will be updated if the current bounds are a better fit. This plots are now more stable and less chaotic when moving onto the next frame. Figure 5.15 shows the final output of creating a top down view using the camera calibration output coordinates.
+The solution to solving this problem is snapshotting the upper and lower bounds of the first frame of the video and passing the parameters to the next consecutive frame to create a global normalization across all frames of the video. The upper and lower bounds will be updated if the current bounds are a better fit. The plots are now more stable and less chaotic when moving onto the next frame. Figure 5.15 shows the final output of creating a top down view using the camera calibration output coordinates.
 
 \begin{center}
 	\includegraphics[width=150mm]{./images/appendix/Stable.JPG}
@@ -805,9 +960,9 @@ The solution to solving this problem is snapshotting the upper and lower bounds 
 	{\footnotesize Figure 5.15: A frame of 'video 5' with the final top down view output of camera calibration.}
 \end{center}
 
-\subsection*{Conclusion of creating a top down view.}
+\subsection{Conclusion of creating a top down view.}
 
-This section discusses creating a top down view using two out of the three methods used in the report. While the third method (SD by bounding box) is possible, the results are probably not as accurate as the others, therefore producing an output seemed redundant.
+This section discusses creating a top-down view using two out of the three methods used in the report. While the other method (SD by bounding box) is possible, the results are probably not as accurate as the others, therefore producing an output seemed redundant.
 
 \vspace{2mm}
 
@@ -817,19 +972,222 @@ When comparing the two methods discussed, the camera calibration is more flexibl
 
 Currently the system mainly benefits beneficiaries who work in small offices as every individual is marked independently to one another. If the system were to be used in a more public area, the system would need to be able to identify people in groups as there could be a group of both a parent and child. Having a pair detected as not 'social distancing' could do more harm than good.
 
+\vspace{2mm}
 
+The first problem that the system must tackle is that we can not locate the same person from one frame to another. Not having this information means we can not pair pedestrians together. A solution to solving this problem is to create a map that allocates a key to pedestrian with information that hold the current image coordinates of the person. This map is passed onto the next frame, where the items in the map will be compared to the pedestrians detected in the current frame. Since people move from frame to frame, the system detects pairs who have move under x amount of pixels away from their previous frame using boundaries. Since the object detection does not return a list of people detected in the same order as the previous frame, we will need to use a  O($n^2$) loop to compare.
+\vspace{2mm}
+
+Figure 5.16 demonstrates the algorithm with 2 frames from the same video that are seconds apart. Most pedestrians are able to maintain their key, but due to the limitations of the object detection discussed in section 5.1.3, the 'yolov3' architecture may fail to identify a person within a single frame, therefore a new key is given to the pedestrian (A new key '10' was generated for the person who had key '2' in the left image).
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/Key1.JPG}
+	\includegraphics[width=65mm]{./images/appendix/Key2.JPG}
+	
+	{\footnotesize Figure 5.16: 'Video4' with keys given to pedestrians.}
+\end{center}
+
+Now that the system can keep track of individual pedestrians, the system will need to keep track of people who are not 'social distancing' together. The homography function returns a list of paired people who are close to each other (not 'social distancing'). Figure 5.17 shows the list that the homography function returns on the left, while the list on the right is the outcome of linking each pair in a single list. 
+
+\begin{center}
+	\includegraphics[width=150mm]{./images/appendix/Linked.JPG}
+	
+	{\footnotesize Figure 5.17: pairs of numbers linked together in a single list}
+\end{center}
+
+The system was able to achieve the list on the right from the list on the left in figure 5.17 using multiple for loops (Time complexity O(n$^2$)). Figure 5.18 highlights the group of people who were not 'social distancing' on the first frame of 'video 7' (Key of [1,2,5]) with a green border. Later on in the video (right image), the pedestrian with key number 5 was not detected by the model for 1 frame, therefore the pedestrian got a new key of 37 is not longer highlighted to be part of the group.
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/Groups1.JPG}
+	\includegraphics[width=65mm]{./images/appendix/Groups2.JPG}
+	
+	{\footnotesize Figure 5.18: 'Video 7' with groups of people highlighted.}
+\end{center}
+
+To allow new people to be grouped, the system will group any pedestrians who are within the red zone in figure 5.19. The group must not be 'social distancing' in the red area to be eligible for grouping. The red area acts as a zone that identifies people as entering the camera view. While there is a possibility that people can be identified as groups when leaving the camera frame, they will only be seen as a group for only a few seconds.
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/GroupZone.JPG}
+	
+	{\footnotesize Figure 5.19: 'Video 7' highlighting the 'group' zone.}
+\end{center}
+
+Figure 5.20 shows that the group implementation is successful. The system is able to identify groups of people who are coming into the camera frame and marking them with a green border. But due to the limitations of the 'yolov3' architecture, it is difficult to maintain the same key on the same person, therefore the pair coming into frame loses their green border over time.  
+
+\begin{center}
+	\includegraphics[width=65mm]{./images/appendix/AddingGroups.JPG}
+	\includegraphics[width=65mm]{./images/appendix/AddingGroups2.JPG}
+	
+	{\footnotesize Figure 5.20: 'Video 7' with 'group' zone implemented.}
+\end{center}
+
+\subsection{Conclusion of identifying groups of people and marking them as 'safe'.}
+
+The goal of identifying groups of people did work very well, but the current code relies too heavily on how well the object detector performs. It must keep track of each person at all times, but this is beyond the technology of 'yolov3'. The code also makes too many assumptions on the pedestrians movement, the person must keep moving with their group side by side. The assumption falls flat when there is a stationary person within the 'group' zone (Figure 5.20).
+
+\vspace{2mm}
+
+The algorithm used exerts a lot of computational power, using multiple 'for' loops that are time complexity O(n$^2$) and O(n$^3$) to calculate groups of people for only a single frame. When lowering the confidence of the 'yolov3' model to introduce more bounding boxes, the hardware is unable to handle the amount of calculations done.
+
+\vspace{2mm}
+
+The final algorithm is too volatile to be used in a commercial setting and doesn't work well in crowded areas due to the chaos and limitations of the object detector. The current iteration of 'group' detection is not suited for identifying groups of people who have parents and children due to the lack of consistency.
+
+\chapter{Discussion and conclusion}
+
+\section{Discussion}
+
+\subsection{Project impact}
+
+The title of the report "Social distancing detection with computer vision techniques" was fully met by using a pre-trained deep learning model to detect pedestrians within an image which is then used to calculate 'social distancing' with various different methods. The report demonstrates multiple ways beneficiaries can tackle the problem of keeping a safe distance from each other by monitoring their own movement with the system.
+
+\vspace{2mm}
+
+The result section features a similar solution to the existing system in the literature review which is matrix transformation. The added feature that this report introduces was the use of camera calibration and distortion coefficients to acquire more accurate results. The report also discussed two other approaches on top of the matrix transformation.
+
+\subsection{Project achievements and flaws}
+
+The camera parameters found in the WILDTRACK dataset is not specifically suited for the matrix equation in section 5.5 because of the use of multiple cameras, therefore the results seen in section 5.5 are not as accurate as they could be. This is an oversight by the author, and could have been avoided if researching about camera parameters, equations, and other datasets was done prior to starting the project. Overall, the results seen in section 5.5 still achieves the goal of calculating social distancing with a good accuracy. 
+
+\vspace{2mm}
+
+While the focus of the report is social distancing, the results discusses a method that is created by the author of identifying groups of people while keeping track of who's who from one frame to the next. This implementation is very successful and can potentially be applied to other problems such as tracking a car within traffic or used for surveillance purposes.
+
+\vspace{2mm}
+
+While the algorithm for marking groups of pedestrians as 'safe' seen in the report is complex, the movement of pedestrians is too chaotic to produce a perfect outcome. The algorithm has a clear downside of being too computational heavy and too reliant on the object detector and assumptions about pedestrian movement, the algorithm would work better with perfect conditions but this is beyond the capabilities of the current computer vision technology. 
+
+\vspace{2mm}
+
+The section of analysis the 'yolov3' architecture is very important for the project and beneficiaries. The analysis presents a good understanding of the limitation of the deep learning model and how it can effect the overall outcome of the project. And it also provides information about how different camera qualities perform and how the user must tune the parameters in order to detect social distancing. The conclusion of the results seen in section 5.1 is that the system does work with lower quality cameras but if not tuned properly, too much information is lost.
+
+
+\subsection{Project management and improvements}
+
+Every development phase has resulted in a satisfactory or complete solution. Each phase/sprint was achieved within the time frame given without needing to compensate for more time. Research for each phase was done a day before the sprint started to ensure completion of code and time to test. The writing of the report however proved difficult in some areas for the author due to lack of experience.
+
+\vspace{2mm}
+
+An improvement that could be made for this project is to use a more suited dataset for the camera parameter equations. Doing such will produce higher accuracy results.
+
+\vspace{2mm}
+
+
+\section{Conclusion}
+
+The report is able to showcase three different methods to detecting social distancing, The author gained knowledge on camera calibration and how different matrix transformations can solve perception within an image. The author also produced their own method to tackling perception by adding linear scalars to the pixels of the images, as-well-as developing a method to detecting groups of people. 
+
+\chapter*{References}
+\begin{verbatim}
+
+Chavdarov, T., Baqué, P., Bouquet, S., Maksai, A., Jose, C., Lettry,
+ L., Fua, P., Van Gool, L. and Fleuret, F., 2017.
+The wildtrack multi-camera person dataset 
+p.3., p.5., p.7. 
+
+Coifman, B., Beymer, D., McLauchlan, P., Malik, J. (1998).
+A real-time computer vision system for vehicle tracking and traffic 
+surveillance. Transportation Research Part C: Emerging Technologies
+
+Doc.opencv.org. 2021. OpenCV: Camera Calibration [online Available at:
+https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/
+py_calib3d/py_calibration/py_calibration.html/ 
+[Accessed 01/04/2021]}
+
+Docs.opencv.org. 2021. Camera Calibration and 3D Reconstruction — 
+OpenCV 2.4.13.7 documentation. [online] Available at:
+<https://docs.opencv.org/2.4/modules/calib3d/doc/
+camera_calibration_and_3d_reconstruction.html>
+[Accessed 13 March 2021].
+
+Docs.opencv.org. 2021. OpenCV: Basic concepts of the homography 
+explained with code. 
+[online] Available at: 
+https://docs.opencv.org/master/d9/dab/tutorial_homography.html
+[Accessed 15 March 2021].
+
+Hochreiter, Sepp and Jurgen Schmidhuber. 1997. 
+"Long Short-Term Memory. Neural Computation" 
+:1735–1780.
+
+Kriegman D. URL https://cseweb.ucsd.edu/classes/wi07/cse252a/
+homography_estimation/homography_estimation.pdf 
+[Accessed 21 February 2021].
+
+
+
+Lewis, K. and Kuhfeld, M., 2021. 
+How is COVID-19 affecting student learning?. [online] 
+Brookings. Available at: <https://www.brookings.edu/blog/
+brown-center-chalkboard/2020/12/03/
+how-is-covid-19-affecting-student-learning/> [Accessed 7 April 2021].
+
+Lin, T., Maire, M., Belongie, S., Bourdev, L., Girshick, R., 
+Hays, J., Perona, P., Ramanan, D., Zitnick, C. and Dollar, P., 2021.
+Microsoft COCO: Common Objects in Context. [online] Arxiv.org.
+ Available at:
+<https://arxiv.org/pdf/1405.0312.pdf> [Accessed 11 February 2021].
+
+López-Cifuentes A.,Escudero-Viñolo M., 2018. 
+Semantic Driven Multi-Camera Pedestrian Detection
+
+Metaxas, D., 1997. Physics-Based Deformable Models. Boston, MA: Springer US
+, p.9.
+
+REDMON J., FARHADI A. "YOLOv3: An Incremental Improvement"
+
+Redmon, J., 2021. YOLO: Real-Time Object Detection. 
+[online] Pjreddie.com. 
+Available at:
+<https://pjreddie.com/darknet/yolo/> [Accessed 11 February 2021].
+
+Remondino, Fabio, Fraser, Clive. (2005). 
+Digital camera calibration methods: Considerations and comparisons 36. 
+
+Robert Collins (date?) URL 
+http://www.cse.psu.edu/~rtc12/CSE486/lecture16.pdf 
+[Online; accessed 20/03.2021]
+
+SZELISKI, R., 2020. COMPUTER VISION. SPRINGER NATURE, p.5.
+
+"Wikipedia. Pinhole camera model — wikipedia, the free encyclopedia, 2017b. 
+URL
+https://en.wikipedia.org/w/index.php?title=Pinhole_camera_model&oldid=782167557. 
+[Online; accessed 20/03.2021].
+
+Y. C. Hou, M. Z. Baharuddin, S. Yussof and S. Dzulkifly, 
+"Social Distancing Detection with Deep Learning Model," 2020
+
+\end{verbatim}
 
 \chapter*{Appendix}
 
-\section*{Appendix 1: YOLO flowchart}
+\section*{Appendix 1: PDD}
+
+\includegraphics[width=130mm]{./images/appendix/PDD1.JPG}
+
+\includegraphics[width=160mm]{./images/appendix/PDD2.JPG}
+
+\includegraphics[width=160mm]{./images/appendix/PDD3.JPG}
+
+\includegraphics[width=160mm]{./images/appendix/PDD4.JPG}
+
+\includegraphics[width=160mm]{./images/appendix/PDD5.JPG}
+
+\includegraphics[width=160mm]{./images/appendix/PDD6.JPG}
+
+\includegraphics[width=160mm]{./images/appendix/PDD7.JPG}
+
+\section*{Appendix 2: YOLO flowchart}
 
 \includegraphics[width=110mm]{./images/YOLO.jpg}
 
-\section*{Appendix 2: System class diagram}
+\pagebreak
+\section*{Appendix 3: System class diagram}
 
 \includegraphics[angle = 90,width=100mm]{./images/SD Class diagram.jpg}
 
-\section*{Appendix 3: 5.1 outputs}
+\pagebreak
+\section*{Appendix 4: 5.1 outputs}
 
 a)
 
@@ -847,7 +1205,8 @@ c)
 \includegraphics[width=70mm]{./images/appendix/NoConfidenceAug40.PNG}
 \includegraphics[width=70mm]{./images/appendix/NoConfidenceAug50.PNG}
 
-\section*{Appendix 4: 5.2 outputs}
+\pagebreak
+\section*{Appendix 5: 5.2 outputs}
 
 \includegraphics[width=70mm]{./images/appendix/Video3output1.PNG}
 \includegraphics[width=70mm]{./images/appendix/Video3output2.PNG}
@@ -856,7 +1215,8 @@ c)
 \includegraphics[width=70mm]{./images/appendix/Video3output3.PNG}
 \includegraphics[width=70mm]{./images/appendix/Video3output4.PNG}
 
-\section*{Appendix 4: 5.3 outputs}
+\pagebreak
+\section*{Appendix 6: 5.3 outputs}
 a)
 
 
@@ -871,15 +1231,16 @@ b)
 \includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest3.JPG}
 \includegraphics[width=70mm]{./images/appendix/Cam7Clip1BoundingBoxTest5.JPG}
 
-\section*{Appendix 5: 5.4 outputs}
+\pagebreak
+\section*{Appendix 7: 5.4 outputs}
 \includegraphics[width=130mm]{./images/appendix/MatrixTransExample1.JPG}
 
 \includegraphics[width=130mm]{./images/appendix/MatrixTransExample2.JPG}
 
 \includegraphics[width=130mm]{./images/appendix/MatrixTransExample4.JPG}
 
-
-\section*{Appendix 5: 5.5 outputs}
+\pagebreak
+\section*{Appendix 8: 5.5 outputs}
 
 a)
 
@@ -893,11 +1254,21 @@ b)
 
 \includegraphics[width=130mm]{./images/appendix/MATLABPlot2.JPG}
 
-\section*{Appendix 6: 5.6 outputs}
+\pagebreak
+\section*{Appendix 9: 5.6 outputs}
 
 \includegraphics[width=130mm]{./images/appendix/Unstable4.JPG}
 
 \includegraphics[width=130mm]{./images/appendix/Unstable5.JPG}
 
-\end{document}
+\pagebreak
+\section*{Appendix 10: Diary}
 
+\includegraphics[width=160mm]{./diary.JPG}
+
+\pagebreak
+\section*{Appendix 11: Gantt's chart}
+
+\includegraphics[width=160mm]{./gantt.JPG}
+
+\end{document}

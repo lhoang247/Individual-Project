@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  7 APR 2021 17:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  30 APR 2021 15:02
 entering extended mode
 **./report.tex
 (report.tex
@@ -690,435 +690,678 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 [1
 
 {C:/Users/LeeHoang/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-(report.toc)
+(report.toc [1
+
+])
 \tf@toc=\write5
 \openout5 = `report.toc'.
 
- [1
-
-] [2]
-Chapter 1.
-[3
+ [2] [3
 
 ]
-Chapter 2.
+Chapter 1.
 [4
 
-]
-Chapter 3.
-[5
+] [5]
+Chapter 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--123
+[]|\OT1/cmr/m/n/12 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\OT1/cmr/m/n/12 Appendix
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]|\OT1/cmr/m/n/12 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+[]|\OT1/cmr/m/n/12 Appendix
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+[]\OT1/cmr/m/n/12 https://github.com/lhoang247/Individual-
+ []
+
+[6
 
 ]
-<./images/weights and biases.png, id=25, 511.9125pt x 206.57175pt>
-File: ./images/weights and biases.png Graphic file (type png)
-<use ./images/weights and biases.png>
-Package pdftex.def Info: ./images/weights and biases.png  used on input line 76
-.
-(pdftex.def)             Requested size: 284.52756pt x 114.81572pt.
- [6 <./images/weights and biases.png>] [7]
-Chapter 4.
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+[]|\OT1/cmr/m/n/12 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+[]|\OT1/cmr/m/n/12 Appendix
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+[]\OT1/cmr/m/n/12 https://github.com/lhoang247/Individual-
+ []
+
+
+Overfull \hbox (9.1733pt too wide) in paragraph at lines 173--173
+[]\OT1/cmr/bx/n/17.28 Demonstration video/presentation of sys-tem and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]|\OT1/cmr/m/n/12 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
+[]|\OT1/cmr/m/n/12 Appendix
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+[]|\OT1/cmr/m/n/12 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
+[]|\OT1/cmr/m/n/12 Appendix
+ []
+
+[7]
+Chapter 3.
 [8
 
-] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 222--222
+]
+<./images/weights and biases.png, id=35, 511.9125pt x 206.57175pt>
+File: ./images/weights and biases.png Graphic file (type png)
+<use ./images/weights and biases.png>
+Package pdftex.def Info: ./images/weights and biases.png  used on input line 23
+4.
+(pdftex.def)             Requested size: 284.52756pt x 114.81572pt.
+ [9 <./images/weights and biases.png>] [10]
+Chapter 4.
+[11
+
+] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
 []|\OT1/cmr/m/n/10 Image/video
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 222--222
+Underfull \hbox (badness 5105) in paragraph at lines 376--376
 []|\OT1/cmr/m/n/10 Start time
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 230--231
+Underfull \hbox (badness 1478) in paragraph at lines 384--385
 []|\OT1/cmr/m/n/10 Two peo-ple stand-ing next to
  []
 
 
-Underfull \hbox (badness 3009) in paragraph at lines 244--245
+Underfull \hbox (badness 3009) in paragraph at lines 398--399
 []|\OT1/cmr/m/n/10 Two peo-ple walk-ing to-gether
  []
 
-[11]
-<./images/system design.jpg, id=46, 1727.45375pt x 1365.1pt>
+[14]
+<./images/system design.jpg, id=56, 1727.45375pt x 1365.1pt>
 File: ./images/system design.jpg Graphic file (type jpg)
 <use ./images/system design.jpg>
-Package pdftex.def Info: ./images/system design.jpg  used on input line 274.
+Package pdftex.def Info: ./images/system design.jpg  used on input line 425.
 (pdftex.def)             Requested size: 483.69684pt x 382.2254pt.
 
-Overfull \hbox (40.11836pt too wide) in paragraph at lines 274--276
+Overfull \hbox (40.11836pt too wide) in paragraph at lines 425--427
  [][] 
  []
 
-[12 <./images/system design.jpg>]
-Overfull \hbox (0.3058pt too wide) in paragraph at lines 297--298
+[15 <./images/system design.jpg>]
+Overfull \hbox (0.3058pt too wide) in paragraph at lines 448--449
 \OT1/cmr/m/n/12 trans-forms a quadri-lat-eral in an im-age that is marked with 
 4 points to a square/rectangle
  []
 
-[13] [14]
+[16]
 Chapter 5.
-<./images/appendix/ConfidencePlot.PNG, id=57, 425.33907pt x 344.78813pt>
+<./images/appendix/ConfidencePlot.PNG, id=63, 425.33907pt x 344.78813pt>
 File: ./images/appendix/ConfidencePlot.PNG Graphic file (type png)
 <use ./images/appendix/ConfidencePlot.PNG>
 Package pdftex.def Info: ./images/appendix/ConfidencePlot.PNG  used on input li
-ne 335.
+ne 487.
 (pdftex.def)             Requested size: 213.39566pt x 172.98286pt.
-<./images/zeroConfidence.PNG, id=59, 773.89125pt x 507.39563pt>
+<./images/zeroConfidence.PNG, id=65, 773.89125pt x 507.39563pt>
 File: ./images/zeroConfidence.PNG Graphic file (type png)
 <use ./images/zeroConfidence.PNG>
-Package pdftex.def Info: ./images/zeroConfidence.PNG  used on input line 336.
+Package pdftex.def Info: ./images/zeroConfidence.PNG  used on input line 488.
 (pdftex.def)             Requested size: 213.39566pt x 139.90973pt.
-[15
+[17
 
-] [16 <./images/appendix/ConfidencePlot.PNG> <./images/zeroConfidence.PNG>]
-<./images/image45050.PNG, id=68, 773.89125pt x 504.38437pt>
+] [18 <./images/appendix/ConfidencePlot.PNG> <./images/zeroConfidence.PNG>]
+<./images/image45050.PNG, id=75, 773.89125pt x 504.38437pt>
 File: ./images/image45050.PNG Graphic file (type png)
 <use ./images/image45050.PNG>
-Package pdftex.def Info: ./images/image45050.PNG  used on input line 392.
+Package pdftex.def Info: ./images/image45050.PNG  used on input line 545.
 (pdftex.def)             Requested size: 184.9429pt x 120.53137pt.
-<./images/appendix/imageAugment720pSandP.PNG, id=69, 774.64406pt x 505.13719pt>
+<./images/appendix/imageAugment720pSandP.PNG, id=76, 774.64406pt x 505.13719pt>
 
 File: ./images/appendix/imageAugment720pSandP.PNG Graphic file (type png)
 <use ./images/appendix/imageAugment720pSandP.PNG>
 Package pdftex.def Info: ./images/appendix/imageAugment720pSandP.PNG  used on i
-nput line 393.
+nput line 546.
 (pdftex.def)             Requested size: 184.9429pt x 120.59566pt.
 
-[17]
-<./images/appendix/imageAugment0.4SandP.PNG, id=73, 773.89125pt x 505.89pt>
+[19]
+<./images/appendix/imageAugment0.4SandP.PNG, id=80, 773.89125pt x 505.89pt>
 File: ./images/appendix/imageAugment0.4SandP.PNG Graphic file (type png)
 <use ./images/appendix/imageAugment0.4SandP.PNG>
 Package pdftex.def Info: ./images/appendix/imageAugment0.4SandP.PNG  used on in
-put line 397.
+put line 550.
 (pdftex.def)             Requested size: 184.9429pt x 120.89116pt.
-<./images/appendix/imageAugment0.5SandP.PNG, id=74, 773.89125pt x 503.63156pt>
+<./images/appendix/imageAugment0.5SandP.PNG, id=81, 773.89125pt x 503.63156pt>
 File: ./images/appendix/imageAugment0.5SandP.PNG Graphic file (type png)
 <use ./images/appendix/imageAugment0.5SandP.PNG>
 Package pdftex.def Info: ./images/appendix/imageAugment0.5SandP.PNG  used on in
-put line 398.
+put line 551.
 (pdftex.def)             Requested size: 184.9429pt x 120.35147pt.
- [18 <./images/image45050.PNG> <./images/appendix/imageAugment720pSandP.PNG> <.
+ [20 <./images/image45050.PNG> <./images/appendix/imageAugment720pSandP.PNG> <.
 /images/appendix/imageAugment0.4SandP.PNG> <./images/appendix/imageAugment0.5Sa
 ndP.PNG>]
-<./images/appendix/test1.JPG, id=83, 774.64406pt x 504.38437pt>
+<./images/appendix/test1.JPG, id=89, 774.64406pt x 504.38437pt>
 File: ./images/appendix/test1.JPG Graphic file (type jpg)
 <use ./images/appendix/test1.JPG>
-Package pdftex.def Info: ./images/appendix/test1.JPG  used on input line 440.
+Package pdftex.def Info: ./images/appendix/test1.JPG  used on input line 593.
 (pdftex.def)             Requested size: 184.9429pt x 120.41592pt.
- [19 <./images/appendix/test1.JPG>]
-<./images/appendix/BoundingBoxBottom.JPG, id=89, 774.64406pt x 505.13719pt>
+ [21 <./images/appendix/test1.JPG>]
+<./images/appendix/BoundingBoxBottom.JPG, id=95, 774.64406pt x 505.13719pt>
 File: ./images/appendix/BoundingBoxBottom.JPG Graphic file (type jpg)
 <use ./images/appendix/BoundingBoxBottom.JPG>
 Package pdftex.def Info: ./images/appendix/BoundingBoxBottom.JPG  used on input
- line 454.
+ line 607.
 (pdftex.def)             Requested size: 227.62204pt x 148.42839pt.
- [20 <./images/appendix/BoundingBoxBottom.JPG>]
-<./images/appendix/PerspectiveSolution1.JPG, id=94, 773.13844pt x 505.89pt>
+ [22 <./images/appendix/BoundingBoxBottom.JPG>]
+<./images/appendix/PerspectiveSolution1.JPG, id=100, 773.13844pt x 505.89pt>
 File: ./images/appendix/PerspectiveSolution1.JPG Graphic file (type jpg)
 <use ./images/appendix/PerspectiveSolution1.JPG>
 Package pdftex.def Info: ./images/appendix/PerspectiveSolution1.JPG  used on in
-put line 478.
+put line 631.
 (pdftex.def)             Requested size: 227.62204pt x 148.9352pt.
-<./images/appendix/BeforeThresholdScale.JPG, id=95, 773.89125pt x 504.38437pt>
+<./images/appendix/BeforeThresholdScale.JPG, id=101, 773.89125pt x 504.38437pt>
+
 File: ./images/appendix/BeforeThresholdScale.JPG Graphic file (type jpg)
 <use ./images/appendix/BeforeThresholdScale.JPG>
 Package pdftex.def Info: ./images/appendix/BeforeThresholdScale.JPG  used on in
-put line 500.
+put line 653.
 (pdftex.def)             Requested size: 184.9429pt x 120.53137pt.
-<./images/appendix/AfterThresholdScale.JPG, id=96, 773.13844pt x 504.38437pt>
+<./images/appendix/AfterThresholdScale.JPG, id=102, 773.13844pt x 504.38437pt>
 File: ./images/appendix/AfterThresholdScale.JPG Graphic file (type jpg)
 <use ./images/appendix/AfterThresholdScale.JPG>
 Package pdftex.def Info: ./images/appendix/AfterThresholdScale.JPG  used on inp
-ut line 501.
+ut line 654.
 (pdftex.def)             Requested size: 184.9429pt x 120.65451pt.
- [21 <./images/appendix/PerspectiveSolution1.JPG>]
-<./images/appendix/AfterThresholdScale40.JPG, id=100, 773.89125pt x 505.13719pt
+ [23 <./images/appendix/PerspectiveSolution1.JPG>]
+<./images/appendix/AfterThresholdScale40.JPG, id=106, 773.89125pt x 505.13719pt
 >
 File: ./images/appendix/AfterThresholdScale40.JPG Graphic file (type jpg)
 <use ./images/appendix/AfterThresholdScale40.JPG>
 Package pdftex.def Info: ./images/appendix/AfterThresholdScale40.JPG  used on i
-nput line 503.
+nput line 656.
 (pdftex.def)             Requested size: 184.9429pt x 120.71127pt.
-<./images/appendix/AfterThresholdScale50.JPG, id=101, 773.13844pt x 503.63156pt
+<./images/appendix/AfterThresholdScale50.JPG, id=107, 773.13844pt x 503.63156pt
 >
 File: ./images/appendix/AfterThresholdScale50.JPG Graphic file (type jpg)
 <use ./images/appendix/AfterThresholdScale50.JPG>
 Package pdftex.def Info: ./images/appendix/AfterThresholdScale50.JPG  used on i
-nput line 504.
+nput line 657.
 (pdftex.def)             Requested size: 184.9429pt x 120.47443pt.
- [22 <./images/appendix/BeforeThresholdScale.JPG> <./images/appendix/AfterThres
+ [24 <./images/appendix/BeforeThresholdScale.JPG> <./images/appendix/AfterThres
 holdScale.JPG> <./images/appendix/AfterThresholdScale40.JPG> <./images/appendix
 /AfterThresholdScale50.JPG>]
-<./images/appendix/QuadSelected.JPG, id=105, 1001.99344pt x 590.95781pt>
+<./images/appendix/QuadSelected.JPG, id=112, 1001.99344pt x 590.95781pt>
 File: ./images/appendix/QuadSelected.JPG Graphic file (type jpg)
 <use ./images/appendix/QuadSelected.JPG>
 Package pdftex.def Info: ./images/appendix/QuadSelected.JPG  used on input line
- 530.
+ 683.
 (pdftex.def)             Requested size: 227.62204pt x 134.24022pt.
-<./images/appendix/ConcatenateImages.JPG, id=106, 1281.28688pt x 503.63156pt>
+<./images/appendix/ConcatenateImages.JPG, id=113, 1281.28688pt x 503.63156pt>
 File: ./images/appendix/ConcatenateImages.JPG Graphic file (type jpg)
 <use ./images/appendix/ConcatenateImages.JPG>
 Package pdftex.def Info: ./images/appendix/ConcatenateImages.JPG  used on input
- line 563.
+ line 716.
 (pdftex.def)             Requested size: 341.43306pt x 134.19946pt.
- [23 <./images/appendix/QuadSelected.JPG> <./images/appendix/ConcatenateImages.
+ [25 <./images/appendix/QuadSelected.JPG> <./images/appendix/ConcatenateImages.
 JPG>]
-<./images/appendix/MatrixTransExample3.JPG, id=112, 1280.53406pt x 502.87875pt>
+<./images/appendix/MatrixTransExample3.JPG, id=119, 1280.53406pt x 502.87875pt>
 
 File: ./images/appendix/MatrixTransExample3.JPG Graphic file (type jpg)
 <use ./images/appendix/MatrixTransExample3.JPG>
 Package pdftex.def Info: ./images/appendix/MatrixTransExample3.JPG  used on inp
-ut line 576.
+ut line 729.
 (pdftex.def)             Requested size: 369.88582pt x 145.2556pt.
- [24 <./images/appendix/MatrixTransExample3.JPG>]
-<./images/appendix/UndistortedImageWithMatrixTransformation.JPG, id=117, 1281.2
+ [26 <./images/appendix/MatrixTransExample3.JPG>]
+<./images/appendix/UndistortedImageWithMatrixTransformation.JPG, id=123, 1281.2
 8688pt x 504.38437pt>
 File: ./images/appendix/UndistortedImageWithMatrixTransformation.JPG Graphic fi
 le (type jpg)
 <use ./images/appendix/UndistortedImageWithMatrixTransformation.JPG>
 Package pdftex.def Info: ./images/appendix/UndistortedImageWithMatrixTransforma
-tion.JPG  used on input line 602.
+tion.JPG  used on input line 755.
 (pdftex.def)             Requested size: 369.88582pt x 145.60583pt.
- [25 <./images/appendix/UndistortedImageWithMatrixTransformation.JPG>] [26]
-<./images/appendix/HomographyMapping.JPG, id=125, 1351.29843pt x 509.65407pt>
+ [27 <./images/appendix/UndistortedImageWithMatrixTransformation.JPG>] [28]
+<./images/appendix/HomographyMapping.JPG, id=131, 1351.29843pt x 509.65407pt>
 File: ./images/appendix/HomographyMapping.JPG Graphic file (type jpg)
 <use ./images/appendix/HomographyMapping.JPG>
 Package pdftex.def Info: ./images/appendix/HomographyMapping.JPG  used on input
- line 727.
+ line 880.
 (pdftex.def)             Requested size: 426.79134pt x 160.96959pt.
-<./images/appendix/HomographyExample1.JPG, id=126, 905.63344pt x 505.89pt>
+<./images/appendix/HomographyExample1.JPG, id=132, 905.63344pt x 505.89pt>
 File: ./images/appendix/HomographyExample1.JPG Graphic file (type jpg)
 <use ./images/appendix/HomographyExample1.JPG>
 Package pdftex.def Info: ./images/appendix/HomographyExample1.JPG  used on inpu
-t line 740.
+t line 893.
 (pdftex.def)             Requested size: 184.9429pt x 103.30672pt.
-<./images/appendix/HomographyExample2.JPG, id=127, 905.63344pt x 505.89pt>
+<./images/appendix/HomographyExample2.JPG, id=133, 905.63344pt x 505.89pt>
 File: ./images/appendix/HomographyExample2.JPG Graphic file (type jpg)
 <use ./images/appendix/HomographyExample2.JPG>
 Package pdftex.def Info: ./images/appendix/HomographyExample2.JPG  used on inpu
-t line 741.
+t line 894.
 (pdftex.def)             Requested size: 184.9429pt x 103.30672pt.
- [27 <./images/appendix/HomographyMapping.JPG> <./images/appendix/HomographyExa
+ [29 <./images/appendix/HomographyMapping.JPG> <./images/appendix/HomographyExa
 mple1.JPG> <./images/appendix/HomographyExample2.JPG>]
-<./images/appendix/EstimatedHomographyP.JPG, id=131, 1357.32094pt x 505.13719pt
+<./images/appendix/EstimatedHomographyP.JPG, id=137, 1357.32094pt x 505.13719pt
 >
 File: ./images/appendix/EstimatedHomographyP.JPG Graphic file (type jpg)
 <use ./images/appendix/EstimatedHomographyP.JPG>
 Package pdftex.def Info: ./images/appendix/EstimatedHomographyP.JPG  used on in
-put line 758.
+put line 913.
 (pdftex.def)             Requested size: 426.79134pt x 158.83386pt.
- [28 <./images/appendix/EstimatedHomographyP.JPG>]
-<./images/appendix/BlackBoxMatrixTransformation.JPG, id=135, 1282.7925pt x 502.
+ [30 <./images/appendix/EstimatedHomographyP.JPG>]
+<./images/appendix/BlackBoxMatrixTransformation.JPG, id=142, 1282.7925pt x 502.
 87875pt>
 File: ./images/appendix/BlackBoxMatrixTransformation.JPG Graphic file (type jpg
 )
 <use ./images/appendix/BlackBoxMatrixTransformation.JPG>
 Package pdftex.def Info: ./images/appendix/BlackBoxMatrixTransformation.JPG  us
-ed on input line 787.
+ed on input line 942.
 (pdftex.def)             Requested size: 426.79134pt x 167.30867pt.
-<./images/appendix/Stable.JPG, id=136, 1282.03969pt x 503.63156pt>
+<./images/appendix/Stable.JPG, id=143, 1282.03969pt x 503.63156pt>
 File: ./images/appendix/Stable.JPG Graphic file (type jpg)
 <use ./images/appendix/Stable.JPG>
-Package pdftex.def Info: ./images/appendix/Stable.JPG  used on input line 803.
+Package pdftex.def Info: ./images/appendix/Stable.JPG  used on input line 958.
 (pdftex.def)             Requested size: 426.79134pt x 167.65903pt.
- [29 <./images/appendix/BlackBoxMatrixTransformation.JPG>] [30 <./images/append
+ [31 <./images/appendix/BlackBoxMatrixTransformation.JPG>] [32 <./images/append
 ix/Stable.JPG>]
-<./images/YOLO.jpg, id=144, 707.64375pt x 1122.1925pt>
+<./images/appendix/Key1.JPG, id=150, 905.63344pt x 506.6428pt>
+File: ./images/appendix/Key1.JPG Graphic file (type jpg)
+<use ./images/appendix/Key1.JPG>
+Package pdftex.def Info: ./images/appendix/Key1.JPG  used on input line 983.
+(pdftex.def)             Requested size: 184.9429pt x 103.46045pt.
+<./images/appendix/Key2.JPG, id=151, 906.38625pt x 506.6428pt>
+File: ./images/appendix/Key2.JPG Graphic file (type jpg)
+<use ./images/appendix/Key2.JPG>
+Package pdftex.def Info: ./images/appendix/Key2.JPG  used on input line 984.
+(pdftex.def)             Requested size: 184.9429pt x 103.37541pt.
+<./images/appendix/Linked.JPG, id=152, 1128.46594pt x 67.75313pt>
+File: ./images/appendix/Linked.JPG Graphic file (type jpg)
+<use ./images/appendix/Linked.JPG>
+Package pdftex.def Info: ./images/appendix/Linked.JPG  used on input line 992.
+(pdftex.def)             Requested size: 426.79134pt x 25.62445pt.
+<./images/appendix/Groups1.JPG, id=153, 904.88063pt x 502.87875pt>
+File: ./images/appendix/Groups1.JPG Graphic file (type jpg)
+<use ./images/appendix/Groups1.JPG>
+Package pdftex.def Info: ./images/appendix/Groups1.JPG  used on input line 1000
+.
+(pdftex.def)             Requested size: 184.9429pt x 102.7762pt.
+<./images/appendix/Groups2.JPG, id=154, 904.88063pt x 499.8675pt>
+File: ./images/appendix/Groups2.JPG Graphic file (type jpg)
+<use ./images/appendix/Groups2.JPG>
+Package pdftex.def Info: ./images/appendix/Groups2.JPG  used on input line 1001
+.
+(pdftex.def)             Requested size: 184.9429pt x 102.16077pt.
+<./images/appendix/GroupZone.JPG, id=155, 904.1278pt x 500.62032pt>
+File: ./images/appendix/GroupZone.JPG Graphic file (type jpg)
+<use ./images/appendix/GroupZone.JPG>
+Package pdftex.def Info: ./images/appendix/GroupZone.JPG  used on input line 10
+09.
+(pdftex.def)             Requested size: 184.9429pt x 102.39865pt.
+ [33 <./images/appendix/Key1.JPG> <./images/appendix/Key2.JPG> <./images/append
+ix/Linked.JPG> <./images/appendix/Groups1.JPG> <./images/appendix/Groups2.JPG>]
+<./images/appendix/AddingGroups.JPG, id=159, 904.1278pt x 499.11469pt>
+File: ./images/appendix/AddingGroups.JPG Graphic file (type jpg)
+<use ./images/appendix/AddingGroups.JPG>
+Package pdftex.def Info: ./images/appendix/AddingGroups.JPG  used on input line
+ 1017.
+(pdftex.def)             Requested size: 184.9429pt x 102.09068pt.
+<./images/appendix/AddingGroups2.JPG, id=160, 905.63344pt x 505.13719pt>
+File: ./images/appendix/AddingGroups2.JPG Graphic file (type jpg)
+<use ./images/appendix/AddingGroups2.JPG>
+Package pdftex.def Info: ./images/appendix/AddingGroups2.JPG  used on input lin
+e 1018.
+(pdftex.def)             Requested size: 184.9429pt x 103.15298pt.
+ [34 <./images/appendix/GroupZone.JPG> <./images/appendix/AddingGroups.JPG> <./
+images/appendix/AddingGroups2.JPG>]
+Chapter 6.
+[35
+
+] [36] [37
+
+]
+Overfull \hbox (19.54675pt too wide) in paragraph at lines 1160--1160
+[]\OT1/cmtt/m/n/12 Metaxas, D., 1997. Physics-Based Deformable Models. Boston, 
+MA: Springer US[] 
+ []
+
+
+Overfull \hbox (19.54675pt too wide) in paragraph at lines 1160--1160
+[]\OT1/cmtt/m/n/12 "Wikipedia. Pinhole camera model | wikipedia, the free encyc
+lopedia, 2017b.[] 
+ []
+
+
+Overfull \hbox (50.42177pt too wide) in paragraph at lines 1160--1160
+[]\OT1/cmtt/m/n/12 https://en.wikipedia.org/w/index.php?title=Pinhole_camera_mo
+del&oldid=782167557.[] 
+ []
+
+[38]
+<./images/appendix/PDD1.JPG, id=178, 459.96844pt x 642.90187pt>
+File: ./images/appendix/PDD1.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD1.JPG>
+Package pdftex.def Info: ./images/appendix/PDD1.JPG  used on input line 1166.
+(pdftex.def)             Requested size: 369.88582pt x 517.01991pt.
+ [39
+
+]
+Overfull \vbox (1.942pt too high) has occurred while \output is active []
+
+ [40 <./images/appendix/PDD1.JPG>]
+<./images/appendix/PDD2.JPG, id=185, 438.13687pt x 660.21657pt>
+File: ./images/appendix/PDD2.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD2.JPG>
+Package pdftex.def Info: ./images/appendix/PDD2.JPG  used on input line 1168.
+(pdftex.def)             Requested size: 455.24408pt x 686.0046pt.
+
+Overfull \hbox (29.29042pt too wide) in paragraph at lines 1168--1169
+[][] 
+ []
+
+
+Overfull \vbox (4.84561pt too high) has occurred while \output is active []
+
+
+[41 <./images/appendix/PDD2.JPG>]
+<./images/appendix/PDD3.JPG, id=189, 448.67625pt x 651.18282pt>
+File: ./images/appendix/PDD3.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD3.JPG>
+Package pdftex.def Info: ./images/appendix/PDD3.JPG  used on input line 1170.
+(pdftex.def)             Requested size: 455.24408pt x 660.73988pt.
+
+Overfull \hbox (29.29042pt too wide) in paragraph at lines 1170--1171
+[][] 
+ []
+
+<./images/appendix/PDD4.JPG, id=190, 465.23813pt x 660.96938pt>
+File: ./images/appendix/PDD4.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD4.JPG>
+Package pdftex.def Info: ./images/appendix/PDD4.JPG  used on input line 1172.
+(pdftex.def)             Requested size: 455.24408pt x 646.78745pt.
+
+Overfull \hbox (29.29042pt too wide) in paragraph at lines 1172--1173
+[][] 
+ []
+
+[42 <./images/appendix/PDD3.JPG>]
+<./images/appendix/PDD5.JPG, id=195, 480.29437pt x 681.29532pt>
+File: ./images/appendix/PDD5.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD5.JPG>
+Package pdftex.def Info: ./images/appendix/PDD5.JPG  used on input line 1174.
+(pdftex.def)             Requested size: 455.24408pt x 645.77148pt.
+
+Overfull \hbox (29.29042pt too wide) in paragraph at lines 1174--1175
+[][] 
+ []
+
+[43 <./images/appendix/PDD4.JPG>]
+<./images/appendix/PDD6.JPG, id=199, 477.28313pt x 666.23906pt>
+File: ./images/appendix/PDD6.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD6.JPG>
+Package pdftex.def Info: ./images/appendix/PDD6.JPG  used on input line 1176.
+(pdftex.def)             Requested size: 455.24408pt x 635.47517pt.
+
+Overfull \hbox (29.29042pt too wide) in paragraph at lines 1176--1177
+[][] 
+ []
+
+[44 <./images/appendix/PDD5.JPG>]
+<./images/appendix/PDD7.JPG, id=203, 488.57532pt x 660.96938pt>
+File: ./images/appendix/PDD7.JPG Graphic file (type jpg)
+<use ./images/appendix/PDD7.JPG>
+Package pdftex.def Info: ./images/appendix/PDD7.JPG  used on input line 1178.
+(pdftex.def)             Requested size: 455.24408pt x 615.88527pt.
+
+Overfull \hbox (29.29042pt too wide) in paragraph at lines 1178--1179
+[][] 
+ []
+
+[45 <./images/appendix/PDD6.JPG>]
+<./images/YOLO.jpg, id=207, 707.64375pt x 1122.1925pt>
 File: ./images/YOLO.jpg Graphic file (type jpg)
 <use ./images/YOLO.jpg>
-Package pdftex.def Info: ./images/YOLO.jpg  used on input line 826.
+Package pdftex.def Info: ./images/YOLO.jpg  used on input line 1182.
 (pdftex.def)             Requested size: 312.9803pt x 496.33472pt.
-<./images/SD Class diagram.jpg, id=145, 1895.08pt x 896.34875pt>
+ [46 <./images/appendix/PDD7.JPG>] [47 <./images/YOLO.jpg>]
+<./images/SD Class diagram.jpg, id=214, 1895.08pt x 896.34875pt>
 File: ./images/SD Class diagram.jpg Graphic file (type jpg)
 <use ./images/SD Class diagram.jpg>
-Package pdftex.def Info: ./images/SD Class diagram.jpg  used on input line 830.
-
+Package pdftex.def Info: ./images/SD Class diagram.jpg  used on input line 1187
+.
 (pdftex.def)             Requested size: 1895.0754pt x 896.34657pt.
- [31
-
- <./images/YOLO.jpg>] [32 <./images/SD Class diagram.jpg>]
-<./images/appendix/image298confidence.PNG, id=152, 773.89125pt x 506.6428pt>
+ [48 <./images/SD Class diagram.jpg>]
+<./images/appendix/image298confidence.PNG, id=219, 773.89125pt x 506.6428pt>
 File: ./images/appendix/image298confidence.PNG Graphic file (type png)
 <use ./images/appendix/image298confidence.PNG>
 Package pdftex.def Info: ./images/appendix/image298confidence.PNG  used on inpu
-t line 836.
+t line 1194.
 (pdftex.def)             Requested size: 341.43306pt x 223.52652pt.
-<./images/appendix/NMS0.6.PNG, id=153, 773.13844pt x 509.65407pt>
+<./images/appendix/NMS0.6.PNG, id=220, 773.13844pt x 509.65407pt>
 File: ./images/appendix/NMS0.6.PNG Graphic file (type png)
 <use ./images/appendix/NMS0.6.PNG>
-Package pdftex.def Info: ./images/appendix/NMS0.6.PNG  used on input line 840.
+Package pdftex.def Info: ./images/appendix/NMS0.6.PNG  used on input line 1198.
+
 (pdftex.def)             Requested size: 341.43306pt x 225.0728pt.
-<./images/appendix/NoConfidenceNoAug.PNG, id=154, 773.13844pt x 505.13719pt>
+<./images/appendix/NoConfidenceNoAug.PNG, id=221, 773.13844pt x 505.13719pt>
 File: ./images/appendix/NoConfidenceNoAug.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceNoAug.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceNoAug.PNG  used on input
- line 844.
+ line 1202.
 (pdftex.def)             Requested size: 199.16928pt x 130.13016pt.
-<./images/appendix/NoConfidenceAug10.PNG, id=155, 773.13844pt x 505.89pt>
+<./images/appendix/NoConfidenceAug10.PNG, id=222, 773.13844pt x 505.89pt>
 File: ./images/appendix/NoConfidenceAug10.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceAug10.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceAug10.PNG  used on input
- line 845.
+ line 1203.
 (pdftex.def)             Requested size: 199.16928pt x 130.32408pt.
-<./images/appendix/NoConfidenceAug40.PNG, id=156, 773.13844pt x 502.87875pt>
+<./images/appendix/NoConfidenceAug40.PNG, id=223, 773.13844pt x 502.87875pt>
 File: ./images/appendix/NoConfidenceAug40.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceAug40.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceAug40.PNG  used on input
- line 847.
+ line 1205.
 (pdftex.def)             Requested size: 199.16928pt x 129.54836pt.
-<./images/appendix/NoConfidenceAug50.PNG, id=157, 773.89125pt x 506.6428pt>
+<./images/appendix/NoConfidenceAug50.PNG, id=224, 773.89125pt x 506.6428pt>
 File: ./images/appendix/NoConfidenceAug50.PNG Graphic file (type png)
 <use ./images/appendix/NoConfidenceAug50.PNG>
 Package pdftex.def Info: ./images/appendix/NoConfidenceAug50.PNG  used on input
- line 848.
+ line 1206.
 (pdftex.def)             Requested size: 199.16928pt x 130.3866pt.
- [33 <./images/appendix/image298confidence.PNG> <./images/appendix/NMS0.6.PNG> 
+ [49 <./images/appendix/image298confidence.PNG> <./images/appendix/NMS0.6.PNG> 
 <./images/appendix/NoConfidenceNoAug.PNG> <./images/appendix/NoConfidenceAug10.
-PNG>]
-<./images/appendix/Video3output1.PNG, id=165, 773.13844pt x 505.89pt>
+PNG>] [50 <./images/appendix/NoConfidenceAug40.PNG> <./images/appendix/NoConfid
+enceAug50.PNG>]
+<./images/appendix/Video3output1.PNG, id=237, 773.13844pt x 505.89pt>
 File: ./images/appendix/Video3output1.PNG Graphic file (type png)
 <use ./images/appendix/Video3output1.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output1.PNG  used on input lin
-e 852.
+e 1211.
 (pdftex.def)             Requested size: 199.16928pt x 130.32408pt.
-<./images/appendix/Video3output2.PNG, id=166, 773.89125pt x 505.13719pt>
+<./images/appendix/Video3output2.PNG, id=238, 773.89125pt x 505.13719pt>
 File: ./images/appendix/Video3output2.PNG Graphic file (type png)
 <use ./images/appendix/Video3output2.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output2.PNG  used on input lin
-e 853.
+e 1212.
 (pdftex.def)             Requested size: 199.16928pt x 129.99913pt.
-<./images/appendix/Video3output3.PNG, id=167, 773.89125pt x 503.63156pt>
+<./images/appendix/Video3output3.PNG, id=239, 773.89125pt x 503.63156pt>
 File: ./images/appendix/Video3output3.PNG Graphic file (type png)
 <use ./images/appendix/Video3output3.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output3.PNG  used on input lin
-e 856.
+e 1215.
 (pdftex.def)             Requested size: 199.16928pt x 129.61165pt.
-<./images/appendix/Video3output4.PNG, id=168, 772.38562pt x 505.89pt>
+<./images/appendix/Video3output4.PNG, id=240, 772.38562pt x 505.89pt>
 File: ./images/appendix/Video3output4.PNG Graphic file (type png)
 <use ./images/appendix/Video3output4.PNG>
 Package pdftex.def Info: ./images/appendix/Video3output4.PNG  used on input lin
-e 857.
+e 1216.
 (pdftex.def)             Requested size: 199.16928pt x 130.44759pt.
-<./images/appendix/SDNoFilterByPixel.PNG, id=169, 773.13844pt x 502.87875pt>
+ [51 <./images/appendix/Video3output1.PNG> <./images/appendix/Video3output2.PNG
+> <./images/appendix/Video3output3.PNG> <./images/appendix/Video3output4.PNG>]
+<./images/appendix/SDNoFilterByPixel.PNG, id=248, 773.13844pt x 502.87875pt>
 File: ./images/appendix/SDNoFilterByPixel.PNG Graphic file (type png)
 <use ./images/appendix/SDNoFilterByPixel.PNG>
 Package pdftex.def Info: ./images/appendix/SDNoFilterByPixel.PNG  used on input
- line 863.
+ line 1223.
 (pdftex.def)             Requested size: 341.43306pt x 222.0807pt.
- [34 <./images/appendix/NoConfidenceAug40.PNG> <./images/appendix/NoConfidenceA
-ug50.PNG> <./images/appendix/Video3output1.PNG> <./images/appendix/Video3output
-2.PNG> <./images/appendix/Video3output3.PNG> <./images/appendix/Video3output4.P
-NG>]
-<./images/appendix/Cam7Clip1BoundingBoxTest1.JPG, id=179, 771.63281pt x 506.642
+<./images/appendix/Cam7Clip1BoundingBoxTest1.JPG, id=249, 771.63281pt x 506.642
 8pt>
 File: ./images/appendix/Cam7Clip1BoundingBoxTest1.JPG Graphic file (type jpg)
 <use ./images/appendix/Cam7Clip1BoundingBoxTest1.JPG>
 Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest1.JPG  used 
-on input line 868.
+on input line 1228.
 (pdftex.def)             Requested size: 199.16928pt x 130.76541pt.
-<./images/appendix/Cam7Clip1BoundingBoxTest2.JPG, id=180, 773.13844pt x 506.642
+<./images/appendix/Cam7Clip1BoundingBoxTest2.JPG, id=250, 773.13844pt x 506.642
 8pt>
 File: ./images/appendix/Cam7Clip1BoundingBoxTest2.JPG Graphic file (type jpg)
 <use ./images/appendix/Cam7Clip1BoundingBoxTest2.JPG>
 Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest2.JPG  used 
-on input line 869.
+on input line 1229.
 (pdftex.def)             Requested size: 199.16928pt x 130.51802pt.
-<./images/appendix/Cam7Clip1BoundingBoxTest3.JPG, id=181, 774.64406pt x 507.395
+<./images/appendix/Cam7Clip1BoundingBoxTest3.JPG, id=251, 774.64406pt x 507.395
 63pt>
 File: ./images/appendix/Cam7Clip1BoundingBoxTest3.JPG Graphic file (type jpg)
 <use ./images/appendix/Cam7Clip1BoundingBoxTest3.JPG>
 Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest3.JPG  used 
-on input line 871.
+on input line 1231.
 (pdftex.def)             Requested size: 199.16928pt x 130.45647pt.
-<./images/appendix/Cam7Clip1BoundingBoxTest5.JPG, id=182, 774.64406pt x 507.395
+<./images/appendix/Cam7Clip1BoundingBoxTest5.JPG, id=252, 774.64406pt x 507.395
 63pt>
 File: ./images/appendix/Cam7Clip1BoundingBoxTest5.JPG Graphic file (type jpg)
 <use ./images/appendix/Cam7Clip1BoundingBoxTest5.JPG>
 Package pdftex.def Info: ./images/appendix/Cam7Clip1BoundingBoxTest5.JPG  used 
-on input line 872.
+on input line 1232.
 (pdftex.def)             Requested size: 199.16928pt x 130.45647pt.
-<./images/appendix/MatrixTransExample1.JPG, id=183, 1281.28688pt x 506.6428pt>
-File: ./images/appendix/MatrixTransExample1.JPG Graphic file (type jpg)
-<use ./images/appendix/MatrixTransExample1.JPG>
-Package pdftex.def Info: ./images/appendix/MatrixTransExample1.JPG  used on inp
-ut line 875.
-(pdftex.def)             Requested size: 369.88582pt x 146.2578pt.
- [35 <./images/appendix/SDNoFilterByPixel.PNG> <./images/appendix/Cam7Clip1Boun
+ [52 <./images/appendix/SDNoFilterByPixel.PNG> <./images/appendix/Cam7Clip1Boun
 dingBoxTest1.JPG> <./images/appendix/Cam7Clip1BoundingBoxTest2.JPG> <./images/a
 ppendix/Cam7Clip1BoundingBoxTest3.JPG> <./images/appendix/Cam7Clip1BoundingBoxT
 est5.JPG>]
-<./images/appendix/MatrixTransExample2.JPG, id=188, 1282.7925pt x 500.62032pt>
+<./images/appendix/MatrixTransExample1.JPG, id=257, 1281.28688pt x 506.6428pt>
+File: ./images/appendix/MatrixTransExample1.JPG Graphic file (type jpg)
+<use ./images/appendix/MatrixTransExample1.JPG>
+Package pdftex.def Info: ./images/appendix/MatrixTransExample1.JPG  used on inp
+ut line 1236.
+(pdftex.def)             Requested size: 369.88582pt x 146.2578pt.
+<./images/appendix/MatrixTransExample2.JPG, id=258, 1282.7925pt x 500.62032pt>
 File: ./images/appendix/MatrixTransExample2.JPG Graphic file (type jpg)
 <use ./images/appendix/MatrixTransExample2.JPG>
 Package pdftex.def Info: ./images/appendix/MatrixTransExample2.JPG  used on inp
-ut line 877.
+ut line 1238.
 (pdftex.def)             Requested size: 369.88582pt x 144.35118pt.
-<./images/appendix/MatrixTransExample4.JPG, id=189, 1280.53406pt x 505.89pt>
+<./images/appendix/MatrixTransExample4.JPG, id=259, 1280.53406pt x 505.89pt>
 File: ./images/appendix/MatrixTransExample4.JPG Graphic file (type jpg)
 <use ./images/appendix/MatrixTransExample4.JPG>
 Package pdftex.def Info: ./images/appendix/MatrixTransExample4.JPG  used on inp
-ut line 879.
+ut line 1240.
 (pdftex.def)             Requested size: 369.88582pt x 146.1254pt.
-<./images/appendix/CameraOverlapIllustration.JPG, id=190, 665.48625pt x 223.585
+
+[53 <./images/appendix/MatrixTransExample1.JPG> <./images/appendix/MatrixTransE
+xample2.JPG> <./images/appendix/MatrixTransExample4.JPG>]
+<./images/appendix/CameraOverlapIllustration.JPG, id=263, 665.48625pt x 223.585
 31pt>
 File: ./images/appendix/CameraOverlapIllustration.JPG Graphic file (type jpg)
 <use ./images/appendix/CameraOverlapIllustration.JPG>
 Package pdftex.def Info: ./images/appendix/CameraOverlapIllustration.JPG  used 
-on input line 887.
+on input line 1248.
 (pdftex.def)             Requested size: 369.88582pt x 124.27213pt.
-<./images/appendix/MATLABPlot.JPG, id=191, 694.84593pt x 461.47406pt>
+<./images/appendix/MATLABPlot.JPG, id=264, 694.84593pt x 461.47406pt>
 File: ./images/appendix/MATLABPlot.JPG Graphic file (type jpg)
 <use ./images/appendix/MATLABPlot.JPG>
-Package pdftex.def Info: ./images/appendix/MATLABPlot.JPG  used on input line 8
-92.
+Package pdftex.def Info: ./images/appendix/MATLABPlot.JPG  used on input line 1
+253.
 (pdftex.def)             Requested size: 369.88582pt x 245.65039pt.
- [36 <./images/appendix/MatrixTransExample1.JPG> <./images/appendix/MatrixTrans
-Example2.JPG> <./images/appendix/MatrixTransExample4.JPG> <./images/appendix/Ca
-meraOverlapIllustration.JPG>]
-<./images/appendix/MATLABPlot2.JPG, id=196, 727.96968pt x 477.28313pt>
+<./images/appendix/MATLABPlot2.JPG, id=265, 727.96968pt x 477.28313pt>
 File: ./images/appendix/MATLABPlot2.JPG Graphic file (type jpg)
 <use ./images/appendix/MATLABPlot2.JPG>
 Package pdftex.def Info: ./images/appendix/MATLABPlot2.JPG  used on input line 
-894.
+1255.
 (pdftex.def)             Requested size: 369.88582pt x 242.51538pt.
-<./images/appendix/Unstable4.JPG, id=197, 1281.28688pt x 504.38437pt>
+ [54 <./images/appendix/CameraOverlapIllustration.JPG> <./images/appendix/MATLA
+BPlot.JPG> <./images/appendix/MATLABPlot2.JPG>]
+<./images/appendix/Unstable4.JPG, id=270, 1281.28688pt x 504.38437pt>
 File: ./images/appendix/Unstable4.JPG Graphic file (type jpg)
 <use ./images/appendix/Unstable4.JPG>
-Package pdftex.def Info: ./images/appendix/Unstable4.JPG  used on input line 89
-8.
+Package pdftex.def Info: ./images/appendix/Unstable4.JPG  used on input line 12
+60.
 (pdftex.def)             Requested size: 369.88582pt x 145.60583pt.
- [37 <./images/appendix/MATLABPlot.JPG> <./images/appendix/MATLABPlot2.JPG>]
-<./images/appendix/Unstable5.JPG, id=201, 1280.53406pt x 501.37312pt>
+<./images/appendix/Unstable5.JPG, id=271, 1280.53406pt x 501.37312pt>
 File: ./images/appendix/Unstable5.JPG Graphic file (type jpg)
 <use ./images/appendix/Unstable5.JPG>
-Package pdftex.def Info: ./images/appendix/Unstable5.JPG  used on input line 90
-0.
+Package pdftex.def Info: ./images/appendix/Unstable5.JPG  used on input line 12
+62.
 (pdftex.def)             Requested size: 369.88582pt x 144.8207pt.
- [38 <./images/appendix/Unstable4.JPG> <./images/appendix/Unstable5.JPG>] (repo
-rt.aux) ) 
+ [55 <./images/appendix/Unstable4.JPG> <./images/appendix/Unstable5.JPG>]
+<./diary.JPG, id=275, 427.5975pt x 591.71063pt>
+File: ./diary.JPG Graphic file (type jpg)
+<use ./diary.JPG>
+Package pdftex.def Info: ./diary.JPG  used on input line 1267.
+(pdftex.def)             Requested size: 455.24408pt x 629.96405pt.
+
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 1267--1268
+[] 
+ []
+
+[56 <./diary.JPG>]
+<./gantt.JPG, id=279, 760.34062pt x 588.69937pt>
+File: ./gantt.JPG Graphic file (type jpg)
+<use ./gantt.JPG>
+Package pdftex.def Info: ./gantt.JPG  used on input line 1272.
+(pdftex.def)             Requested size: 455.24408pt x 352.48575pt.
+
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 1272--1273
+[] 
+ []
+
+[57 <./gantt.JPG>] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 16112 strings out of 480790
- 332551 string characters out of 2895894
- 659635 words of memory out of 3000000
- 31787 multiletter control sequences out of 15000+200000
- 538326 words of font info for 45 fonts, out of 3000000 for 9000
+ 16219 strings out of 480790
+ 335316 string characters out of 2895894
+ 660635 words of memory out of 3000000
+ 31876 multiletter control sequences out of 15000+200000
+ 539101 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,9n,71p,849b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Users/LeeHoang/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Users/LeeHoang/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Users/Le
-eHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (39 pages, 24963672 bytes).
+ 68i,9n,71p,901b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/Users/LeeHoang/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Users/LeeHoang/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Users/LeeHoang/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Users/
+LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr10.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><D:/Users/LeeHoang/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Users/LeeHoang/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/Users/LeeHoang/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on report.pdf (58 pages, 26990654 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
+ 317 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 348 words of extra memory for PDF output out of 10000 (max. 10000000)
 
